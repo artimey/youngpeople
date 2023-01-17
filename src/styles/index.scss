@@ -1,5 +1,5 @@
-@import './fonts/index.scss';
 @use './_colors.scss' as colors;
+@import './fonts/index.scss';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
