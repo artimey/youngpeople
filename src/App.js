@@ -1,6 +1,5 @@
-
 function App() {
-  return <div style={{fontSize: '65px'}}>"ОАО" ЗАЗЕКС</div>;
+  return <i class="ri-admin-line ri-fw"></i>;
 }
 
 export default App;
