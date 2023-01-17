@@ -1,6 +1,10 @@
 @import './fonts/index.scss';
+@use './_colors.scss' as colors;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   font-family: 'Druk Wide Cyr';
-  margin: 0;
+  background-color: colors.$brandBlue;
 }
