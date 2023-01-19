@@ -1,0 +1,32 @@
+@use '../../styles/_colors.scss' as colors;
+
+.headingFooter {
+  font-family: "Druk Wide Cyr";
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 53px;
+  letter-spacing: 0em;
+  color: colors.$white;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  display: block;
+}
+
+.footerMenuTitle {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  color: colors.$white50;
+  margin-bottom: 11px;
+}
+
+.footerMenuItem {
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: colors.$white;
+}

@@ -19,6 +19,7 @@ module.exports = {
         "brandPink": "#E72978",
         "brandBlue": "#332784",
         "lightBlue": "#493BA8",
+        "baseColor": "#322b81",
         "errorRed": "#DA4545",
         "successGreen": "#51DA45",
       }

@@ -5,6 +5,9 @@
 @tailwind utilities;
 
 body {
+  font-family: 'TT Norms';
+}
+
+h1 {
   font-family: 'Druk Wide Cyr';
-  background-color: colors.$brandBlue;
 }
