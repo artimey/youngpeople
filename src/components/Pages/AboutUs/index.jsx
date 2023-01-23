@@ -11,6 +11,7 @@ import { Partners } from '../../Partners'
 import { Office } from './Office'
 
 export const AboutUs = () => {
+
   return (
     <div children='overflow-hidden'>
     <MainLayout>

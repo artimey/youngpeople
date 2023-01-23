@@ -29,7 +29,6 @@ export const Office = () => {
         офис <br /> Молодежи <br /> Москвы
       </span>
 
-
       <div className={styles.container}>
         <div className={styles.content}>
           <span><Mic /> Зал для мероприятий</span>, <span><Cam />видеостудия</span>, <span><Laptop /> коворкинг</span>,
