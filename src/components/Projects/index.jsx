@@ -4,6 +4,7 @@ import photo1 from '../../img/Photo-1.png'
 import photo2 from '../../img/Photo-2.png'
 import photo3 from '../../img/Photo-3.png'
 import { ReactComponent as ArrowR } from '../../img/arrowR.svg'
+import ContainerLayout from '../Layouts/ContainerLayout/ContainerLayout'
 
 export const Projects = () => {
 
@@ -16,11 +17,11 @@ export const Projects = () => {
 
   return (
     <section className="bg-brandBlue py-[80px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <ContainerLayout className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
 
-        <h2 className='mb-[51px] text-white font-[700] text-[48px] leading-[52.8px] tracking-[-2%] flex items-center'>
+        <h2 className='heading'>
           Наши проекты
-          <ArrowR className="ml-[14px] mt-2" />
+          <ArrowR width={"2rem"} height={"3.2rem"} className="ml-[1.4rem] mt-[0.8rem]" />
         </h2>
 
         <div className='flex justify-between'>
@@ -28,14 +29,14 @@ export const Projects = () => {
             data.map(item => {
               return (
                 <div key={item.title} className='text-center'>
-                  <img className='w-[260px] mb-[24px]' src={item.img} alt={item.title} />
-                  <span className='text-[20px] leading-[25px] font-[500] text-white50'>{item.title}</span>
+                  <img className='w-[26rem] mb-[2.4rem]' src={item.img} alt={item.title} />
+                  <span className='text-[2rem] leading-[1.3rem] font-[500] text-white50'>{item.title}</span>
                 </div>
               )
             })
           }
         </div>
-      </div>
+      </ContainerLayout>
     </section>
   )
 }

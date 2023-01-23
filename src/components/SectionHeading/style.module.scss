@@ -1,0 +1,30 @@
+@use '../../styles/_colors.scss' as colors;
+
+.heading {
+  @apply text-white flex items-center;
+  margin-bottom: 5.1rem;
+  font-weight: 700;
+  letter-spacing: -2%;
+  line-height: 52.8px;
+  font-size: 4.8rem;
+  transition: color .3s ease;
+
+  svg {
+    transition: all .3s ease;
+    path {
+      transition: fill .3s ease;
+    }
+  }
+  
+  &:hover {
+    @apply text-brandPink;
+  }
+
+  &:hover svg {
+    transform: translateX(10px);
+  }
+
+  &:hover svg path{
+    fill: colors.$brandPink;
+  }
+}

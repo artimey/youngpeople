@@ -1,0 +1,82 @@
+@use '../../../../styles/colors' as colors;
+
+.form {
+  label {
+    position: relative;
+    display: block;
+    margin-bottom: 2.4rem !important;
+    & > input {
+      color: colors.$white50 !important;
+      background-color: colors.$white8 !important;
+      font-weight: 500 !important;
+      font-size: 1.6rem !important;
+      line-height: 2.16rem !important;
+      padding: 2.4rem !important;
+      border-radius: 1.6rem !important;
+      width: 100% !important;
+    }
+
+    & > textarea {
+      color: colors.$white50 !important;
+      background-color: colors.$white8 !important;
+      font-weight: 500 !important;
+      font-size: 1.6rem !important;
+      line-height: 2.16rem !important;
+      padding: 2.4rem !important;
+      border-radius: 1.6rem !important;
+      width: 100% !important;
+      height: 15rem;
+    }
+  }
+}
+
+.select {
+  width: 100%;
+  margin-bottom: 2.4rem;
+}
+
+.labelTitle {
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: colors.$white;
+  margin-bottom: 0.8rem;
+  line-height: 2.16rem;
+}
+
+.error {
+  position: absolute;
+  bottom: -2rem;
+  left: 1rem;
+  font-size: 1.2rem;
+  color: colors.$errorRed;
+  font-weight: 500;
+}
+
+.submitBtn {
+  color: colors.$white;
+  background-color: colors.$brandPink !important;
+  font-weight: 500;
+  font-size: 1.7rem;
+  line-height: 2.125rem;
+  width: 100%;
+  padding: 2.45rem 0;
+  border-radius: 5rem;
+}
+
+.tags {
+  color: colors.$white;
+  background-color: colors.$white8;
+  padding: 1.6rem 3.1rem;
+  width: 15.7rem;
+  display: inline-flex;
+  justify-content: center;
+  border-radius: 1.6rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.checkedTag {
+  background-color:  colors.$white;
+  color: colors.$black;
+}

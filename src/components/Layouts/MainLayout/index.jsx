@@ -1,14 +1,15 @@
-import { Footer } from '../../Footer'
-import { Header } from '../../Header'
+import { MyFooter } from "../../Footer"
+import { Navbar } from "../../Navbar"
+
 
 export const MainLayout = ({children}) => {
   return (
     <div>
-      <Header/>
+      <Navbar />
       <div>
-      {children}
+        {children}
       </div>
-      <Footer/>
+      <MyFooter />
     </div>
   )
 }

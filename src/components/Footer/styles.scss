@@ -2,31 +2,30 @@
 
 .headingFooter {
   font-family: "Druk Wide Cyr";
-  font-size: 48px;
+  font-size: 4.8rem;
   font-weight: 700;
-  line-height: 53px;
+  line-height: 5.3rem;
   letter-spacing: 0em;
   color: colors.$white;
   text-transform: uppercase;
-  margin-bottom: 40px;
+  margin-bottom: 4rem;
   display: block;
 }
 
 .footerMenuTitle {
   display: inline-block;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 1.8rem;
   letter-spacing: 0em;
   color: colors.$white50;
-  margin-bottom: 11px;
+  margin-bottom: 1.1rem;
 }
 
 .footerMenuItem {
   display: inline-block;
-  font-size: 17px;
+  font-size: 1.7rem;
   font-weight: 500;
-  line-height: 21px;
-  letter-spacing: 0em;
+  line-height: 1;
   color: colors.$white;
 }

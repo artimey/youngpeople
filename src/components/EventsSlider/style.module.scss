@@ -1,0 +1,40 @@
+.eventTitle {
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 2.6rem;
+  font-size: 2.4rem;
+  display: inline-block;
+}
+
+.eventCard {
+  @apply bg-white h-full relative;
+  border-radius: 2.8rem;
+}
+
+.info {
+  @apply flex items-center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.org {
+  @apply w-full absolute bottom-0 left-0 flex items-center border-t-2 border-black8;
+  border-top-right-radius: 32px;
+  border-top-left-radius: 32px;
+  padding: 0 2.4rem;
+  padding-top: 2.5rem;
+  padding-bottom: 3.2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.23;
+  img {
+    width: 4rem;
+    height: 4rem;
+    margin-right: 1.6rem;
+  }
+}

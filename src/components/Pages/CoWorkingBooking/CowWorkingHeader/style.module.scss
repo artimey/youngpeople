@@ -1,0 +1,20 @@
+.header {
+  @apply text-center bg-brandBlue;
+}
+
+.title {
+  @apply text-white;
+  font-weight: 500;
+  font-size: 4.8rem;
+  padding-top: 10.2rem;
+  line-height: 4.7rem;
+  margin-bottom: 1.6rem;
+}
+
+.subtitle {
+  @apply mx-auto text-white;
+  width: 42.2rem;
+  font-size: 1.6rem;
+  line-height: 2.16rem;
+  font-weight: 500;
+}

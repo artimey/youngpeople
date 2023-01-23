@@ -3,7 +3,7 @@
 .ticker-wrapper {
   background-color: colors.$brandPink;
   overflow: hidden;
-  height: 300px;
+  height: 30rem;
   position: relative;
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
@@ -17,21 +17,12 @@
     align-items: center;
     overflow: hidden;
     width: 2500px;
-    height: 300px;
-    transform: translate(100%, 0);
-    margin-top: 30px;
-
-    p {
-      font-family: 'Roboto', sans-serif;
-      color: #fff339;
-      text-transform: uppercase;
-    }
-    img{
-      height: 60px;
-    }
+    height: 30rem;
+    transform: translate(-100%, 0);
+    margin-top: 10px;
   }
 
-  $duration: 30s;
+  $duration: 20s;
 
   .ticker-wrapper__first-half, .ticker-wrapper__second-half {
     display: flex;
@@ -50,10 +41,11 @@
 }
 
 .megaFontAfisha {
-  font-family: 'Druk Wide Cyr';
-  font-size: 350px;
+  font-family: "Druk XXCondensed Cyr Super";
+  font-size: 35rem;
   font-weight: 900;
   color: colors.$brandBlue;
+  transform: scaleX(2.8);
 }
 
 @keyframes ticker {
