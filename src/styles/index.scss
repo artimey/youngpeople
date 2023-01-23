@@ -5,7 +5,15 @@
 @tailwind utilities;
 
 html {
-  font-size: calc(100vw / 1180 * 10);
+  font-size: calc(100vw / 1280 * 10);
+
+  @media screen and (max-width: '768px') {
+    // font-size: calc(100vw / 768 * 10);
+  }
+
+  @media screen and (max-width: '425px') {
+    font-size: calc(100vw / 425 * 10);
+  }
 }
 
 body {
