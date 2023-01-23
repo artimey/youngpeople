@@ -10,6 +10,10 @@
   text-transform: uppercase;
   margin-bottom: 4rem;
   display: block;
+
+  @media screen and (max-width: 425px) {
+    font-size: 1.8rem;
+  }
 }
 
 .footerMenuTitle {

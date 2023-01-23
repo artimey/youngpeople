@@ -17,6 +17,7 @@ export const CoWorkingBooking = () => {
             <Col span={11}>
               <CoWorkingContent />
             </Col>
+
             <Col span={12} className="ml-auto">
               <CoWorkingForm />
             </Col>

@@ -35,8 +35,9 @@ export const CoWorkingForm = () => {
   };
 
   const onSubmit = (values, { setSubmitting }) => {
-    alert('Заявка отправлена!')
-    // alert(JSON.stringify({...values, eventDate: dateValue, eventTime: selectedTags, eventFormat: eventFormatValue}, null, 2));
+    // alert('Заявка отправлена!')
+    console.log(JSON.stringify({...values, eventDate: dateValue, eventTime: selectedTags, eventFormat: eventFormatValue}, null, 2));
+    alert(JSON.stringify({...values, eventDate: dateValue, eventTime: selectedTags, eventFormat: eventFormatValue}, null, 2));
     setSubmitting(false);
   }
 

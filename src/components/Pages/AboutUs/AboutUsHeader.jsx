@@ -9,7 +9,7 @@ import styles from './style.module.scss'
 
 export const AboutUsHeader = () => {
   return (
-    <div className='py-[15em] relative'>
+    <div className='py-[15em] relative overflow-hidden'>
       <div className='flex justify-center items-center'>
         <h1 className={styles.heading}>О НАС</h1>
 

@@ -9,11 +9,12 @@ export const Navbar = () => {
       <ContainerLayout>
         <div className='flex items-center justify-between text-[1.7rem] font-[500] text-white'>
           <span className='flex items-center'>
-            <Logo className='mr-[2.4rem]' width={"6.4rem"} height={"6.4rem"} />
+            <Logo className='mr-[2.4rem] hidden' width={"6.4rem"} height={"6.4rem"} />
 
             <Link to={'/'} className="hover:text-brandPink mr-[1.6rem]">Главная</Link>
             <Link to={'/events'} className="hover:text-brandPink mr-[1.6rem]">Мероприятия</Link>
-            <Link to={'/about'} className="hover:text-brandPink">О нас</Link>
+            <Link to={'/about'} className="hover:text-brandPink mr-[1.6rem]">О нас</Link>
+            <Link to={'/co-working-booking'} className="hover:text-brandPink">Коворгинг</Link>
           </span>
 
 

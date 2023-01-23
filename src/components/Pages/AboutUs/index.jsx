@@ -12,6 +12,7 @@ import { Office } from './Office'
 
 export const AboutUs = () => {
   return (
+    <div children='overflow-hidden'>
     <MainLayout>
       <div className='bg-brandBlue'>
         <ContainerLayout>
@@ -38,7 +39,7 @@ export const AboutUs = () => {
         <div className='-mt-[2rem] border-t border-t-white50 z-[1000] bg-brandBlue rounded-t-[2rem]'>
         <ContainerLayout>
           <section className='py-[8rem]'>
-          <div className="ff-druk text-center font-[700] leading-[7.2rem] mb-[2rem] text-[7.2rem] uppercase text-white">
+          <div className="ff-druk text-center font-[700] leading-[7.2rem] mb-[2rem] text-[3rem] md:text-[7.2rem] uppercase text-white">
             Ключевые <br/> партнеры
           </div>
           <Partners />
@@ -48,5 +49,6 @@ export const AboutUs = () => {
 
       </div>
     </MainLayout>
+    </div>
   )
 }

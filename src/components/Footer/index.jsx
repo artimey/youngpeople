@@ -23,7 +23,7 @@ export const MyFooter = () => {
   ]
 
   return (
-    <footer className="bg-brandPink w-full py-[80px]">
+    <footer className="bg-brandPink w-full py-[80px] overflow-hidden">
       <ContainerLayout>
         <Row>
           <Col span={12} className=''>
