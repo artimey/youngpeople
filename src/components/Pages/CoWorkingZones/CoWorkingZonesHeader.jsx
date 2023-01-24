@@ -26,7 +26,7 @@ export const CoWorkingZonesHeader = () => {
 
               <div className={styles.headerCard}>
                 <span><Clock /> Каждый день с 10:00 до 20:00</span>
-                <span><Place /> <span>Холодильный переулок, 3 корпус 1, стр. 8. <a href="#">Как добраться</a></span></span>
+                <span><Place /> <span>Холодильный переулок, 3 корпус 1, стр. 8. <a href="https://yandex.ru/maps/-/CCUzF0HJkD" target="_blank">Как добраться</a></span></span>
               </div>
             </div>
 

@@ -60,7 +60,7 @@ export const allEventsData = {
   "student-day": {
   title: "День московского студента",
   img: cardImage1,
-  date: "25 Декабря",
+  date: "25 января",
   place: "Парк Горького и ВДНХ",
   org: "Музей современного искусства «Гараж»",
   orgImg: org1,
@@ -68,9 +68,9 @@ export const allEventsData = {
   html: event1Html,
  }, 
  "history-moscow": {
-  title: `Квест "Москва историческая"`,
+  title: `Квест «Москва историческая»`,
   img: cardImage2,
-  date: "26 Декабря",
+  date: "26 января",
   place: "По Москве",
   org: "Министерство просвещения Российской Федерации",
   orgImg: org2,

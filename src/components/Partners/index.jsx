@@ -45,7 +45,7 @@ export const Partners = () => {
     img18,
   ];
   return (
-    <section className="py-[80px] bg-brandBlue">
+    <section className="mt-0 md:pt-[80px] pb-[80px] bg-brandBlue">
       <div className="flex flex-row flex-wrap justify-between">
         {partners.map((img, idx) => (
           <img

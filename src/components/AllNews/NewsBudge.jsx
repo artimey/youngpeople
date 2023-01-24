@@ -3,7 +3,7 @@ import styles from './allNews.module.scss'
 
 const NewsBudge = ({ item }) => {
   return (
-    <a href={item.link} target="_blank" className={`${styles.newsBudge}`}>
+    <a href={item.link} target="_blank" className={`${styles.newsBudge} hover:bg-white16`}>
       <span className={styles.date}>
         {item.date}
       </span>

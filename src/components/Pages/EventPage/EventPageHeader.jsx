@@ -15,7 +15,7 @@ export const EventPageHeader = ({ title, date, org, orgImg, place, img }) => {
         <span className="text-white font-[500] text-[1.6rem]">{org}</span>
         </div> */}
 
-        <h1 className={styles.title}>{title}</h1>
+        <h1 className={`${styles.title} uppercase`}>{title}</h1>
 
         <div className='flex'>
           <div className='flex items-center mr-[2.2rem]'>

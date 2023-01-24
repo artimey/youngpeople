@@ -12,11 +12,11 @@ export const Header = () => {
           <div className="relative">
             <h1 className={styles.headerTitle}>Молодежь Москвы</h1>
 
-            <p className={styles.subtitle}>
+            {/* <p className={styles.subtitle}>
               Мы — команда молодых инициативных ребят, меняющая жизнь к лучшему.
               Запускаем амбициозные проекты и организуем мероприятия для
               молодёжи с 2020 года
-            </p>
+            </p> */}
 
             <div className={styles.maskImage}>
               <img src={maskImage} alt="img" />

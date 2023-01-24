@@ -12,6 +12,11 @@ import NewsBudge from './NewsBudge';
 export const AllNews = () => {
   const data = [
     {
+      title: 'Интересные стажировки и трудоустройство в крупные компании: итоги работы проектного офиса «Молодежь Москвы»      ',
+      date: '4 января',
+      link: 'https://www.mos.ru/news/item/117969073/  '
+    },
+    {
       title:
         `
         Москвичи выиграли денежные гранты в ходе Всероссийской молодежной форумной кампании
@@ -20,15 +25,10 @@ export const AllNews = () => {
       link: "https://www.mos.ru/news/item/118065073/",
     },
     {
-      title: 'Интересные стажировки и трудоустройство в крупные компании: итоги работы проектного офиса «Молодежь Москвы»      ',
-      date: '4 января',
-      link: 'https://www.mos.ru/news/item/117969073/  '
-    },
-    {
       title:
-        'Экскурсии, выставки и патриотические мероприятия: как пройдут Дни студенчества в столице',
-      date: '21 января',
-      link: 'https://www.mos.ru/news/item/118980073/'
+        'Узнать секреты профессии: как платформа «ВРаботе» помогает московским школьникам',
+      date: '22 декабря, 2022',
+      link: 'https://www.mos.ru/news/item/117378073/ '
     },
   ];
 
@@ -37,9 +37,9 @@ export const AllNews = () => {
       <ContainerLayout>
         <h2 className="heading">
           Все новости
-          <ArrowR
+          {/* <ArrowR
             className="ml-[1.4rem] mt-[0.8rem]"
-          />
+          /> */}
         </h2>
 
         <Row gutter={[32, 16]}>

@@ -44,7 +44,7 @@ export const CoWorkingForm = ({title}) => {
   return (
     <div>
       <Formik
-        initialValues={{ eventName: '', participantCount: '100', eventDate: '', comment: '', eventTime: "", eventFormat: "" }}
+        initialValues={{ eventName: '', participantCount: '1', eventDate: '', comment: '', eventTime: "", eventFormat: "" }}
         validate={values => {
           const errors = {};
           if (!values.eventName) {
@@ -127,7 +127,8 @@ export const CoWorkingForm = ({title}) => {
               <DatePicker
                 name="eventDate"
                 id="eventDate"
-                onChange={handleDateChange} 
+                onChange={handleDateChange}
+                placeholder="Выберите дату"
                 suffixIcon={<Calendar width={"1.8rem"} height={"1.8rem"} />} />
 
               <span className={styles.error}>{errors.eventDate && touched.eventDate && errors.eventDate}</span>
