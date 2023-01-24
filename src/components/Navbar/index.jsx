@@ -23,9 +23,6 @@ export const Navbar = () => {
             <div className="flex flex-col flex-nowrap justify-between h-[6.4rem]">
               <div className={styles.topMenu}>
                 <Link to={'/'} className="hover:text-brandPink mr-[1.6rem]">
-                  Главная
-                </Link>
-                <Link to={'/'} className="hover:text-brandPink mr-[1.6rem]">
                   ВКонтакте
                 </Link>
                 <Link to={'/'} className="hover:text-brandPink">

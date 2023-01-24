@@ -20,7 +20,7 @@ export const EventPageHeader = ({ title, date, org, orgImg, place, img }) => {
         <div className='flex'>
           <div className='flex items-center mr-[2.2rem]'>
             <Calendar className='mr-[1.4rem]' width={"1.5rem"} height={"1.5rem"} />
-            <span className="text-[1.6rem] font-[500] text-white">{place}</span>
+            <span className="text-[1.6rem] font-[500] text-white">{date}</span>
           </div>
 
           <div className='flex items-center'>

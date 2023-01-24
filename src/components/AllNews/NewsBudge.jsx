@@ -3,14 +3,14 @@ import styles from './allNews.module.scss'
 
 const NewsBudge = ({ item }) => {
   return (
-    <div className={styles.newsBudge}>
+    <a href={item.link} target="_blank" className={`${styles.newsBudge}`}>
       <span className={styles.date}>
         {item.date}
       </span>
       <h3 className={styles.title}>
         {item.title}
       </h3>
-    </div>
+    </a>
   )
 }
 

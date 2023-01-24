@@ -11,8 +11,14 @@ import { Partners } from '../../Partners';
 import { Office } from './Office';
 import { TitlesTwo } from './TitlesTwo';
 import { CtaBlock } from './CtaBlock';
+import { useEffect } from 'react';
 
 export const AboutUs = () => {
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div children="overflow-hidden">
       <MainLayout>

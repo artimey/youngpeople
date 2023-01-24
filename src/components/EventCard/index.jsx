@@ -7,7 +7,8 @@ import { ReactComponent as Place } from '../../img/place.svg';
 
 export const EventCard = ({ item, allEventsData }) => {
   return (
-    <Col span={8}>
+    // ======== ??
+    <Col xs={24} md={8} span={8}>
       <div className={styles.eventCard}>
         <div className="p-[12px] mb-[15px]">
           <div className="rounded-[3rem] h-[25rem] overflow-hidden flex justify-center">
@@ -35,8 +36,9 @@ export const EventCard = ({ item, allEventsData }) => {
         </div>
 
         <div className={styles.org}>
-          <img className="" src={allEventsData[item].orgImg} alt="img" />
-          <span>{allEventsData[item].org}</span>
+          {/* <img className="" src={allEventsData[item].orgImg} alt="img" />
+          <span>{allEventsData[item].org}</span> */}
+          <a href="https://www.mos.ru/city/projects/studentday/" target="_blank" className="text-brandPink">Подробнее</a>
         </div>
       </div>
     </Col>

@@ -3,23 +3,24 @@ import './styles.scss'
 import logos from '../../img/bottomLogos.svg'
 
 import ContainerLayout from '../Layouts/ContainerLayout/ContainerLayout.jsx'
+import { Link } from 'react-router-dom'
 
 export const MyFooter = () => {
 
   const dataMenu = [
-    {title: 'Мероприятия', href: '#'},
-    {title: 'Бронь пространств', href: '#'},
-    {title: 'О нас', href: '#'},
-    {title: 'Проекты', href: '#'},
-    {title: 'Партнёры', href: '#'},
-    {title: 'Новости', href: '#'},
-    {title: 'Контакты', href: '#'},
+    {title: 'Мероприятия', href: '/events'},
+    {title: 'Бронь пространств', href: '/co-working-zones'},
+    {title: 'О нас', href: '/about'},
+    // {title: 'Проекты', href: '#'},
+    // {title: 'Партнеры', href: '#'},
+    // {title: 'Новости', href: '#'},
+    // {title: 'Контакты', href: '#'},
   ]
 
   const emailData = [
-    {title: "Электронная почта", value: 'molodezh@mos.ru'},
-    {title: "Телефон", value: '+7 925 063-42-70'},
-    {title: "Адрес", value: 'Холодильный переулок, 3 корпус 1, стр. 8.'},
+    {title: "Электронная почта", value: 'molodezh@mos.ru', link: null},
+    {title: "Телефон", value: '+7 925 063-42-70', link: null},
+    {title: "Адрес", value: 'Холодильный переулок, 3 корпус 1, стр. 8.', link: "https://yandex.ru/maps/-/CCUzF0HJkD "},
   ]
 
   return (
@@ -56,7 +57,7 @@ export const MyFooter = () => {
                   dataMenu.map(item => {
                     return (
                       <div key={item.title}>
-                        <a className='footerMenuItem mb-[13px]' href={item.href}>{item.title}</a>
+                        <Link className='footerMenuItem mb-[13px]' to={item.href}>{item.title}</Link>
                       </div>
                     )
                   })
@@ -68,7 +69,12 @@ export const MyFooter = () => {
                     return (
                       <div key={item.title} className="mb-[24px]">
                         <span className='footerMenuTitle'>{item.title}</span>
-                        <span className='block font-[500] text-[1.7rem] leading-[2.125rem] text-white'>{item.value}</span>
+                        {
+                          item.link ? 
+                          <a href={item.link} target="_blank" className='block font-[500] text-[1.7rem] leading-[2.125rem] text-white'>{item.value}</a>
+                          :
+                          <span className='block font-[500] text-[1.7rem] leading-[2.125rem] text-white'>{item.value}</span> 
+                        }
                       </div>
                     )
                   })
