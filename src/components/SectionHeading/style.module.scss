@@ -9,13 +9,17 @@
   font-size: 4.8rem;
   transition: color .3s ease;
 
+
   svg {
+    width: 2rem;
+    height: 3.2rem;
     transition: all .3s ease;
+
     path {
       transition: fill .3s ease;
     }
   }
-  
+
   &:hover {
     @apply text-brandPink;
   }
@@ -24,7 +28,17 @@
     transform: translateX(10px);
   }
 
-  &:hover svg path{
+  &:hover svg path {
     fill: colors.$brandPink;
+  }
+
+  @media screen and (max-width: '425px') {
+    font-size: 3.4rem;
+    margin-bottom: 4rem;
+
+    svg {
+      width: 1.2rem;
+      height: 2.5rem;
+    }
   }
 }

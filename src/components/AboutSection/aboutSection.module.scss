@@ -1,0 +1,109 @@
+@use '../../styles/_colors.scss' as colors;
+
+.images {
+
+  img {
+    position: absolute;
+    width: 22rem;
+
+    &:nth-child(1) {
+      top: 5rem;
+      left: -9rem;
+      transform: rotate(2deg);
+    }
+
+    &:nth-child(2) {
+      bottom: -15rem;
+      left: 15rem;
+      transform: rotate(-2deg);
+    }
+
+    &:nth-child(3) {
+      top: 0;
+      left: 32rem;
+      transform: rotate(-3deg);
+    }
+
+    &:nth-child(4) {
+      bottom: -11rem;
+      right: -10rem;
+      transform: rotate(4deg);
+    }
+  }
+  @media screen and (max-width: '425px') {
+    height: 60rem;
+    img{
+      &:nth-child(1) {
+        top: 0rem;
+        left: -5rem;
+      }
+  
+      &:nth-child(2) {
+        bottom: 2rem;
+        left: -5rem;
+      }
+  
+      &:nth-child(3) {
+        top: 10rem;
+        left: unset;
+        right: -5rem;
+      }
+  
+      &:nth-child(4) {
+        bottom: -8rem;
+        right: -5rem;
+      }
+    }
+  }
+}
+
+.sideText {
+  @apply text-white50;
+  font-family: 'TT Norms';
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 135%;
+}
+
+.heading {
+  @apply text-white;
+  font-family: 'Druk Wide Cyr';
+  font-size: 7.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  @media screen and (max-width: '425px') {
+    font-size: 4rem;
+  }
+}
+
+.description {
+  @apply text-white;
+  font-family: 'TT Norms';
+  width: 35rem;
+  font-size: 2rem;
+  line-height: 125%;
+}
+
+.link {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2.15rem 3.2rem;
+  border-radius: 100px;
+  font-weight: 500;
+  font-family: 'TT Norms';
+  font-size: 1.7rem;
+  font-size: 1.7rem;
+  line-height: 125%;
+  line-height: 1.37;
+  align-self: flex-start;
+
+  @media screen and (max-width: '425px') {
+    font-style: 1.5rem;
+    padding: 1.6rem 2.2rem;
+  }
+}
+
+.row {
+  @media screen and (max-width: '425px') {
+    flex-flow: column-reverse;
+  }
+}

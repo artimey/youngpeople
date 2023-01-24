@@ -50,7 +50,7 @@ export const Partners = () => {
         {partners.map((img) => (
           <img
             src={img}
-            className={`${styles.partner} flex align-center justify-center`}
+            className={${styles.partner} flex align-center justify-center}
           />
         ))}
       </div>
