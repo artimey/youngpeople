@@ -7,6 +7,10 @@
   background-position-x: 100%;
   // animation: bgMove 30s infinite linear forwards;
   background-size: 100%;
+
+  @media screen and (max-width: '425px'){
+    height: 150px;
+  }
 }
 
 @keyframes bgMove {
@@ -33,15 +37,14 @@
 
 .title {
   @apply text-white;
-  line-height: 1;
+  line-height: 125%;
   font-size: 2.4rem;
   font-weight: 500;
 }
 
 .newsBudge {
   @apply  bg-white8 flex flex-col justify-center ;
-  margin-bottom: 2rem;
-  padding: 0 2.4rem;
-  height: 15.4rem;
+  padding: 2.4rem;
   border-radius: 3.3rem;
+  flex: 1;
 }

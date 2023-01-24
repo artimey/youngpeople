@@ -1,4 +1,4 @@
-@use '../../styles/_colors.scss' as colors; 
+@use '../../styles/_colors.scss' as colors;
 
 .ticker-wrapper {
   background-color: colors.$brandPink;
@@ -24,7 +24,8 @@
 
   $duration: 20s;
 
-  .ticker-wrapper__first-half, .ticker-wrapper__second-half {
+  .ticker-wrapper__first-half,
+  .ticker-wrapper__second-half {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -37,6 +38,19 @@
 
   .ticker-wrapper__second-half {
     animation: $duration ticker $duration/2 infinite linear forwards;
+  }
+
+  @media screen and (max-width: '425px') {
+    height: 20rem;
+    margin-top: 0;
+
+    div {
+      height: 20rem;
+
+      span {
+        font-size: 25rem;
+      }
+    }
   }
 }
 

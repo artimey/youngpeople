@@ -22,7 +22,9 @@
   line-height: 1;
   margin-bottom: 1.6rem;
   color: colors.$white;
-  @media screen and (max-width: '768px') {}
+  @media screen and (max-width: '768px') {
+    
+  }
 
   @media screen and (max-width: '425px') {
     font-size: 4rem;

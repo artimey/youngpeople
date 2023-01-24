@@ -8,7 +8,7 @@ export const SectionHeading = ({title, path}) => {
   return (
     <Link to={path} className={styles.heading}>
       {title}
-      <ArrowR width={"2rem"} height={"3.2rem"} className="ml-[1.4rem] mt-[0.8rem]" />
+      <ArrowR className="ml-[1.4rem] mt-[0.8rem]" />
     </Link>
   )
 }
