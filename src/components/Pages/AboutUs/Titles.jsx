@@ -7,7 +7,7 @@ import localStyles from './style.module.scss';
 
 export const Titles = () => {
   return (
-    <div>
+    <div className={`${localStyles.temporary}`}>
       <div className={localStyles.top}>
         <span>Проектный офис «Молодежь Москвы»</span>
         <span>– место твоей реализации</span>
@@ -24,9 +24,14 @@ export const Titles = () => {
           <br />а наши активисты регулярно
           <br />
           принимают участие в организации
-          <br />акций и крупных событий города
+          <br />
+          акций и крупных событий города
         </span>
-        <a href="#" className={`${localStyles.tlink}`}>
+        <a
+          href="https://www.mos.ru/kos/function/rabota-s-molodezhyu/proektnyi-ofis/"
+          target="_blank"
+          className={`${localStyles.tlink}`}
+        >
           <img src={Message} alt="" />
           <span className="text-center">
             Читать о нас
