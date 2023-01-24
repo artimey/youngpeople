@@ -24,11 +24,11 @@ export const Projects = () => {
           <ArrowR width={"2rem"} height={"3.2rem"} className="ml-[1.4rem] mt-[0.8rem]" />
         </h2>
 
-        <div className='flex justify-between'>
+        <div className='flex flex-row flex-wrap max-sm:justify-center justify-between align-center'>
           {
             data.map(item => {
               return (
-                <div key={item.title} className='text-center'>
+                <div key={item.title} className='text-center mb-[2rem]'>
                   <img className='w-[26rem] mb-[2.4rem]' src={item.img} alt={item.title} />
                   <span className='text-[2rem] leading-[1.3rem] font-[500] text-white50'>{item.title}</span>
                 </div>
