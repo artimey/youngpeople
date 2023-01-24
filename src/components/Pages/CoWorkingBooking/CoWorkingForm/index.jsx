@@ -6,7 +6,7 @@ import { ReactComponent as ArrowDown } from '../../../../img/arrowDown.svg';
 import { ReactComponent as Calendar } from '../../../../img/datePicker.svg';
 import CheckableTag from 'antd/es/tag/CheckableTag';
 
-export const CoWorkingForm = () => {
+export const CoWorkingForm = ({title}) => {
 
   const [dateValue, setDateValue] = useState('');
   const [eventFormatValue, setEventFormatValue] = useState('');
@@ -36,8 +36,8 @@ export const CoWorkingForm = () => {
 
   const onSubmit = (values, { setSubmitting }) => {
     // alert('Заявка отправлена!')
-    console.log(JSON.stringify({...values, eventDate: dateValue, eventTime: selectedTags, eventFormat: eventFormatValue}, null, 2));
-    alert(JSON.stringify({...values, eventDate: dateValue, eventTime: selectedTags, eventFormat: eventFormatValue}, null, 2));
+    console.log(JSON.stringify({...values, eventDate: dateValue, eventTime: selectedTags}, null, 2));
+    alert(JSON.stringify({...values, eventDate: dateValue, eventTime: selectedTags, eventPlace: title}, null, 2));
     setSubmitting(false);
   }
 
@@ -49,6 +49,9 @@ export const CoWorkingForm = () => {
           const errors = {};
           if (!values.eventName) {
             errors.eventName = '*Поле обязаятельно к заполнению';
+          }
+          if (!values.eventFormat) {
+            errors.eventFormat = '*Поле обязаятельно к заполнению';
           }
           if (values.participantCount <= 0) {
             errors.participantCount = "*Участников не может быть 0"
@@ -74,12 +77,12 @@ export const CoWorkingForm = () => {
                 name="eventName"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.email}
+                value={values.eventName}
               />
               <span className={styles.error}>{errors.eventName && touched.eventName && errors.eventName}</span>
             </label>
 
-            <label>
+            {/* <label>
               <div className={styles.labelTitle}>Формат мероприятия <span>*</span></div>
               <Select
                 defaultValue="Москва спортивная"
@@ -92,6 +95,18 @@ export const CoWorkingForm = () => {
                   { value: 'Москва спортивная', label: 'Москва спортивная' }
                 ]}
               />
+            </label> */}
+
+            <label>
+              <div className={styles.labelTitle}>Формат мероприятия <span>*</span></div>
+              <Input
+                type="text"
+                name="eventFormat"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.eventFormat}
+              />
+              <span className={styles.error}>{errors.eventFormat && touched.eventFormat && errors.eventFormat}</span>
             </label>
 
             <label>

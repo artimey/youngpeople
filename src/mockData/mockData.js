@@ -6,6 +6,13 @@ import cardImage1 from '../img/events/event1.jpg'
 import cardImage2 from '../img/events/event2.jpg'
 import cardImage3 from '../img/events/event3.jpg'
 
+import conferenceRoom from '../img/cowworkingZones/peregovrka.png';
+import livingRoom from '../img/cowworkingZones/livingroom.png';
+import contentFarm from '../img/cowworkingZones/contentFarm.png';
+import videoStudio from '../img/cowworkingZones/DSC05686.png';
+import sport from '../img/cowworkingZones/sport.png';
+import coworkingImage from '../img/cowworkingZones/coworking.png';
+
 const event1Html = `
 <p>Студентов и Татьян приглашают на главные городские катки. Для них приготовили особенные условия по билетам.</p>
 <strong>Катки в парках</strong>
@@ -82,32 +89,47 @@ export const allEventsData = {
  }, 
 }
 
-// export const allEventsData = [
-//   {
-//     title: "День московского студента",
-//     img: cardImage1,
-//     date: "20-21 Декабря",
-//     place: "Арка Главного входа ВДНХ",
-//     org: "Музей современного искусства «Гараж»",
-//     orgImg: org1,
-//     slug: "student-day"
-//   },
-//   {
-//     title: "Москва историческая",
-//     img: cardImage2,
-//     date: "24 Декабря, 19:00",
-//     place: "Парк Горького",
-//     org: "Министерство просвещения Российской Федерации",
-//     orgImg: org2,
-//     slug: "history-moscow"
-//   },
-//   {
-//     title: "Москва спортивная",
-//     img: cardImage3,
-//     date: "1,2,3,4 января, 21:00 – 22:00",
-//     place: "Красная площадь",
-//     org: "«Молодежь Москвы»",
-//     orgImg: org3,
-//     slug: "sport-moscow"
-//   },
-// ]
+export const coWorkingZonesData = {
+  "coworking": {
+    slug: "coworking",
+    title: "Коворкинг",
+    text: `В поисках комфортного места, чтобы заняться работой или учебой, ты можешь остановиться 
+          здесь. Для тебя и твоей команды здесь оборудовано рабочее место с удобным столом и компьютером`,
+    img: coworkingImage
+  },
+  "conference-room": {
+    slug: "conference-room",
+    title: "Переговорка",
+    text: `Место, в котором ты сможешь решать важнейшие вопросы своего проекта, проводить мозговой штурм, 
+      встречаться с партнерами и проводить презентации`,
+    img: conferenceRoom
+  },
+  "party-room": {
+    slug: "party-room",
+    title: "Зал для мероприятий",
+    text: `Зал вмещает до 200 человек – проводи лекции и конференции, встречайся 
+      с единомышленниками, организовывай концерты и вообще, что только захочешь`,
+    img: livingRoom
+  },
+  "video-studio": {
+    slug: "video-studio",
+    title: "Видеостудия",
+    text: `Пространство для съемок коротких видео и креативных фото. Воплощай свои самые интересные идеи для социальных сетей здесь. 
+      Креативное пространство, в котором хочется создавать новый контент`,
+    img: videoStudio
+  },
+  "content-farm": {
+    slug: "content-farm",
+    title: "Контент ферма",
+    text: `В поисках комфортного места, чтобы заняться работой или учебой, ты можешь остановиться 
+          здесь. Для тебя и твоей команды здесь оборудовано рабочее место с удобным столом и компьютером`,
+    img: contentFarm
+  },
+  "sport-room": {
+    slug: "sport-room",
+    title: "Спортивный зал",
+    text: `Ставь свою хореографию, готовься к конкурсам или просто поддерживай здоровый образ жизни. 
+    Не останавливайся и продолжай находиться в постоянном движении`,
+    img: sport
+  },
+}

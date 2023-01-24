@@ -1,0 +1,97 @@
+.header {
+  @apply bg-brandBlue;
+  padding: 12.6rem 0;
+  padding-bottom: 6.4rem;
+}
+
+.heading {
+  @apply text-white;
+  text-transform: uppercase;
+  font-size: 7.2rem;
+  font-weight: 700;
+  line-height: 7.9rem;
+  margin-bottom: 1.6rem;
+}
+
+.subtitle {
+  @apply text-white;
+  font-family: TT Norms;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.5rem;
+  letter-spacing: -0.01em;
+  width: 49.5rem;
+  display: inline-block;
+}
+
+.headerCard {
+  @apply bg-white8;
+  display: inline-block;
+  line-height: 2.5rem;
+  font-size: 2rem;
+  padding: 4.3rem;
+  width: 41.8rem;
+  border-radius: 3.2rem;
+  margin-left: auto;
+  margin-right: 4rem;
+  transform: rotate(-3deg);
+
+  &>span {
+    @apply text-white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.7rem;
+    font-weight: 500;
+
+    a {
+      @apply text-white50 underline;
+    }
+
+    svg {
+      margin-right: 1.6rem;
+      min-width: 2rem;
+      min-height: 2rem;
+    }
+  }
+}
+
+.row {
+  margin-bottom: 12rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.zoneTitle {
+  @apply text-white;
+  font-family: "Druk Wide Cyr";
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 5.3rem;
+  margin-bottom: 1.6rem;
+}
+
+.zoneText {
+  @apply text-white;
+  font-family: "TT Norms";
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.2rem;
+  margin-bottom: 4.8rem;
+}
+
+.zoneButton {
+  @apply mx-auto text-white bg-brandPink rounded-full;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18rem;
+  height: 18rem;
+
+  font-family: TT Norms;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2rem;
+  letter-spacing: 0em;
+  text-align: center;
+}
