@@ -18,7 +18,7 @@ export const AboutSection = () => {
           <Col span={12} xs={24} sm={24} md={12} className="max-sm:order-last">
             <div className={styles.images}>
               {images.map((v, i) => {
-                return <img src={v} alt="" />;
+                return <img key={i} src={v} alt="" />;
               })}
             </div>
           </Col>

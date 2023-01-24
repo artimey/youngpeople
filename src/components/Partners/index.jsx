@@ -47,10 +47,11 @@ export const Partners = () => {
   return (
     <section className="py-[80px] bg-brandBlue">
       <div className="flex flex-row flex-wrap justify-between">
-        {partners.map((img) => (
+        {partners.map((img, idx) => (
           <img
             src={img}
-            className={${styles.partner} flex align-center justify-center}
+            key={idx}
+            className={`${styles.partner} flex align-center justify-center`}
           />
         ))}
       </div>

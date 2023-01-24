@@ -55,13 +55,13 @@ export const Navbar = () => {
             </div>
           </span>
 
-          <Link
+          {/* <Link
             to={'/events'}
             className="font-[1.5rem] text-black bg-white px-[2.4rem] py-[1.4rem] 
               rounded-[3rem] hover:text-white hover:bg-brandPink"
           >
             Действующие мероприятия
-          </Link>
+          </Link> */}
         </div>
       </ContainerLayout>
     </nav>
