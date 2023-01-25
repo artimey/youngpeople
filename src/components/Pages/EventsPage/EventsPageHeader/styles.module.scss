@@ -3,6 +3,8 @@
   text-align: center;
   padding-top: 17.6rem;
   text-transform: uppercase;
+
+  
 }
 
 .title {
@@ -10,4 +12,8 @@
   font-size: 7.2rem;
   font-weight: 700;
   line-height: 7.9rem;
+  @media screen and (max-width: 425px) {
+    font-size: 4.5rem;
+    line-height: 1.1;
+  }
 }

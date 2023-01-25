@@ -7,7 +7,7 @@ export const EventPageOtherEvent = ({ data, slug }) => {
   return (
     <section className='py-[8rem]'>
 
-      <span className="text-[4.8rem] text-white leading-[1.8rem] font-[700] mb-[5rem] block">
+      <span className="text-[4.8rem] text-white leading-[1] font-[700] mb-[5rem] block">
         Вам может понравиться
       </span>
 

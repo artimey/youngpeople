@@ -1,7 +1,40 @@
 @use '../../styles/_colors.scss' as colors;
 
-.topMenu {
-  >* {
-    @apply text-white50;
+.navDesktop {
+  @media screen and (max-width: 991px) {
+    display: none;
+  }
+}
+
+.navMobile {
+  @apply bg-brandBlue;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  width: 100%;
+  padding: 2rem 4rem;
+
+  @media screen and (min-width: 992px) {
+    display: none;
+  }
+}
+
+.navBody {
+  @apply text-white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+
+  font-family: TT Norms;
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 2.6rem;
+  letter-spacing: -0.008em;
+
+  a {
+    padding: 1rem 0; 
   }
 }

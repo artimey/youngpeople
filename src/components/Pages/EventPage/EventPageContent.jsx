@@ -4,13 +4,13 @@ import styles from './style.module.scss'
 
 export const EventPageContent = ({text}) => {
   return (
-    <section className='py-[8rem]'>
+    <section className='py-[7rem] pb-0 sm:py-[8rem]'>
       <Row gutter={[16, 16]}>
-        <Col span={11}>
-          <span className="text-[4.8rem] text-white leading-[1.8rem] font-[700]">О мероприятии</span>
+        <Col xs={24} sm={11}>
+          <span className="text-[4.8rem] text-white leading-[1.8rem] font-[700] mb-14 block sm:mb-0">О мероприятии</span>
         </Col>
 
-        <Col span={12} className="ml-auto">
+        <Col xs={24} sm={12} className="ml-auto">
           <div dangerouslySetInnerHTML={{__html: text}} className={styles.text} />
         </Col>
       </Row>
