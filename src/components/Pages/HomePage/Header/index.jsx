@@ -7,7 +7,7 @@ import clsx from 'clsx';
 export const Header = () => {
   return (
     <header className={clsx(styles.header)}>
-      <div className="px-5 sm:px-[41px] relative md:pt-[20rem] xl:pt-[12.2rem]">
+      <div className="px-5 sm:px-[41px] relative">
         <Col span={12}>
           <div className="relative">
             <h1 className={styles.headerTitle}>Молодежь Москвы</h1>

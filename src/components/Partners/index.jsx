@@ -19,7 +19,6 @@ import img14 from '../../img/partners/partner-14.svg';
 import img15 from '../../img/partners/partner-15.svg';
 import img16 from '../../img/partners/partner-16.svg';
 import img17 from '../../img/partners/partner-17.svg';
-import img18 from '../../img/partners/partner-18.svg';
 
 import styles from './Partners.module.scss';
 
@@ -42,19 +41,20 @@ export const Partners = () => {
     img15,
     img16,
     img17,
-    img18,
   ];
   return (
     <section className="mt-0 md:pt-[80px] pb-[80px] bg-brandBlue">
-      <div className="flex flex-row flex-wrap justify-between">
-        {partners.map((img, idx) => (
-          <img
-            src={img}
-            key={idx}
-            className={`${styles.partner} flex align-center justify-center`}
-          />
-        ))}
-      </div>
+      <ContainerLayout>
+        <div className="flex flex-row flex-wrap justify-between">
+          {partners.map((img, idx) => (
+            <img
+              src={img}
+              key={idx}
+              className={`${styles.partner} flex align-center justify-center`}
+            />
+          ))}
+        </div>
+      </ContainerLayout>
     </section>
   );
 };

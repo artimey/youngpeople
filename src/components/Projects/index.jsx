@@ -29,7 +29,7 @@ export const Projects = () => {
   ]
 
   return (
-    <section className="bg-brandBlue py-[80px]">
+    <section className="bg-brandBlue pt-[80px]">
       <ContainerLayout>
 
         <h2 className='heading'>

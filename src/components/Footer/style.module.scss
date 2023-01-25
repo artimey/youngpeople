@@ -1,0 +1,146 @@
+@use '../../styles/_colors.scss' as colors;
+
+.footer {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(2, 50%);
+  grid-template-areas:
+    'firstHeading secondHeading'
+    'menu contacts'
+    'links links'
+    'logos logos';
+
+  @media screen and (min-width: '768px') {
+    grid-template-columns: repeat(4, 25%);
+    grid-template-areas:
+      'firstHeading firstHeading secondHeading secondHeading'
+      'links links menu contacts'
+      'logos logos menu contacts'
+      'logos logos menu contacts';
+  }
+}
+
+.headingFooter {
+  font-family: "Druk Wide Cyr";
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 5.3rem;
+  letter-spacing: 0em;
+  color: colors.$white;
+  text-transform: uppercase;
+  margin-bottom: 4rem;
+  display: block;
+
+  &:nth-child(1) {
+    grid-area: firstHeading;
+    justify-self: start;
+  }
+
+  &:nth-child(2) {
+    grid-area: secondHeading;
+    justify-self: end;
+  }
+
+  @media screen and (max-width: 425px) {
+    font-size: 3rem;
+
+    &:nth-child(2) {
+      margin-top: 3.5rem;
+    }
+  }
+
+  @media screen and (min-width: '768px') {
+
+    &:nth-child(2) {
+      justify-self: start;
+    }
+  }
+}
+
+.links {
+  @apply flex flex-row flex-nowrap;
+  grid-area: links;
+  margin-bottom: 6rem;
+
+  >a {
+    @apply flex items-center justify-center;
+    width: 8rem;
+    height: 8rem;
+    background: rgba(255, 255, 255, 0.16);
+
+    backdrop-filter: blur(28px);
+
+    img {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+  }
+
+  @media screen and (min-width: 426px) {
+    >a {
+      width: 12rem;
+      height: 12rem;
+
+      img {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+  }
+}
+
+.linkvk {
+  @apply rounded-full;
+}
+
+.linktg {
+  margin-left: 1.2rem;
+  border-radius: 24px;
+}
+
+.logos {
+  @apply flex flex-row flex-nowrap items-center;
+  grid-area: logos;
+
+  >:nth-child(1) {
+    height: 5rem;
+  }
+
+  >:nth-child(2) {
+    margin: 0 2rem;
+  }
+
+  >:nth-child(3) {
+    height: 5rem;
+  }
+}
+
+.footerMenu {
+  grid-area: menu;
+}
+
+.footerContacts {
+  grid-area: contacts;
+}
+
+.footerMenuTitle {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.8rem;
+  letter-spacing: 0em;
+  color: colors.$white50;
+  margin-bottom: 1.1rem;
+}
+
+.footerMenuItem {
+  display: inline-block;
+  font-size: 1.7rem;
+  font-weight: 500;
+  line-height: 1;
+  color: colors.$white;
+
+  @media screen and (min-width: 426px) {
+  font-size: 1.7rem;
+  }
+}
