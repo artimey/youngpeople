@@ -13,7 +13,7 @@ export const Zones = () => {
           Object.keys(coWorkingZonesData).map(item => {
             return (
               <Row key={item} className={styles.row}>
-                <Col span={10}>
+                <Col xs={24} sm={10}>
                   <div className="rounded-[3rem] border-t border-t-white8 h-[4rem]"></div>
 
                   <h3 className={styles.zoneTitle}>
@@ -29,7 +29,7 @@ export const Zones = () => {
                     </Link>
                   </div>
                 </Col>
-                <Col span={12} className="ml-auto">
+                <Col xs={22} sm={11} md={12} className="ml-auto">
                   <img src={coWorkingZonesData[item].img} className="w-full rounded-[3rem]" alt="img" />
                 </Col>
               </Row>

@@ -5,9 +5,13 @@ import { DatePicker, Input, Select } from 'antd';
 import { ReactComponent as ArrowDown } from '../../../../img/arrowDown.svg';
 import { ReactComponent as Calendar } from '../../../../img/datePicker.svg';
 import CheckableTag from 'antd/es/tag/CheckableTag';
+import axios from 'axios';
 
-export const CoWorkingForm = ({title}) => {
+export const CoWorkingForm = ({ title }) => {
 
+  const [isError, setIsError] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [dateValue, setDateValue] = useState('');
   const [eventFormatValue, setEventFormatValue] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
@@ -34,15 +38,69 @@ export const CoWorkingForm = ({title}) => {
     setSelectedTags(nextSelectedTags);
   };
 
-  const onSubmit = (values, { setSubmitting }) => {
+  const onSubmit = async (values, { setSubmitting }) => {
     // alert('Заявка отправлена!')
-    console.log(JSON.stringify({...values, eventDate: dateValue, eventTime: selectedTags}, null, 2));
-    alert(JSON.stringify({...values, eventDate: dateValue, eventTime: selectedTags, eventPlace: title}, null, 2));
-    setSubmitting(false);
+    console.log(JSON.stringify({ ...values, eventDate: dateValue, eventTime: selectedTags }, null, 2));
+
+    const body = JSON.stringify({ ...values, eventDate: dateValue, eventTime: selectedTags })
+
+    const test = 'https://mosmolodezh.ru/api/forms/booking/'
+    const test1 = 'http://185.211.170.217/api/forms/booking/'
+
+    try {
+      setIsLoading(true);
+      const data = await axios.post(test, body, { headers: { 'Content-Type': 'application/json' } })
+      if (data) {
+        setIsSuccess(true)
+        setIsLoading(false)
+        setTimeout(() => setIsSuccess(false), 3000)
+      }
+    }
+    catch (err) {
+      setIsError(true)
+      setTimeout(() => setIsError(false), 3000)
+      setIsLoading(false)
+      console.log(err);
+    }
+
+    // await fetch(test , {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({...values, eventDate: dateValue, eventTime: selectedTags})
+    // })
+    // .then(res => res.json())
+    // .then(res => console.log(res))
+    // .catch(err => {
+    //   console.log(err);
+    // })
   }
 
   return (
     <div>
+      {
+        isSuccess ?
+          <div
+            className="bg-green-500 p-[2rem] top-5 right-5 fixed w-[300px] z-[99999] 
+          rounded-2xl text-[2rem] text-white font-[500] text-center">
+            Заявка отправлена 🎉
+          </div>
+          :
+          null
+      }
+
+      {
+        isError ?
+          <div
+            className="bg-red-600 p-[2rem] top-5 right-5 fixed w-[300px] z-[99999] 
+          rounded-2xl text-[2rem] text-white font-[500] text-center">
+            Что-то пошло не так ;( 
+          </div>
+          :
+          null
+      }
+
       <Formik
         initialValues={{ eventName: '', participantCount: '1', eventDate: '', comment: '', eventTime: "", eventFormat: "" }}
         validate={values => {
@@ -127,6 +185,7 @@ export const CoWorkingForm = ({title}) => {
               <DatePicker
                 name="eventDate"
                 id="eventDate"
+                format={'DD.MM.YYYY'}
                 onChange={handleDateChange}
                 placeholder="Выберите дату"
                 suffixIcon={<Calendar width={"1.8rem"} height={"1.8rem"} />} />
@@ -162,8 +221,13 @@ export const CoWorkingForm = ({title}) => {
               />
             </label>
 
-            <button className={styles.submitBtn} type="submit" disabled={isSubmitting}>
-              Оставить заявку на бронирование
+            <button className={`${styles.submitBtn} disabled:bg-white50`} type="submit" disabled={isLoading}>
+              {
+                !isLoading ? 
+                <>Оставить заявку на бронирование</>
+                :
+                <>Заявка отправляется ...</>
+              }
             </button>
           </form>
         )}

@@ -1,5 +1,10 @@
 .header {
   @apply text-center bg-brandBlue;
+  padding-top: 8rem;
+  @media screen and (max-width: 425px) {
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+  }
 }
 
 .title {
@@ -9,6 +14,12 @@
   padding-top: 10.2rem;
   line-height: 4.7rem;
   margin-bottom: 1.6rem;
+  text-transform: uppercase;
+
+  @media screen and (max-width: 425px) {
+    font-size: 3rem;
+    line-height: 1;
+  }
 }
 
 .subtitle {
@@ -17,4 +28,8 @@
   font-size: 1.6rem;
   line-height: 2.16rem;
   font-weight: 500;
+
+  @media screen and (max-width: 425px) {
+    // margin-bottom: 2.8rem;
+  }
 }

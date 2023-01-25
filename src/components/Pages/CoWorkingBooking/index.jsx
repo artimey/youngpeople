@@ -20,10 +20,10 @@ export const CoWorkingBooking = () => {
     <MainLayout>
       <CowWorkingHeader />
 
-      <section className="bg-brandBlue py-[8rem]">
+      <section className="bg-brandBlue py-[8rem] overflow-hidden">
         <ContainerLayout>
-          <Row gutter={[48, 16]}>
-            <Col span={11}>
+          <Row gutter={[48, 16]} className="sm:px-[10rem] md:px-0">
+            <Col xs={24} sm={22} md={11}>
               <CoWorkingContent 
                 image={coWorkingZonesData[zoneSlug].img}
                 title={coWorkingZonesData[zoneSlug].title}
@@ -31,7 +31,7 @@ export const CoWorkingBooking = () => {
               />
             </Col>
 
-            <Col span={12} className="ml-auto">
+            <Col xs={24} sm={22} md={12} className="ml-0 md:ml-auto">
               <CoWorkingForm title={coWorkingZonesData[zoneSlug].title}/>
             </Col>
           </Row>
