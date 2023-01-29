@@ -25,7 +25,7 @@ export const Zones = () => {
 
                   <div className="flex justify-center">
                     <Link to={`/co-working-zones/${coWorkingZonesData[item].slug}`} className={styles.zoneButton}>
-                      Оставить заявкуна <br/> на бронь
+                      Оставить заявку <br/> на бронь
                     </Link>
                   </div>
                 </Col>

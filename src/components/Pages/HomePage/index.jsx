@@ -12,7 +12,7 @@ import { AboutSection } from '../../AboutSection';
 
 export const HomePage = () => {
   return (
-    <div className="z-[100]">
+    <div className="z-[100] overflow-hidden">
       <Navbar />
       <Header />
       <div className="z-[99] bg-brandBlue">

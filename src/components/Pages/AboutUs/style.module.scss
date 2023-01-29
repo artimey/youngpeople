@@ -309,13 +309,11 @@
       margin-right: .5rem;
     }
 
-    &:nth-last-child(1) {
-      width: fit-content;
-
-      >span {
-        width: calc(100% - 10rem)
-      }
-    }
+    // &:nth-last-child(1) {
+    //   >span {
+    //     width: calc(100% - 10rem)
+    //   }
+    // }
   }
 
   // p { 

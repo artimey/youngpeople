@@ -18,7 +18,7 @@ export const CoWorkingBooking = () => {
 
   return (
     <MainLayout>
-      <CowWorkingHeader />
+      <CowWorkingHeader title={coWorkingZonesData[zoneSlug].titleForBooking}/>
 
       <section className="bg-brandBlue py-[8rem] overflow-hidden">
         <ContainerLayout>

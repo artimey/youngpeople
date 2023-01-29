@@ -20,7 +20,7 @@ export const AboutUs = () => {
   }, [])
 
   return (
-    <div children="overflow-hidden">
+    <div children="overflow-hidden" className='overflow-hidden'>
       <MainLayout>
         <div className="bg-brandBlue">
           <div className="px-5 sm:px-[41px] max-sm:px-0 relative">

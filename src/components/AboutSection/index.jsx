@@ -15,7 +15,7 @@ export const AboutSection = () => {
     <section className="bg-brandBlue py-[8rem] max-sm:pt-[6rem] overflow-hidden">
       <ContainerLayout>
         <span className={styles.sideText}>Проектный офис</span>
-        <Row className='row'>
+        <Row className="row">
           <Col span={12} xs={24} sm={24} md={12} className="max-sm:order-last">
             <div className={styles.images}>
               {images.map((v, i) => {
@@ -24,20 +24,25 @@ export const AboutSection = () => {
             </div>
           </Col>
           <Col span={12} xs={24} sm={24} md={12} className="mb-[7rem]">
-            <h2 className={`${styles.heading} mb-[4rem] max-sm:mb-[2rem]`}>О нас</h2>
+            <h2 className={`${styles.heading} mb-[4rem] max-sm:mb-[2rem]`}>
+              О нас
+            </h2>
             <div
               className={`${styles.description} flex flex-col flex-nowrap ml-[20rem] max-sm:ml-[8rem]`}
             >
-              <span className="mb-[1.6rem]">
+              <span className="mb-[1.6rem] w-[32rem]">
                 Наша цель – выявлять и реализовывать запросы молодого поколения
                 столицы.
               </span>
-              <span className="mb-[1.6rem]">
+              <span className="mb-[1.6rem] w-[32rem]">
                 В рамках работы ведется 10 проектов, а наши активисты регулярно
-                принимают участие в организации акций и крупных событий города
+                принимают участие в организации акций и крупных событях города
               </span>
               {/* Не понял, куда должно вести */}
-              <Link to="/about" className={`${styles.link} py-[2.1rem] px-[3.2rem]`}>
+              <Link
+                to="/about"
+                className={`${styles.link} py-[2.1rem] px-[3.2rem]`}
+              >
                 Хочу узнать больше
               </Link>
             </div>
