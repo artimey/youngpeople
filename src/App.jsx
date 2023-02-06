@@ -5,7 +5,8 @@ import { CoWorkingZones } from "./components/Pages/CoWorkingZones";
 import { EventPage } from "./components/Pages/EventPage";
 import { EventsPage } from "./components/Pages/EventsPage";
 import { HomePage } from "./components/Pages/HomePage";
-import { UiKit } from "./components/UiKit";
+import { PartnersPage } from "./components/Pages/PartnersPage";
+
 
 
 
@@ -18,7 +19,7 @@ function App() {
       <Route path="/about" element={<AboutUs />} />
       <Route path="/events" element={<EventsPage />} />
       <Route path="/events/:eventSlug" element={<EventPage />} />
-      <Route path="/uikit" element={<UiKit />} />
+      <Route path='/partners' element={<PartnersPage/>}/>
     </Routes>
   )
 }
