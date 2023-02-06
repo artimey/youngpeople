@@ -3,6 +3,7 @@ import headerImage from '../../../../img/header.png';
 import { Col } from 'antd';
 import maskImage from '../../../../img/maskHeader.png';
 import clsx from 'clsx';
+import { FieldButton } from '../../../UiKit/Buttons';
 
 export const Header = () => {
   return (
@@ -25,9 +26,8 @@ export const Header = () => {
 
           <a
             href="#allevents"
-            className={`${styles.button} mr-[12px] inline-block`}
           >
-            Все мероприятия
+            <FieldButton> Все мероприятия</FieldButton>
           </a>
 
           {/* <button  className={`${styles.button}  !bg-white8 !text-white`}>

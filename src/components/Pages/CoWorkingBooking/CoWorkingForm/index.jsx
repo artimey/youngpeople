@@ -14,6 +14,7 @@ export const CoWorkingForm = ({ title }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [dateValue, setDateValue] = useState('');
   const [eventFormatValue, setEventFormatValue] = useState('');
+  const [universityData, setUniversityData] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
   const tagsData = [
     '10:00-11:00', '11:00-12:00', '12:00-13:00', '13:00-14:00',
@@ -24,6 +25,10 @@ export const CoWorkingForm = ({ title }) => {
   const handleDateChange = (value) => {
     const res = `${value?.$D}.${Number(value?.$M) + 1}.${value?.$y}`
     setDateValue(res);
+  }
+
+  const handleUniversityChange = (value) => {
+    setUniversityData(value)
   }
 
   const handleEventFormatValue = (value) => {
@@ -38,18 +43,28 @@ export const CoWorkingForm = ({ title }) => {
     setSelectedTags(nextSelectedTags);
   };
 
-  const onSubmit = async (values, { setSubmitting }) => {
-    // alert('Заявка отправлена!')
-    console.log(JSON.stringify({ ...values, eventDate: dateValue, eventTime: selectedTags }, null, 2));
+  const onSubmit = (values, { setSubmitting }) => {
 
-    const body = JSON.stringify({ ...values, eventDate: dateValue, eventTime: selectedTags })
+    const queryData = {
+      ...values,
+      eventDate: dateValue,
+      eventTime: selectedTags,
+      studyInfo: universityData
+    }
 
-    const test = 'https://mosmolodezh.ru/api/forms/booking/'
-    const test1 = 'http://185.211.170.217/api/forms/booking/'
+    console.log(queryData)
+
+    // submitFunction(queryData)
+  }
+
+  const submitFunction = async (queryData) => {
+    const body = JSON.stringify(queryData)
+
+    const baseURL = 'https://mosmolodezh.ru/api/forms/booking/'
 
     try {
       setIsLoading(true);
-      const data = await axios.post(test, body, { headers: { 'Content-Type': 'application/json' } })
+      const data = await axios.post(baseURL, body, { headers: { 'Content-Type': 'application/json' } })
       if (data) {
         setIsSuccess(true)
         setIsLoading(false)
@@ -62,19 +77,6 @@ export const CoWorkingForm = ({ title }) => {
       setIsLoading(false)
       console.log(err);
     }
-
-    // await fetch(test , {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({...values, eventDate: dateValue, eventTime: selectedTags})
-    // })
-    // .then(res => res.json())
-    // .then(res => console.log(res))
-    // .catch(err => {
-    //   console.log(err);
-    // })
   }
 
   return (
@@ -102,7 +104,15 @@ export const CoWorkingForm = ({ title }) => {
       }
 
       <Formik
-        initialValues={{ eventName: '', participantCount: '1', eventDate: '', comment: '', eventTime: "", eventFormat: "" }}
+        initialValues={{ 
+          eventName: '', 
+          participantCount: '1', 
+          eventDate: '', 
+          comment: '', 
+          eventTime: "", 
+          eventFormat: "", 
+          bornDate: "",
+        }}
         validate={values => {
           const errors = {};
           if (!values.eventName) {
@@ -128,6 +138,34 @@ export const CoWorkingForm = ({ title }) => {
           isSubmitting,
         }) => (
           <form className={styles.form} onSubmit={handleSubmit}>
+
+            <label>
+              <div className={styles.labelTitle}>Дата рождения <span>*</span></div>
+              <Input
+                type="text"
+                name="bornDate"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.bornDate}
+              />
+              <span className={styles.error}>{errors.bornDate && touched.bornDate && errors.bornDate}</span>
+            </label>
+
+            <label>
+              <div className={styles.labelTitle}>Вуз/ссуз <span>*</span></div>
+              <Select
+                placeholder="Где обучаетесь?"
+                className={styles.select}
+                onChange={handleUniversityChange}
+                suffixIcon={<ArrowDown className="mr-[1.8rem] w-[1.6rem] h-[1rem]" />}
+                options={[
+                  { value: 'День московского студента', label: 'День московского студента' },
+                  { value: 'Москва историческая', label: 'Москва историческая' },
+                  { value: 'Москва спортивная', label: 'Москва спортивная' }
+                ]}
+              />
+            </label>
+
             <label>
               <div className={styles.labelTitle}>Название мероприятия <span>*</span></div>
               <Input
@@ -139,21 +177,6 @@ export const CoWorkingForm = ({ title }) => {
               />
               <span className={styles.error}>{errors.eventName && touched.eventName && errors.eventName}</span>
             </label>
-
-            {/* <label>
-              <div className={styles.labelTitle}>Формат мероприятия <span>*</span></div>
-              <Select
-                defaultValue="Москва спортивная"
-                className={styles.select}
-                onChange={handleEventFormatValue}
-                suffixIcon={<ArrowDown className="mr-[1.8rem] w-[1.6rem] h-[1rem]" />}
-                options={[
-                  { value: 'День московского студента', label: 'День московского студента' },
-                  { value: 'Москва историческая', label: 'Москва историческая' },
-                  { value: 'Москва спортивная', label: 'Москва спортивная' }
-                ]}
-              />
-            </label> */}
 
             <label>
               <div className={styles.labelTitle}>Формат мероприятия <span>*</span></div>
