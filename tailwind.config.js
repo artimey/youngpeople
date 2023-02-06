@@ -18,8 +18,12 @@ module.exports = {
         "black8": "rgba(31, 31, 31, 0.08)",
         "brandPink": "#E72978",
         "brandBlue": "#332784",
+        "brandBlue8": "rgba(51, 39, 132, 0.08)",
+        "brandBlue16": "rgba(51, 39, 132, 0.16)",
         "lightBlue": "#493BA8",
         "baseColor": "#322b81",
+        "red8": "rgba(218, 69, 69, 0.08)",
+        "red16": "rgba(218, 69, 69, 0.16)",
         "errorRed": "#DA4545",
         "successGreen": "#51DA45",
       }

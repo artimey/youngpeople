@@ -1,0 +1,40 @@
+.fieldButton {
+  padding: 2.15rem 3.2rem;
+  border-radius: 100px;
+  font-weight: 500;
+  font-family: "TT Norms";
+  font-size: 1.7rem;
+  line-height: 1.37;
+  box-sizing: border-box;
+  transition: all .3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+
+  span {
+    width: 1.4rem;
+    height: 1.4rem;
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.fieldButtonCircle {
+  width: 6.4rem;
+  height: 6.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  font-size: 1.7rem;
+  transition: all .3s ease-in-out;
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
