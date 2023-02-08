@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
-export const Checkbox = () => {
-  const [checked, setChecked] = useState(false);
+export const Checkbox = ({checked, onChange}) => {
+  const [isChecked, setIsChecked] = useState(checked);
 
-  const hahdleChange = () => {
-    setChecked((s) => !s);
+  const handleChange = () => {
+    setIsChecked((s) => !s);
+    onChange(!isChecked)
   };
   return (
-    <div className={styles.checkBox} onClick={hahdleChange}>
+    <div className={styles.checkBox} onClick={handleChange}>
       {checked && <i className="ri-check-line text-white"></i>}
     </div>
   );

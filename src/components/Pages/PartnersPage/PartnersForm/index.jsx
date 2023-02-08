@@ -1,23 +1,66 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input, Select } from "antd";
 import { Formik } from "formik";
 import { ReactComponent as ArrowDown } from "../../../../img/arrowDown.svg";
 import { Checkbox } from "../../../Checkbox";
-import styles from "./styles.module.scss";
 import { districts } from "../../../../mockData/mockData";
 import { useLazyAddPartnerQuery } from "../../../../app/api/partnerApi";
+import { Notifications } from "../../../UiKit/Notifications";
+import { PatternFormat } from "react-number-format";
+import styles from "./styles.module.scss";
 
 export const PartnersForm = () => {
   const [district, setDistrict] = useState(districts[0]);
   const [isAgree, setIsAgree] = useState(false);
   const [onAdd, { isSuccess, isError }] = useLazyAddPartnerQuery();
+  const [isDeliveredSuccess, setIsDeliveredSuccess] = useState(false);
+  const [isDeliveredError, setIsDeliveredError] = useState(false);
+
+  useEffect(() => {
+
+    if (isSuccess) {
+      setIsDeliveredSuccess(true)
+      const timer = setTimeout(() => {setIsDeliveredSuccess(false)}, 5000)
+      return () => {
+        clearTimeout(timer)
+      };
+    } else if (isError) {
+      setIsDeliveredError(true)
+      const timer = setTimeout(() => {setIsDeliveredError(false)}, 5000)
+      return () => {
+        clearTimeout(timer)
+      };
+    }
+
+  }, [isSuccess, isError])
 
   const onSubmit = async (value) => {
-    console.log("VALUE", { ...value, district });
-    await onAdd({ ...value, district });
+    if (isAgree) {
+      await onAdd({ ...value, district });
+    }
   };
   return (
     <div>
+      {isDeliveredSuccess ? (
+        <div
+          className="top-5 right-5 fixed z-[99999]"
+        >
+          <Notifications type="success" close={() => setIsDeliveredSuccess(false)}>
+            Ваша заявка была успешна отправленна
+          </Notifications>
+        </div>
+      ) : null}
+
+      {isDeliveredError ? (
+        <div
+          className=" top-5 right-5 fixed z-[99999]"
+        >
+          <Notifications type="warning" close={() => setIsDeliveredError(false)}>
+            Что то пошло не так
+          </Notifications>
+        </div>
+      ) : null}
+
       <Formik
         initialValues={{
           fmp: "",
@@ -32,14 +75,14 @@ export const PartnersForm = () => {
         onSubmit={onSubmit}
         // validate={(values) => {
         //   const errors = {};
-        //   if (!values.eventName) {
+        //   if (!values.fmp) {
         //     errors.eventName = "*Поле обязаятельно к заполнению";
         //   }
         //   if (!values.eventFormat) {
         //     errors.eventFormat = "*Поле обязаятельно к заполнению";
         //   }
-        //   if (values.participantCount <= 0) {
-        //     errors.participantCount = "*Участников не может быть 0";
+        //   if (!values.eventFormat) {
+        //     errors.eventFormat = "*Поле обязаятельно к заполнению";
         //   }
         //   return errors;
         // }}
@@ -62,9 +105,10 @@ export const PartnersForm = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.eventName}
+                required
               />
               <span className={styles.error}>
-                {errors.eventName && touched.eventName && errors.eventName}
+                {errors.fmp && touched.fmp && errors.fmp}
               </span>
             </label>
 
@@ -111,6 +155,7 @@ export const PartnersForm = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.participantCount}
+                required
               />
 
               <span className={styles.error}>
@@ -179,13 +224,24 @@ export const PartnersForm = () => {
 
             <label>
               <div className={styles.labelTitle}>Контактный номер*</div>
-              <Input
+              <PatternFormat 
+                format="+7 (###) ### ## ##"
+                mask='_'
+                type="phone"
+                name="phoneNumber"
+                placeholder={'+7 (000) 00 00 00'}
+                onChange={handleChange}
+                value={values.phoneNumber}
+                required
+              />
+              {/* <Input
                 type="phone"
                 name="phoneNumber"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.participantCount}
-              />
+                required
+              /> */}
 
               <span className={styles.error}>
                 {errors.participantCount &&
@@ -202,6 +258,7 @@ export const PartnersForm = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.participantCount}
+                required
               />
 
               <span className={styles.error}>
@@ -212,7 +269,7 @@ export const PartnersForm = () => {
             </label>
 
             <div className={styles.checkboxWrapper}>
-              <Checkbox />
+              <Checkbox checked={isAgree} onChange={setIsAgree} />
               <div className={styles.chekboxText}>
                 Даю согласие на обработку&nbsp;
                 <a href="" target="_blank" referrerPolicy="no-referrer">

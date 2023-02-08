@@ -8,8 +8,12 @@ import { useGetFieldActivitiesQuery } from "../../../../app/api/partnerApi";
 import styles from "./styles.module.scss";
 import { useLazyBookSpaceQuery } from "../../../../app/api/bookingSpace";
 import { institutionsTransformer } from "../../../../utils/transformers/institutions";
+import { Notifications } from "../../../UiKit/Notifications";
+import { PatternFormat } from "react-number-format";
 
 export const CoWorkingForm = ({ title }) => {
+  const [isDeliveredSuccess, setIsDeliveredSuccess] = useState(false);
+  const [isDeliveredError, setIsDeliveredError] = useState(false);
   const [universityData, setUniversityData] = useState("");
   const [dateValue, setDateValue] = useState("");
   const [eventFormatValue, setEventFormatValue] = useState("");
@@ -31,8 +35,21 @@ export const CoWorkingForm = ({ title }) => {
 
   const [handleBooking, { data, isSuccess, isError }] = useLazyBookSpaceQuery();
   useEffect(() => {
-    if (institutions) console.log(institutionsTransformer(institutions));
-  }, [institutions]);
+
+    let timer;
+
+    if (isSuccess) {
+      setIsDeliveredSuccess(true)
+      timer = setTimeout(() => {setIsDeliveredSuccess(false)}, 5000)
+    } else if (isError) {
+      setIsDeliveredError(true)
+      timer = setTimeout(() => {setIsDeliveredError(false)}, 5000)
+    }
+
+    return () => clearTimeout(timer);
+
+  }, [isSuccess, isError])
+
   const handleDateChange = (value) => {
     const res = `${value?.$D}.${Number(value?.$M) + 1}.${value?.$y}`;
     setDateValue(res);
@@ -40,10 +57,6 @@ export const CoWorkingForm = ({ title }) => {
 
   const handleUniversityChange = (value) => {
     setUniversityData(value);
-  };
-
-  const handleEventFormatValue = (value) => {
-    setEventFormatValue(value);
   };
 
   const handleTimeChange = (tag, checked) => {
@@ -55,28 +68,30 @@ export const CoWorkingForm = ({ title }) => {
   };
 
   const onSubmit = async (values, { setSubmitting }) => {
-    const body = { ...values, eventDate: dateValue, eventTime: selectedTags };
+    const body = { ...values, eventDate: dateValue, eventTime: selectedTags, universityData };
 
     handleBooking(body);
   };
 
   return (
     <div>
-      {isSuccess ? (
+      {isDeliveredSuccess ? (
         <div
-          className="bg-green-500 p-[2rem] top-5 right-5 fixed w-[300px] z-[99999] 
-          rounded-2xl text-[2rem] text-white font-[500] text-center"
+          className="top-5 right-5 fixed z-[99999]"
         >
-          Заявка отправлена 🎉
+          <Notifications type="success" close={() => setIsDeliveredSuccess(false)}>
+            Ваша заявка была успешна отправленна
+          </Notifications>
         </div>
       ) : null}
 
-      {isError ? (
+      {isDeliveredError ? (
         <div
-          className="bg-red-600 p-[2rem] top-5 right-5 fixed w-[300px] z-[99999] 
-          rounded-2xl text-[2rem] text-white font-[500] text-center"
+          className=" top-5 right-5 fixed z-[99999]"
         >
-          Что-то пошло не так ;(
+          <Notifications type="warning" close={() => setIsDeliveredError(false)}>
+            Что то пошло не так
+          </Notifications>
         </div>
       ) : null}
 
@@ -118,12 +133,16 @@ export const CoWorkingForm = ({ title }) => {
               <div className={styles.labelTitle}>
                 Дата Рождения <span>*</span>
               </div>
-              <Input
+              <PatternFormat 
+                format="##.##.####"
+                mask='_'
                 type="text"
                 name="bornDate"
+                placeholder={'10.09.1147'}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.bornDate}
+                required
               />
               <span className={styles.error}>
                 {errors.bornDate && touched.bornDate && errors.bornDate}
@@ -144,17 +163,7 @@ export const CoWorkingForm = ({ title }) => {
                 suffixIcon={
                   <ArrowDown className="mr-[1.8rem] w-[1.6rem] h-[1rem]" />
                 }
-                options={[
-                  {
-                    value: "День московского студента",
-                    label: "День московского студента",
-                  },
-                  {
-                    value: "Москва историческая",
-                    label: "Москва историческая",
-                  },
-                  { value: "Москва спортивная", label: "Москва спортивная" },
-                ]}
+                options={institutionsTransformer(institutions)}
               />
             </label>
 
