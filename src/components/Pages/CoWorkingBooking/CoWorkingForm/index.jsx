@@ -7,6 +7,7 @@ import CheckableTag from "antd/es/tag/CheckableTag";
 import { useGetFieldActivitiesQuery } from "../../../../app/api/partnerApi";
 import styles from "./styles.module.scss";
 import { useLazyBookSpaceQuery } from "../../../../app/api/bookingSpace";
+import { institutionsTransformer } from "../../../../utils/transformers/institutions";
 
 export const CoWorkingForm = ({ title }) => {
   const [universityData, setUniversityData] = useState("");
@@ -26,13 +27,12 @@ export const CoWorkingForm = ({ title }) => {
     "19:00-20:00",
   ];
 
-  const {
-    data: institutions,
-    isLoading,
-  } = useGetFieldActivitiesQuery();
+  const { data: institutions, isLoading } = useGetFieldActivitiesQuery();
 
   const [handleBooking, { data, isSuccess, isError }] = useLazyBookSpaceQuery();
-
+  useEffect(() => {
+    if (institutions) console.log(institutionsTransformer(institutions));
+  }, [institutions]);
   const handleDateChange = (value) => {
     const res = `${value?.$D}.${Number(value?.$M) + 1}.${value?.$y}`;
     setDateValue(res);
