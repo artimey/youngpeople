@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Input, Select } from "antd";
 import { Formik } from "formik";
 import { ReactComponent as ArrowDown } from "../../../../img/arrowDown.svg";
-import styles from "./styles.module.scss";
 import { Checkbox } from "../../../Checkbox";
+import styles from "./styles.module.scss";
+import { districts } from "../../../../mockData/mockData";
+import { useLazyAddPartnerQuery } from "../../../../app/api/partnerApi";
 
 export const PartnersForm = () => {
+  const [district, setDistrict] = useState(districts[0]);
+  const [isAgree, setIsAgree] = useState(false);
+  const [onAdd, { isSuccess, isError }] = useLazyAddPartnerQuery();
+
+  const onSubmit = async (value) => {
+    console.log("VALUE", { ...value, district });
+    await onAdd({ ...value, district });
+  };
   return (
     <div>
       <Formik
@@ -19,6 +29,7 @@ export const PartnersForm = () => {
           phoneNumber: "",
           email: "",
         }}
+        onSubmit={onSubmit}
         // validate={(values) => {
         //   const errors = {};
         //   if (!values.eventName) {
@@ -59,7 +70,20 @@ export const PartnersForm = () => {
 
             <label>
               <div className={styles.labelTitle}>Сфера деятельности</div>
-              <Select
+              <Input
+                type="text"
+                name="fieldActivity"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.participantCount}
+              />
+
+              <span className={styles.error}>
+                {errors.participantCount &&
+                  touched.participantCount &&
+                  errors.participantCount}
+              </span>
+              {/* <Select
                 defaultValue="Помощь нуждающимся"
                 className={styles.select}
                 suffixIcon={
@@ -76,7 +100,7 @@ export const PartnersForm = () => {
                   },
                   { value: "Москва спортивная", label: "Москва спортивная" },
                 ]}
-              />
+              /> */}
             </label>
 
             <label>
@@ -117,23 +141,27 @@ export const PartnersForm = () => {
               <div className={styles.labelTitle}>
                 АО, в котором осуществляется деятельность
               </div>
+              {/* <Input
+                type="text"
+                name="district"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.participantCount}
+              />
+
+              <span className={styles.error}>
+                {errors.participantCount &&
+                  touched.participantCount &&
+                  errors.participantCount}
+              </span> */}
               <Select
-                defaultValue="Центральный"
+                value={district}
+                onChange={setDistrict}
                 className={styles.select}
                 suffixIcon={
                   <ArrowDown className="mr-[1.8rem] w-[1.6rem] h-[1rem]" />
                 }
-                options={[
-                  {
-                    value: "День московского студента",
-                    label: "День московского студента",
-                  },
-                  {
-                    value: "Москва историческая",
-                    label: "Москва историческая",
-                  },
-                  { value: "Москва спортивная", label: "Москва спортивная" },
-                ]}
+                options={districts}
               />
             </label>
 
