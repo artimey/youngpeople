@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Afisha } from '../../Afisha';
 import { AllNews } from '../../AllNews';
 import { EventsSlider } from '../../EventsSlider';
@@ -11,6 +11,7 @@ import { SectionHeading } from '../../SectionHeading';
 import { AboutSection } from '../../AboutSection';
 
 export const HomePage = () => {
+
   return (
     <div className="z-[100]">
       <Navbar />

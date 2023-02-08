@@ -9,12 +9,13 @@ import { Link } from 'react-router-dom';
 
 export const MyFooter = () => {
   const logos = [logo1, logo2, youngLogo];
+
   const dataMenu = [
     { title: 'Мероприятия', href: '/events' },
     { title: 'Бронь пространств', href: '/co-working-zones' },
     { title: 'О нас', href: '/about' },
-    // {title: 'Проекты', href: '#'},
-    // {title: 'Партнеры', href: '#'},
+    {title: 'Пространства', href: '/co-working-zones'},
+    {title: 'Партнеры', href: '/partners'},
     // {title: 'Новости', href: '#'},
     // {title: 'Контакты', href: '#'},
   ];

@@ -17,6 +17,6 @@ export const links = [
   },
   {
     link: "/partners",
-    title: "Партнёры",
+    title: "Партнеры",
   },
 ];

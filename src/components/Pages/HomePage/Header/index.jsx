@@ -4,8 +4,10 @@ import { Col } from 'antd';
 import maskImage from '../../../../img/maskHeader.png';
 import clsx from 'clsx';
 import { FieldButton } from '../../../UiKit/Buttons';
+import { useEffect } from 'react';
 
 export const Header = () => {
+
   return (
     <header className={clsx(styles.header)}>
       <div className="px-5 sm:px-[41px] relative">
@@ -16,7 +18,7 @@ export const Header = () => {
             {/* <p className={styles.subtitle}>
               Мы — команда молодых инициативных ребят, меняющая жизнь к лучшему.
               Запускаем амбициозные проекты и организуем мероприятия для
-              молодёжи с 2020 года
+              молодежи с 2020 года
             </p> */}
 
             <div className={styles.maskImage}>
