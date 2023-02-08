@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik } from "formik";
 import { DatePicker, Input, Select } from "antd";
 import { ReactComponent as ArrowDown } from "../../../../img/arrowDown.svg";
@@ -29,11 +29,9 @@ export const CoWorkingForm = ({ title }) => {
   const {
     data: institutions,
     isLoading,
-    isError,
-    isSuccess
   } = useGetFieldActivitiesQuery();
 
-  const [handleBooking, { data }] = useLazyBookSpaceQuery();
+  const [handleBooking, { data, isSuccess, isError }] = useLazyBookSpaceQuery();
 
   const handleDateChange = (value) => {
     const res = `${value?.$D}.${Number(value?.$M) + 1}.${value?.$y}`;
@@ -118,7 +116,7 @@ export const CoWorkingForm = ({ title }) => {
           <form className={styles.form} onSubmit={handleSubmit}>
             <label>
               <div className={styles.labelTitle}>
-                Название мероприятия <span>*</span>
+                Дата Рождения <span>*</span>
               </div>
               <Input
                 type="text"

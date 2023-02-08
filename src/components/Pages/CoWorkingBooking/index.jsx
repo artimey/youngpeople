@@ -15,7 +15,6 @@ export const CoWorkingBooking = () => {
     window.scrollTo(0, 0)
   }, [])
 
-
   return (
     <MainLayout>
       <CowWorkingHeader />

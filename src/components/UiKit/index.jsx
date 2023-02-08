@@ -15,7 +15,7 @@ export const UiKit = () => {
 
       <div className="bg-brandBlue py-[100px] pl-[100px]">
         <FieldButton className="mr-10" onClick={test}>
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <a href="https://google.com" target="_blank">
@@ -35,15 +35,15 @@ export const UiKit = () => {
 
       <div className="bg-brandBlue py-[100px] pl-[100px]">
         <FieldButton type='bg8' className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bg8' right={true} className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bg8' left={true} className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bg8' view={true} />
@@ -51,15 +51,15 @@ export const UiKit = () => {
 
       <div className="bg-brandPink py-[100px] pl-[100px]">
         <FieldButton type='bg16' className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bg16' right={true} className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bg16' left={true} className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bg16' view={true} />
@@ -67,15 +67,15 @@ export const UiKit = () => {
 
       <div className="bg-brandBlue py-[100px] pl-[100px]">
         <FieldButton type='bgPink' className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bgPink' right={true} className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bgPink' left={true} className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bgPink' view={true} />
@@ -83,15 +83,15 @@ export const UiKit = () => {
 
       <div className="bg-white py-[100px] pl-[100px]">
         <FieldButton type='bgBlueLight' className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bgBlueLight' right={true} className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bgBlueLight' left={true} className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bgBlueLight' view={true} />
@@ -99,15 +99,15 @@ export const UiKit = () => {
 
       <div className="bg-white py-[100px] pl-[100px]">
         <FieldButton type='bgRed' className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bgRed' right={true} className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bgRed' left={true} className="mr-10">
-          Стать партнёром
+          Стать партнером
         </FieldButton>
 
         <FieldButton type='bgRed' view={true} />
