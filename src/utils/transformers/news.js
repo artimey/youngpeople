@@ -24,3 +24,16 @@ export const getNewsRows = (arr, pageNUmber) => {
 
   return [firstRow, secondRow, thirdRow];
 };
+
+export const newsTransformer = (news) => {
+  if (news) {
+    return Object.keys(news).map((item) => ({
+      id: news[item]["Fields"]["ID"],
+      title: news[item]["Fields"]["short"],
+      date: news[item]["Fields"]["date"],
+      fullNewsText: news[item]["Fields"]["bigText"],
+      img: news[item]["Fields"]["image"],
+    }));
+  }
+  return []
+};
