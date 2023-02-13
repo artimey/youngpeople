@@ -1,0 +1,44 @@
+@use "src/styles/colors" as colors;
+.newsItem {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: transparent;
+
+  & .newsImg {
+    object-fit: cover;
+    border-radius: 2.4rem;
+  }
+  & .newsTitle {
+    color: colors.$white;
+    font-weight: 500;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    margin-top: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  & .newsDate {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 2.2rem;
+    color: colors.$white50;
+  }
+
+  &:nth-child(0) {
+    .newsImg {
+      height: 22.6rem;
+    }
+  }
+  &:nth-child(1) {
+    .newsImg {
+      height: 22.4rem;
+    }
+  }
+  &:last-child {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    .newsImg {
+      height: g;
+      width: 71rem;
+    }
+  }
+}

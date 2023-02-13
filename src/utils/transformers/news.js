@@ -1,3 +1,5 @@
+import { FIELD_NAME } from "../constants/forms";
+
 export const getNewsRows = (arr, pageNUmber) => {
   const firstRow = [];
   const secondRow = [];
@@ -28,12 +30,13 @@ export const getNewsRows = (arr, pageNUmber) => {
 export const newsTransformer = (news) => {
   if (news) {
     return Object.keys(news).map((item) => ({
-      id: news[item]["Fields"]["ID"],
-      title: news[item]["Fields"]["short"],
-      date: news[item]["Fields"]["date"],
-      fullNewsText: news[item]["Fields"]["bigText"],
-      img: news[item]["Fields"]["image"],
+      id: news[item][FIELD_NAME]["ID"],
+      title: news[item][FIELD_NAME]["NAME"],
+      slug: news[item][FIELD_NAME]["CODE"],
+      date: news[item][FIELD_NAME]["DATE_ACTIVE_FROM"],
+      fullNewsText: news[item][FIELD_NAME]["DETAIL_TEXT"],
+      img: news[item][FIELD_NAME]["DETAIL_PICTURE"],
     }));
   }
-  return []
+  return [];
 };
