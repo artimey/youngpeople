@@ -5,34 +5,16 @@ import { ReactComponent as ArrowDown } from "../../../../img/arrowDown.svg";
 import { Checkbox } from "../../../Checkbox";
 import { districts } from "../../../../mockData/mockData";
 import { useLazyAddPartnerQuery } from "../../../../app/api/partnerApi";
-import { Notifications } from "../../../UiKit/Notifications";
 import { PatternFormat } from "react-number-format";
+import { FormLayout } from "../../../Form/FormLayout";
+import { FormField } from "../../../Form/FormField";
+import { SubmitButton } from "../../../Form/SubmitButton";
 import styles from "./styles.module.scss";
 
 export const PartnersForm = () => {
   const [district, setDistrict] = useState(districts[0]);
   const [isAgree, setIsAgree] = useState(false);
-  const [onAdd, { isSuccess, isError }] = useLazyAddPartnerQuery();
-  const [isDeliveredSuccess, setIsDeliveredSuccess] = useState(false);
-  const [isDeliveredError, setIsDeliveredError] = useState(false);
-
-  useEffect(() => {
-
-    if (isSuccess) {
-      setIsDeliveredSuccess(true)
-      const timer = setTimeout(() => {setIsDeliveredSuccess(false)}, 5000)
-      return () => {
-        clearTimeout(timer)
-      };
-    } else if (isError) {
-      setIsDeliveredError(true)
-      const timer = setTimeout(() => {setIsDeliveredError(false)}, 5000)
-      return () => {
-        clearTimeout(timer)
-      };
-    }
-
-  }, [isSuccess, isError])
+  const [onAdd, { isSuccess, isError, isLoading }] = useLazyAddPartnerQuery();
 
   const onSubmit = async (value) => {
     if (isAgree) {
@@ -40,65 +22,53 @@ export const PartnersForm = () => {
     }
   };
   return (
-    <div>
-      {isDeliveredSuccess ? (
-        <div
-          className="top-5 right-5 fixed z-[99999]"
+    <Formik
+      initialValues={{
+        fmp: "",
+        fieldActivity: "",
+        organizationName: "",
+        post: "",
+        district: "",
+        subjectCooperation: "",
+        phoneNumber: "",
+        email: "",
+      }}
+      onSubmit={onSubmit}
+      // validate={(values) => {
+      //   const errors = {};
+      //   if (!values.fmp) {
+      //     errors.eventName = "*Поле обязаятельно к заполнению";
+      //   }
+      //   if (!values.eventFormat) {
+      //     errors.eventFormat = "*Поле обязаятельно к заполнению";
+      //   }
+      //   if (!values.eventFormat) {
+      //     errors.eventFormat = "*Поле обязаятельно к заполнению";
+      //   }
+      //   return errors;
+      // }}
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isSubmitting,
+      }) => (
+        <FormLayout
+          isSuccess={isSuccess}
+          isError={isError}
+          onSubmit={handleSubmit}
         >
-          <Notifications type="success" close={() => setIsDeliveredSuccess(false)}>
-            Ваша заявка была успешна отправленна
-          </Notifications>
-        </div>
-      ) : null}
-
-      {isDeliveredError ? (
-        <div
-          className=" top-5 right-5 fixed z-[99999]"
-        >
-          <Notifications type="warning" close={() => setIsDeliveredError(false)}>
-            Что то пошло не так
-          </Notifications>
-        </div>
-      ) : null}
-
-      <Formik
-        initialValues={{
-          fmp: "",
-          fieldActivity: "",
-          organizationName: "",
-          post: "",
-          district: "",
-          subjectCooperation: "",
-          phoneNumber: "",
-          email: "",
-        }}
-        onSubmit={onSubmit}
-        // validate={(values) => {
-        //   const errors = {};
-        //   if (!values.fmp) {
-        //     errors.eventName = "*Поле обязаятельно к заполнению";
-        //   }
-        //   if (!values.eventFormat) {
-        //     errors.eventFormat = "*Поле обязаятельно к заполнению";
-        //   }
-        //   if (!values.eventFormat) {
-        //     errors.eventFormat = "*Поле обязаятельно к заполнению";
-        //   }
-        //   return errors;
-        // }}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isSubmitting,
-        }) => (
-          <form className={styles.form} onSubmit={handleSubmit}>
-            <label>
-              <div className={styles.labelTitle}>ФИО*</div>
+          <>
+            <FormField
+              errors={errors}
+              touched={touched}
+              fieldLabel="ФИО*"
+              fieldName="fmp"
+            >
               <Input
                 type="text"
                 name="fmp"
@@ -107,13 +77,14 @@ export const PartnersForm = () => {
                 value={values.eventName}
                 required
               />
-              <span className={styles.error}>
-                {errors.fmp && touched.fmp && errors.fmp}
-              </span>
-            </label>
+            </FormField>
 
-            <label>
-              <div className={styles.labelTitle}>Сфера деятельности</div>
+            <FormField
+              errors={errors}
+              touched={touched}
+              fieldLabel="Сфера деятельности"
+              fieldName="fieldActivity"
+            >
               <Input
                 type="text"
                 name="fieldActivity"
@@ -121,34 +92,14 @@ export const PartnersForm = () => {
                 onBlur={handleBlur}
                 value={values.participantCount}
               />
+            </FormField>
 
-              <span className={styles.error}>
-                {errors.participantCount &&
-                  touched.participantCount &&
-                  errors.participantCount}
-              </span>
-              {/* <Select
-                defaultValue="Помощь нуждающимся"
-                className={styles.select}
-                suffixIcon={
-                  <ArrowDown className="mr-[1.8rem] w-[1.6rem] h-[1rem]" />
-                }
-                options={[
-                  {
-                    value: "День московского студента",
-                    label: "День московского студента",
-                  },
-                  {
-                    value: "Москва историческая",
-                    label: "Москва историческая",
-                  },
-                  { value: "Москва спортивная", label: "Москва спортивная" },
-                ]}
-              /> */}
-            </label>
-
-            <label>
-              <div className={styles.labelTitle}>Название организации*</div>
+            <FormField
+              errors={errors}
+              touched={touched}
+              fieldLabel="Название организации*"
+              fieldName="organizationName"
+            >
               <Input
                 type="text"
                 name="organizationName"
@@ -157,16 +108,14 @@ export const PartnersForm = () => {
                 value={values.participantCount}
                 required
               />
+            </FormField>
 
-              <span className={styles.error}>
-                {errors.participantCount &&
-                  touched.participantCount &&
-                  errors.participantCount}
-              </span>
-            </label>
-
-            <label>
-              <div className={styles.labelTitle}>Должность</div>
+            <FormField
+              errors={errors}
+              touched={touched}
+              fieldLabel="Должность"
+              fieldName="post"
+            >
               <Input
                 type="text"
                 name="post"
@@ -174,31 +123,14 @@ export const PartnersForm = () => {
                 onBlur={handleBlur}
                 value={values.participantCount}
               />
+            </FormField>
 
-              <span className={styles.error}>
-                {errors.participantCount &&
-                  touched.participantCount &&
-                  errors.participantCount}
-              </span>
-            </label>
-
-            <label>
-              <div className={styles.labelTitle}>
-                АО, в котором осуществляется деятельность
-              </div>
-              {/* <Input
-                type="text"
-                name="district"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.participantCount}
-              />
-
-              <span className={styles.error}>
-                {errors.participantCount &&
-                  touched.participantCount &&
-                  errors.participantCount}
-              </span> */}
+            <FormField
+              errors={errors}
+              touched={touched}
+              fieldLabel="АО, в котором осуществляется деятельность"
+              fieldName="district"
+            >
               <Select
                 value={district}
                 onChange={setDistrict}
@@ -208,10 +140,14 @@ export const PartnersForm = () => {
                 }
                 options={districts}
               />
-            </label>
+            </FormField>
 
-            <label>
-              <div className={styles.labelTitle}>Предмет сотрудничества</div>
+            <FormField
+              errors={errors}
+              touched={touched}
+              fieldLabel="Предмет сотрудничества"
+              fieldName="subjectCooperation"
+            >
               <textarea
                 type="text"
                 name="subjectCooperation"
@@ -220,38 +156,32 @@ export const PartnersForm = () => {
                 onBlur={handleBlur}
                 value={values.comment}
               />
-            </label>
+            </FormField>
 
-            <label>
-              <div className={styles.labelTitle}>Контактный номер*</div>
-              <PatternFormat 
+            <FormField
+              errors={errors}
+              touched={touched}
+              fieldLabel="Контактный номер*"
+              fieldName="phoneNumber"
+            >
+              <PatternFormat
                 format="+7 (###) ### ## ##"
-                mask='_'
+                mask="_"
                 type="phone"
                 name="phoneNumber"
-                placeholder={'+7 (000) 00 00 00'}
+                placeholder={"+7 (000) 00 00 00"}
                 onChange={handleChange}
                 value={values.phoneNumber}
                 required
               />
-              {/* <Input
-                type="phone"
-                name="phoneNumber"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.participantCount}
-                required
-              /> */}
+            </FormField>
 
-              <span className={styles.error}>
-                {errors.participantCount &&
-                  touched.participantCount &&
-                  errors.participantCount}
-              </span>
-            </label>
-
-            <label>
-              <div className={styles.labelTitle}>Почта*</div>
+            <FormField
+              errors={errors}
+              touched={touched}
+              fieldLabel="Почта*"
+              fieldName="email"
+            >
               <Input
                 type="email"
                 name="email"
@@ -260,13 +190,7 @@ export const PartnersForm = () => {
                 value={values.participantCount}
                 required
               />
-
-              <span className={styles.error}>
-                {errors.participantCount &&
-                  touched.participantCount &&
-                  errors.participantCount}
-              </span>
-            </label>
+            </FormField>
 
             <div className={styles.checkboxWrapper}>
               <Checkbox checked={isAgree} onChange={setIsAgree} />
@@ -279,12 +203,7 @@ export const PartnersForm = () => {
             </div>
 
             <div className={styles.buttonWrapper}>
-              <button
-                className={`${styles.submitBtn} disabled:bg-white50`}
-                type="submit"
-              >
-                Отправить запрос
-              </button>
+              <SubmitButton isLoading={isLoading} text="Отправить запрос" />
 
               <div className={styles.applyText}>
                 Нажимая кнопку «Отправить», вы принимаете
@@ -298,9 +217,9 @@ export const PartnersForm = () => {
                 </a>
               </div>
             </div>
-          </form>
-        )}
-      </Formik>
-    </div>
+          </>
+        </FormLayout>
+      )}
+    </Formik>
   );
 };
