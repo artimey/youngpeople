@@ -28,7 +28,10 @@ export const HomePage = () => {
         />
       </div>
       <div className="z-[10000] relative -mt-[30px]">
-        <AllNews />
+        <AllNews
+          heading={<SectionHeading title={'Все новости'} path="/news" />}
+          pattern
+        />
       </div>
       <div className="z-[10001] relative -mt-[30px]  border-t-2 border-t-white8 rounded-t-[32px]">
         <AboutSection />

@@ -5,6 +5,8 @@ import { CoWorkingZones } from "./components/Pages/CoWorkingZones";
 import { EventPage } from "./components/Pages/EventPage";
 import { EventsPage } from "./components/Pages/EventsPage";
 import { HomePage } from "./components/Pages/HomePage";
+import { NewsOnePage } from "./components/Pages/NewsOnePage";
+import { NewsPage } from "./components/Pages/NewsPage";
 import { PartnersPage } from "./components/Pages/PartnersPage";
 
 
@@ -20,6 +22,8 @@ function App() {
       <Route path="/events" element={<EventsPage />} />
       <Route path="/events/:eventSlug" element={<EventPage />} />
       <Route path='/partners' element={<PartnersPage/>}/>
+      <Route path='/news' element={<NewsPage/>}/>
+      <Route path='/news/:newsSlug' element={<NewsOnePage />}/>
     </Routes>
   )
 }

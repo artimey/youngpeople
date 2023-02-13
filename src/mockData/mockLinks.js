@@ -19,4 +19,8 @@ export const links = [
     link: "/partners",
     title: "Партнеры",
   },
+  {
+    link: "/news",
+    title: "Новости",
+  },
 ];

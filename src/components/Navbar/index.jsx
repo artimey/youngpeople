@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
+import { useClickOutside } from "../../app/hooks/useClickOutside";
 import { ReactComponent as Logo } from "../../img/logo.svg";
 import { links } from "../../mockData/mockLinks";
-import { useClickOutside } from "../hooks";
 import ContainerLayout from "../Layouts/ContainerLayout/ContainerLayout";
 import styles from "./style.module.scss";
 
@@ -108,18 +108,12 @@ export const Navbar = () => {
 
         {isNav && (
           <div className={styles.navBody}>
-            <Link to={"/"} className="hover:text-brandPink mr-[1.6rem]">
-              Главная
-            </Link>
-            <Link to={"/events"} className="hover:text-brandPink mr-[1.6rem]">
-              Мероприятия
-            </Link>
-            <Link to={"/about"} className="hover:text-brandPink mr-[1.6rem]">
-              О нас
-            </Link>
-            <Link to={"/co-working-zones"} className="hover:text-brandPink">
-              Пространства
-            </Link>
+
+            {links.map((item) => (
+              <Link key={item.link} to={item.link} className="hover:text-brandPink mr-[1.6rem]">
+                {item.title}
+              </Link>
+            ))}
 
             <div className="h-1 w-[50%] mx-auto my-[3rem] border-t-2 border-white8 px-[100px]"></div>
 

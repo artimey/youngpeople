@@ -9,7 +9,7 @@ import ContainerLayout from '../Layouts/ContainerLayout/ContainerLayout';
 import NewsCard from './NewsCard';
 import NewsBudge from './NewsBudge';
 
-export const AllNews = () => {
+export const AllNews = ({ heading = null, pattern=false }) => {
   const data = [
     {
       title: 'Интересные стажировки и трудоустройство в крупные компании: итоги работы проектного офиса «Молодежь Москвы»      ',
@@ -35,12 +35,7 @@ export const AllNews = () => {
   return (
     <section className="bg-brandBlue max-sm:pt-[6rem]">
       <ContainerLayout>
-        <h2 className="heading">
-          Все новости
-          {/* <ArrowR
-            className="ml-[1.4rem] mt-[0.8rem]"
-          /> */}
-        </h2>
+        {heading}
 
         <Row gutter={[32, 16]}>
           <Col span={12} xs={24} sm={24} md={12}>
@@ -56,7 +51,12 @@ export const AllNews = () => {
         </Row>
       </ContainerLayout>
 
-      <div className={`${styles.pattern} mt-[80px]`}></div>
+      {
+        pattern ?
+        <div className={`${styles.pattern} mt-[80px]`}></div>
+        :
+        null
+      }
     </section>
   );
 };
