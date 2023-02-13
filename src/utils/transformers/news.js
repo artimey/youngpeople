@@ -27,7 +27,10 @@ export const getNewsRows = (arr, pageNUmber) => {
   return [firstRow, secondRow, thirdRow];
 };
 
+
 export const newsTransformer = (news) => {
+  const url = "https://mosmolodezh.ru";
+
   if (news) {
     return Object.keys(news).map((item) => ({
       id: news[item][FIELD_NAME]["ID"],
@@ -35,7 +38,7 @@ export const newsTransformer = (news) => {
       slug: news[item][FIELD_NAME]["CODE"],
       date: news[item][FIELD_NAME]["DATE_ACTIVE_FROM"],
       fullNewsText: news[item][FIELD_NAME]["DETAIL_TEXT"],
-      img: news[item][FIELD_NAME]["DETAIL_PICTURE"],
+      img: url + news[item][FIELD_NAME]["DETAIL_PICTURE"],
     }));
   }
   return [];
