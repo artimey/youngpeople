@@ -6,12 +6,12 @@ export const NewsGridItem = ({ item }) => {
   return (
     <Link
       to={`/news/${item.id}`}
-      className={styles.newsItem}
+      className={`${styles.newsItem}`}
       //   className="inline-block p-5 rounded-xl bg-white hover:text-brandPink"
     >
       <img
-        className={styles.newsImg}
-        src={`https://mosmolodezh.ru${item.img}`}
+        className={`${styles.newsImg}`}
+        src={item.img}
         alt={item.title}
       />
       <h3 className={styles.newsTitle}>{item.title}</h3>
