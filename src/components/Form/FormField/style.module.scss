@@ -1,0 +1,50 @@
+@use "src/styles/colors" as colors;
+
+.field {
+  position: relative;
+  display: block;
+  margin-bottom: 2.4rem !important;
+
+  & > input {
+    color: colors.$white50 !important;
+    background-color: colors.$white8 !important;
+    font-weight: 500 !important;
+    font-size: 1.6rem !important;
+    line-height: 2.16rem !important;
+    padding: 2.4rem !important;
+    border-radius: 1.6rem !important;
+    border: none !important;
+    width: 100% !important;
+  }
+
+  & > textarea {
+    min-height: 13rem;
+    max-height: 30rem;
+    color: colors.$white50 !important;
+    background-color: colors.$white8 !important;
+    border: none !important;
+    font-weight: 500 !important;
+    font-size: 1.6rem !important;
+    line-height: 2.16rem !important;
+    padding: 2.4rem !important;
+    border-radius: 1.6rem !important;
+    width: 100% !important;
+  }
+
+  .labelTitle {
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: colors.$white;
+    margin-bottom: 0.8rem;
+    line-height: 2.16rem;
+  }
+
+  .error {
+    position: absolute;
+    bottom: -2rem;
+    left: 1rem;
+    font-size: 1.2rem;
+    color: colors.$errorRed;
+    font-weight: 500;
+  }
+}

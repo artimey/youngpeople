@@ -1,41 +1,5 @@
 @use "src/styles/colors" as colors;
 
-.form {
-  label {
-    position: relative;
-    display: block;
-    margin-bottom: 2.4rem !important;
-    & > input {
-      color: colors.$white50 !important;
-      background-color: colors.$white8 !important;
-      font-weight: 500 !important;
-      font-size: 1.6rem !important;
-      line-height: 2.16rem !important;
-      padding: 2.4rem !important;
-      border-radius: 1.6rem !important;
-      width: 100% !important;
-      border: none;
-
-      &::placeholder {
-        color: colors.$white50 !important;
-      }
-    }
-
-    & > textarea {
-      color: colors.$white50 !important;
-      background-color: colors.$white8 !important;
-      font-weight: 500 !important;
-      font-size: 1.6rem !important;
-      line-height: 2.16rem !important;
-      padding: 2.4rem !important;
-      border-radius: 1.6rem !important;
-      width: 100% !important;
-      height: 15rem;
-      border: none;
-    }
-  }
-}
-
 .select {
   width: 100%;
   margin-bottom: 2.4rem;
@@ -43,34 +7,6 @@
   & > div {
     border: none !important;
   }
-}
-
-.labelTitle {
-  font-weight: 500;
-  font-size: 1.6rem;
-  color: colors.$white;
-  margin-bottom: 0.8rem;
-  line-height: 2.16rem;
-}
-
-.error {
-  position: absolute;
-  bottom: -2rem;
-  left: 1rem;
-  font-size: 1.2rem;
-  color: colors.$errorRed;
-  font-weight: 500;
-}
-
-.submitBtn {
-  color: colors.$white;
-  background-color: colors.$brandPink !important;
-  font-weight: 500;
-  font-size: 1.7rem;
-  line-height: 2.125rem;
-  width: 100%;
-  padding: 2.45rem 0;
-  border-radius: 5rem;
 }
 
 .checkboxWrapper {
