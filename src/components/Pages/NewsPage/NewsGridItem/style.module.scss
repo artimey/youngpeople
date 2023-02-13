@@ -7,6 +7,10 @@
   & .newsImg {
     object-fit: cover;
     border-radius: 2.4rem;
+
+    @media screen and (max-width: 768px) {
+      height: auto;
+    }
   }
   & .newsTitle {
     color: colors.$white;
@@ -15,10 +19,15 @@
     line-height: 2.2rem;
     margin-top: 1.8rem;
     margin-bottom: 0.8rem;
+    transition: color .3s ease;
+
+    &:hover {
+      @apply text-brandPink;
+    }
   }
   & .newsDate {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 2.2rem;
     color: colors.$white50;
   }
@@ -37,8 +46,7 @@
     grid-column-start: 3;
     grid-column-end: 6;
     .newsImg {
-      height: g;
-      width: 71rem;
+      width: 100%;
     }
   }
 }

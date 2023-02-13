@@ -1,0 +1,27 @@
+.bigText {
+
+  p {
+    margin: 2rem 0;
+  }
+
+  br {
+    display: none;
+  }
+  
+  img {
+    border-radius: 12px;
+    margin: 3rem auto;
+  }
+
+  blockquote {
+    font-style: italic;
+  }
+
+  a {
+    text-decoration: underline;
+    &:hover {
+      @apply text-brandPink;
+    }
+  }
+
+}

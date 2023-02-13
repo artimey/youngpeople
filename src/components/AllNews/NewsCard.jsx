@@ -10,7 +10,7 @@ const NewsCard = ({ item }) => {
     >
       <img
         className="w-full mb-[2.5rem]"
-        src={`https://mosmolodezh.ru${item.img}`}
+        src={item.img}
         alt={item.title}
       />
 

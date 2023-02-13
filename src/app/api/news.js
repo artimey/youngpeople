@@ -5,9 +5,9 @@ export const newsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getAllNews: build.query({
       query: () => ({ url: "api/news/", method: "GET" }),
-      transformResponse(data) {
-        return newsTransformer(data);
-      },
+      // transformResponse(data) {
+      //   return newsTransformer(data);
+      // },
       providesTags: ["NEWS"],
     }),
     getNewPage: build.query({
