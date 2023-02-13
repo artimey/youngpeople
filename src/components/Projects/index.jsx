@@ -20,12 +20,12 @@ export const Projects = () => {
     {title: "КиберМосква", img: photo1, link: 'https://vk.com/cybermsk'},
     {title: "НаРайоне", img: photo2, link: 'https://vk.com/na_rayone_project'},
     {title: "ДеБаттл", img: photo3, link: 'https://vk.com/show_debattle'},
-    {title: "Stand Up Лига", img: photo4, link: 'https://vk.com/stud.standup'},
-    {title: "Лига КВН «Молодежь Москвы»", img: photo5, link: 'https://vk.com/liga_lampa'},
+    {title: "Stand Up Лига", img: photo4, link: 'https://vk.com/liga.standup'},
+    {title: "Лига КВН «Молодежь Москвы»", img: photo5, link: 'https://vk.com/liga_moskvn'},
     {title: "ВРаботе", img: photo6, link: 'https://vk.com/vrabote_me'},
     {title: "Город Героев Москва", img: photo7, link: 'https://vk.com/gorodgm'},
     {title: "Стены", img: photo8, link: 'https://t.me/stenyii'},
-    {title: "Портал «Молодежь Москвы»", img: photo9, link: 'https://vk.com/molodezh_msk'},
+    {title: "Портал «Молодежь Москвы»", img: photo9, link: 'https://mosmolodezh.ru/'},
   ]
 
   return (

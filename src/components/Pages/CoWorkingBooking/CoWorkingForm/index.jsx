@@ -229,11 +229,25 @@ export const CoWorkingForm = () => {
               />
             </FormField>
 
-            <SubmitButton
-              isLoading={isLoading}
-              text="Оставить заявку на бронирование"
-              loadingText="Заявка отправляется ..."
-            />
+            <div className={styles.buttonWrapper}>
+              <SubmitButton
+                isLoading={isLoading}
+                text="Оставить заявку на бронирование"
+                loadingText="Заявка отправляется ..."
+              />
+
+              <div className={styles.applyText}>
+                Нажимая кнопку «Отправить», вы принимаете
+                <br />
+                <a
+                  href="/docx/Политика_конфиденциальности_Молодежь_Москвы.pdf"
+                  referrerPolicy="no-referrer"
+                  target="_blank"
+                >
+                  политику конфиденциальности
+                </a>
+              </div>
+            </div>
           </>
         </FormLayout>
       )}

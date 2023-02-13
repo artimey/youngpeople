@@ -6,6 +6,7 @@ import ContainerLayout from '../../Layouts/ContainerLayout/ContainerLayout';
 import styles from './style.module.scss';
 
 export const Zones = () => {
+  
   return (
     <div className='bg-brandBlue pb-[8rem]'>
       <ContainerLayout>
@@ -15,8 +16,8 @@ export const Zones = () => {
               <Row key={item} className={styles.row}>
                 <Col xs={24} sm={10}>
                   <div className="rounded-[3rem] border-t border-t-white8 h-[4rem]"></div>
-
-                  <h3 className={styles.zoneTitle}>
+                  <h3 className={`${styles.zoneTitle} 
+                    ${coWorkingZonesData[item].title === "Зал для тренировок и танцевальных занятий" ? "!text-[2.8rem] sm:!text-[3.8rem] !leading-[1.1]" : ""}`}>
                     {coWorkingZonesData[item].title}
                   </h3>
                   <p className={styles.zoneText}>
