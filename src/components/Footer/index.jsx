@@ -1,11 +1,12 @@
 import { Col, Row } from 'antd';
-import styles from './style.module.scss';
 import logo1 from '../../img/footerlogo1.svg';
 import logo2 from '../../img/footerlogo2.svg';
 import youngLogo from '../../img/logo.svg';
 
 import ContainerLayout from '../Layouts/ContainerLayout/ContainerLayout.jsx';
 import { Link } from 'react-router-dom';
+
+import styles from './style.module.scss';
 
 export const MyFooter = () => {
   const logos = [logo1, logo2, youngLogo];
@@ -16,7 +17,7 @@ export const MyFooter = () => {
     { title: 'О нас', href: '/about' },
     {title: 'Пространства', href: '/co-working-zones'},
     {title: 'Партнеры', href: '/partners'},
-    // {title: 'Новости', href: '#'},
+    {title: 'Новости', href: '/news'},
     // {title: 'Контакты', href: '#'},
   ];
 
@@ -44,9 +45,9 @@ export const MyFooter = () => {
               className={styles.linkvk}
             >
               <svg
-                width="28"
+                width="2.8rem"
                 className="m-auto"
-                height="16"
+                height="1.6rem"
                 viewBox="0 0 28 16"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -67,8 +68,8 @@ export const MyFooter = () => {
             >
               <svg
                 className="m-auto"
-                width="25"
-                height="21"
+                width="2.5rem"
+                height="2.1rem"
                 viewBox="0 0 25 21"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
