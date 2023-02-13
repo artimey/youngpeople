@@ -1,17 +1,18 @@
-import React from 'react'
-import styles from './allNews.module.scss'
+import React from "react";
+import { Link } from "react-router-dom";
+import { transformDate } from "../../utils/helpers";
+import styles from "./allNews.module.scss";
 
 const NewsBudge = ({ item }) => {
   return (
-    <a href={item.link} target="_blank" className={`${styles.newsBudge} hover:bg-white16`}>
-      <span className={styles.date}>
-        {item.date}
-      </span>
-      <h3 className={styles.title}>
-        {item.title}
-      </h3>
-    </a>
-  )
-}
+    <Link
+      to={`/news/${item.id}`}
+      className={`${styles.newsBudge} hover:bg-white16`}
+    >
+      <span className={styles.date}>{transformDate(item.date)}</span>
+      <h3 className={styles.title}>{item.title}</h3>
+    </Link>
+  );
+};
 
-export default NewsBudge
+export default NewsBudge;
