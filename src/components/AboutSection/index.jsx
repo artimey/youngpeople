@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 
 export const AboutSection = () => {
   const images = [photo, photo1, photo2, photo3];
+
   return (
     <section className="bg-brandBlue py-[8rem] max-sm:pt-[6rem] overflow-hidden">
       <ContainerLayout>
@@ -34,7 +35,7 @@ export const AboutSection = () => {
               </span>
               <span className="mb-[1.6rem]">
                 В рамках работы ведется 10 проектов, а наши активисты регулярно
-                принимают участие в организации акций и крупных событий города
+                принимают участие в организации акций и крупных событиях города
               </span>
               {/* Не понял, куда должно вести */}
               <Link to="/about" className={`${styles.link} py-[2.1rem] px-[3.2rem]`}>

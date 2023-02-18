@@ -30,7 +30,7 @@ export const Header = () => {
           <a
             href="#allevents"
           >
-            <FieldButton className='mr-[1.2rem]'> Все мероприятия</FieldButton>
+            <FieldButton className='mb-[1.2rem] sm:mb-0 mr-[1.2rem]'> Все мероприятия</FieldButton>
           </a>
 
           <Link to="/partners">
