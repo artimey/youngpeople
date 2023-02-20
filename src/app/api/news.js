@@ -1,20 +1,32 @@
 import { baseApi } from ".";
-import { newsTransformer } from "../../utils/transformers/news";
+import { getNewsRows, newsTransformer } from "../../utils/transformers/news";
 
 export const newsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getAllNews: build.query({
-      query: () => ({ url: "api/news/", method: "GET" }),
-      // transformResponse(data) {
-      //   return newsTransformer(data);
-      // },
-      providesTags: ["NEWS"],
+    getImportantNews: build.query({
+      query: () => ({ url: "api/news_test/", method: "GET" }),
+      transformResponse(res) {
+        console.log("getImportantNews", newsTransformer(res.data));
+
+        return newsTransformer(res.data);
+      },
     }),
-    getNewPage: build.query({
-      query: () => ({ url: "api/institutions/", method: "GET" }),
-      invalidatesTags: ["NEWS"],
+    getNewsList: build.query({
+      query: () => ({ url: "api/news_test/", method: "GET" }),
+      transformResponse(res) {
+        console.log(
+          "getNewsList",
+          getNewsRows(newsTransformer(res.data), res.pagination.currentPage)
+        );
+
+        return getNewsRows(
+          newsTransformer(res.data),
+          res.pagination.currentPage
+        );
+      },
+      providesTags: ["NEWS"],
     }),
   }),
 });
 
-export const { useGetAllNewsQuery, useLazyGetNewPageQuery } = newsApi;
+export const { useGetImportantNewsQuery, useGetNewsListQuery } = newsApi;

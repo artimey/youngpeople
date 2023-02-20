@@ -1,15 +1,13 @@
 import React from "react";
 import { Col, Row } from "antd";
 import ContainerLayout from "../Layouts/ContainerLayout/ContainerLayout";
-import NewsCard from "./NewsCard";
-import NewsBudge from "./NewsBudge";
-import { useGetAllNewsQuery } from "../../app/api/news";
+import { useGetImportantNewsQuery } from "../../app/api/news";
+import { ImportantNewsCard } from "../UiKit/NewsCards/ImportantNewsCard";
 import styles from "./allNews.module.scss";
-import { newsTransformer } from "../../utils/transformers/news";
 
 export const AllNews = ({ heading = null, pattern = false }) => {
-  const { data, isLoading } = useGetAllNewsQuery();
-  
+  const { data, isLoading } = useGetImportantNewsQuery();
+  console.log("AllNews", data);
   return (
     <section className="bg-brandBlue max-sm:pt-[6rem]">
       <ContainerLayout>
@@ -18,13 +16,15 @@ export const AllNews = ({ heading = null, pattern = false }) => {
         <div className="overflow-hidden">
           <Row gutter={[32, 16]}>
             <Col span={12} xs={24} sm={24} md={12}>
-              {!isLoading && newsTransformer(data)[0] && <NewsCard item={newsTransformer(data)[0]} />}
+              {!isLoading && data[0] && (
+                <ImportantNewsCard item={data[0]} isFirst />
+              )}
             </Col>
             <Col span={12} xs={24} sm={24} md={12}>
-              {!isLoading && newsTransformer(data).length && (
-                <div className="w-full h-full flex flex-col flex-nowrap gap-y-[1.6rem]">
-                  {newsTransformer(data).slice(1).map((item) => {
-                    return <NewsBudge key={item.id} item={item} />;
+              {!isLoading && data?.length && (
+                <div className="w-full h-full flex flex-col flex-nowrap justify-between gap-y-[1.6rem]">
+                  {data.slice(1, 4).map((item) => {
+                    return <ImportantNewsCard key={item.id} item={item} />;
                   })}
                 </div>
               )}

@@ -12,6 +12,7 @@ import { ProjectPage } from "./components/Pages/ProjectPage";
 import { ProjectsPage } from "./components/Pages/ProjectsPage";
 import { UiKit } from "./components/UiKit";
 
+import 'core-js/actual';
 
 
 

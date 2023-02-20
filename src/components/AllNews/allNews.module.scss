@@ -26,25 +26,3 @@
     background-position-x: -1000%
   }
 }
-
-.date {
-  @apply text-white50 flex;
-  font-size: 1.8rem;
-  font-weight: 500;
-  line-height: 1.1;
-  margin-bottom: 1.2rem;
-}
-
-.title {
-  @apply text-white;
-  line-height: 125%;
-  font-size: 2.4rem;
-  font-weight: 500;
-}
-
-.newsBudge {
-  @apply  bg-white8 flex flex-col justify-center ;
-  padding: 2.4rem;
-  border-radius: 3.3rem;
-  flex: 1;
-}
