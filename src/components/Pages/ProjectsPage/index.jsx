@@ -1,16 +1,32 @@
-import React from "react";
 import { useGetAllProjectsQuery } from "../../../app/api/projects";
+import { dataIsEmpty } from "../../../utils/helpers";
 import ContainerLayout from "../../Layouts/ContainerLayout/ContainerLayout";
 import { MainLayout } from "../../Layouts/MainLayout";
+import { ProjectsCard } from "../../UiKit/ProjectsCard";
+import { ProjectsHeader } from "./ProjectsHeader";
 
 export const ProjectsPage = () => {
-    const {data} = useGetAllProjectsQuery()
-    console.log('DATA',data);
+  const { data, isLoading, isError } = useGetAllProjectsQuery();
   return (
     <MainLayout>
       <ContainerLayout>
-        Проекты
+        <ProjectsHeader />
       </ContainerLayout>
+      <div >
+        {!isLoading &&
+          !isError &&
+          dataIsEmpty(data) &&
+          Object.keys(data).map((item, idx) => (
+            <ProjectsCard
+              key={item}
+              idx={idx + 1}
+              previewText={data[item].previewText}
+              title={data[item].title}
+              id={item}
+              img={data[item].img}
+            />
+          ))}
+      </div>
     </MainLayout>
   );
 };
