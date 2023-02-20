@@ -12,6 +12,10 @@ export const links = [
     title: "О нас",
   },
   {
+    link: "/projects",
+    title: "Проекты",
+  },
+  {
     link: "/co-working-zones",
     title: "Пространства",
   },
