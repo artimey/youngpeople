@@ -1,0 +1,35 @@
+@use '/src/styles/_colors.scss' as colors;
+
+.projectsHeaderContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 49rem;
+
+    & .projectsHeader {
+        position: absolute;
+        z-index: -1;
+        bottom: -10rem;
+        left: auto;
+        right: auto;
+        font-family: 'Druk Condensed Cyr Super';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 49rem;
+        line-height: 49rem;
+        text-align: center;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        color: colors.$brandPink;
+    }
+
+
+    @media screen and (max-width: '768px') {
+        height: 36rem;
+        & .projectsHeader {
+
+            font-size: 20rem;
+            line-height: 35rem;
+        }
+    }
+}

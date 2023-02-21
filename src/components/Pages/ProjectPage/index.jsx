@@ -19,7 +19,6 @@ export const ProjectPage = () => {
     }
   }, [data, isLoading])
 
-  console.log(project);
 
   return (
     <MainLayout>

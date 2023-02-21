@@ -9,3 +9,6 @@ export const transformDate = (date) => {
   }
   return date.split(" ")[0];
 };
+
+export const dataIsEmpty = (data) =>
+  data && !!Object.keys(data).length ? true : false;
