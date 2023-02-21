@@ -8,6 +8,7 @@ import { HomePage } from "./components/Pages/HomePage";
 import { NewsOnePage } from "./components/Pages/NewsOnePage";
 import { NewsPage } from "./components/Pages/NewsPage";
 import { PartnersPage } from "./components/Pages/PartnersPage";
+import { ProjectPage } from "./components/Pages/ProjectPage";
 import { ProjectsPage } from "./components/Pages/ProjectsPage";
 
 
@@ -26,6 +27,7 @@ function App() {
       <Route path='/news' element={<NewsPage/>}/>
       <Route path='/news/:newsSlug' element={<NewsOnePage />}/>
       <Route path='/projects' element={<ProjectsPage />}/>
+      <Route path='/projects/:projectSlug' element={<ProjectPage />}/>
     </Routes>
   )
 }

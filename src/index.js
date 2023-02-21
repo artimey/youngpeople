@@ -6,12 +6,21 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "./app/store";
 import "remixicon/fonts/remixicon.css";
 import "./styles/index.scss";
+import { ConfigProvider } from "antd";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <ConfigProvider
+        theme={{
+          token: {
+            fontFamily: 'TT Norms, sans-serif',
+          },
+        }}
+      >
+        <App />
+      </ConfigProvider>
     </Provider>
   </BrowserRouter>
 );

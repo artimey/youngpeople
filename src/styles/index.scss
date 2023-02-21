@@ -1,5 +1,6 @@
 @use './_colors.scss' as colors;
 @import './fonts/index.scss';
+@import './typography';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,6 +20,10 @@ html {
 body {
   background-color: colors.$brandBlue;
   font-family: 'TT Norms';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.16rem
 }
 
 h1 {
@@ -47,11 +52,6 @@ h1 {
       height: 2.5rem;
     }
   }
-}
-
-
-.ff-druk {
-  font-family: 'Druk Wide Cyr';
 }
 
 .ant-select {

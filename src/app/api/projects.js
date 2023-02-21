@@ -6,8 +6,6 @@ export const projectsApi = baseApi.injectEndpoints({
     getAllProjects: build.query({
       query: () => ({ url: "api/projects/", method: "GET" }),
       transformResponse(res) {
-        console.log('REST',res);
-        console.log("DATA", projectsResponseTransform(res.data));
         return projectsResponseTransform(res.data);
       },
     }),

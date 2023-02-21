@@ -22,7 +22,7 @@ export const AllNews = ({ heading = null, pattern = false }) => {
             </Col>
             <Col span={12} xs={24} sm={24} md={12}>
               {!isLoading && newsTransformer(data).length && (
-                <div className="w-full h-full flex flex-col flex-nowrap flex-justify-between gap-y-[1.6rem]">
+                <div className="w-full h-full flex flex-col flex-nowrap gap-y-[1.6rem]">
                   {newsTransformer(data).slice(1).map((item) => {
                     return <NewsBudge key={item.id} item={item} />;
                   })}

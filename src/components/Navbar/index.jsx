@@ -16,7 +16,7 @@ export const Navbar = () => {
   return (
     <>
       <nav
-        className={`${styles.navDesktop} absolute top-0 left-0 w-full z-[99999] py-[24px] nav-desktop`}
+        className={`${styles.navDesktop} absolute top-0 left-0 w-full z-[99999] py-[24px]`}
       >
         <ContainerLayout>
           <div className="flex items-center justify-between text-[1.7rem] font-[500] text-white">
