@@ -1,10 +1,9 @@
 import { Col, Row } from 'antd';
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useGetAllNewsQuery } from '../../../app/api/news';
 import useMediaQuery from '../../../app/hooks/useMatchMedia';
-import { newsData } from '../../../mockData/mockNews'
 import { newsTransformer } from '../../../utils/transformers/news'
 import ContainerLayout from '../../Layouts/ContainerLayout/ContainerLayout';
 import { MainLayout } from '../../Layouts/MainLayout';
@@ -67,7 +66,8 @@ export const NewsOnePage = () => {
           <section>
             <Row className="flex justify-center">
               <Col sm={24} md={12}>
-                <div className={`${styles.bigText} text-[2rem] leading-[2.7rem] font-[500] text-white`} dangerouslySetInnerHTML={{__html: curNews.fullNewsText}} />
+                <div className={`${styles.bigText} text-[2rem] leading-[2.7rem] font-[500] text-white`} 
+                dangerouslySetInnerHTML={{__html: curNews.fullNewsText}} />
               </Col>
             </Row>
           </section>

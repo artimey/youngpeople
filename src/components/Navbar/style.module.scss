@@ -7,13 +7,14 @@
 }
 
 .navMobile {
-  @apply bg-brandBlue;
+  @apply bg-brandBlue px-5;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 999999;
   width: 100%;
-  padding: 2rem 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 
   @media screen and (min-width: 992px) {
     display: none;
