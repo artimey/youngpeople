@@ -43,7 +43,7 @@ export const AboutUs = () => {
           <div className="-mt-[2rem] border-t border-t-white50 z-[1000] bg-brandBlue rounded-t-[2rem]">
             <ContainerLayout>
               <section className="py-[8rem]">
-                <div className="durk text-center font-[700] md:leading-[100%] mb-[2rem] leading-1 text-[4rem] sm:text-[7.2rem] uppercase text-white">
+                <div className="druk text-center font-[700] md:leading-[100%] mb-[2rem] leading-1 text-[4rem] sm:text-[7.2rem] uppercase text-white">
                   Ключевые <br /> партнеры
                 </div>
                 <Partners />

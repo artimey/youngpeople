@@ -31,7 +31,7 @@ export const ProjectPage = () => {
         />
       </ContainerLayout>
 
-      <ProjectSlider images={project?.slider?.VALUE} />
+      {project?.slider?.VALUE && <ProjectSlider images={project?.slider?.VALUE} />}
 
       <ContainerLayout>
         <ProjectEvents eventsText={project?.text2?.VALUE?.TEXT} />
