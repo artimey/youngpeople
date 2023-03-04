@@ -7,8 +7,6 @@ import 'swiper/css';
 
 export const ProjectSlider = ({ images }) => {
 
-  console.log("imagesimagesimages", images);
-
   if (!images) return null;
 
   return (

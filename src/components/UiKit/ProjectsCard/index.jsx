@@ -18,9 +18,9 @@ export const ProjectsCard = ({
         <span className={styles.projectNumber}>{idx}</span>
         <span className={styles.projectPreviewText}>{previewText}</span>
       </div>
-      <Link to={`/${id}`} className={styles.projectLink}>
+      <span className={styles.projectLink}>
         Подробнее <br /> о проекте
-      </Link>
+      </span>
       <img
         src={`${BASE_URL}/upload/iblock/6ee/s1qbv2pjq9vp0p27bolw5fj66bjr2oie.png`}
         alt={title}

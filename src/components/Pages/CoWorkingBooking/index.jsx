@@ -19,7 +19,7 @@ export const CoWorkingBooking = () => {
     <MainLayout>
       <CowWorkingHeader title={coWorkingZonesData[zoneSlug].title} />
 
-      <section className="bg-brandBlue py-[8rem] overflow-hidden">
+      <section className="bg-brandBlue py-[8rem] overflow-hidden sm:overflow-visible">
         <ContainerLayout>
           <Row
             gutter={[48, 16]}
