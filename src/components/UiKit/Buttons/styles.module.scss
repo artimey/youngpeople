@@ -22,6 +22,12 @@
   &:active {
     transform: scale(0.97);
   }
+
+  @media screen and (max-width: 425px) {
+    font-size: 1.5rem;
+    line-height: 2.025rem;
+    padding: 1.6rem 2.2rem;
+  }
 }
 
 .fieldButtonCircle {
@@ -32,6 +38,53 @@
   justify-content: center;
   border-radius: 100%;
   font-size: 1.7rem;
+  transition: all .3s ease-in-out;
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.clickButton {
+  padding: 1.3rem 2.4rem;
+  border-radius: 100px;
+  font-weight: 500;
+  font-family: "TT Norms";
+  font-size: 1.5rem;
+  line-height: 1.37;
+  box-sizing: border-box;
+  transition: all .3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+
+  span {
+    width: 1.167rem;
+    height: 1.167rem;
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  @media screen and (max-width: 425px) {
+    font-size: 1.5rem;
+    line-height: 2.025rem;
+    padding: 1.6rem 2.2rem;
+  }
+}
+
+.clickButtonCircle {
+  width: 4.8rem;
+  height: 4.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  font-size: 1.167rem;
   transition: all .3s ease-in-out;
 
   &:active {

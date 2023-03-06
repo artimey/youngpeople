@@ -4,7 +4,6 @@ import { Col } from 'antd';
 import maskImage from '../../../../img/maskHeader.png';
 import clsx from 'clsx';
 import { FieldButton } from '../../../UiKit/Buttons';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export const Header = () => {
@@ -27,11 +26,11 @@ export const Header = () => {
             </div>
           </div>
 
-          <a
-            href="#allevents"
+          <Link
+            to="/events"
           >
             <FieldButton className='mb-[1.2rem] sm:mb-0 mr-[1.2rem]'> Все мероприятия</FieldButton>
-          </a>
+          </Link>
 
           <Link to="/partners">
             <FieldButton type='bg8'> Стать партнером</FieldButton>

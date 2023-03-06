@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Afisha } from '../../Afisha';
 import { AllNews } from '../../AllNews';
 import { EventsSlider } from '../../EventsSlider';
@@ -16,9 +16,11 @@ export const HomePage = () => {
     <div className="z-[100]">
       <Navbar />
       <Header />
+
       <div className="z-[99] bg-brandBlue">
         <Afisha />
       </div>
+
       <div
         id="allevents"
         className="z-[9999] relative -mt-[3rem] rounded-t-[3.2rem] border-t-2 border-t-white8"

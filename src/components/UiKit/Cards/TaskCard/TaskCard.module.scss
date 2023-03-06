@@ -1,0 +1,44 @@
+.card {
+  position: relative;
+  border-radius: 2.2rem;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.header {
+  @apply border-b border-b-white8;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.64);
+  font-weight: 700;
+  line-height: 2.5rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  padding-left: 2.1rem;
+  padding-right: 2.1rem;
+  padding-top: 2.1rem;
+  padding-bottom: 1.4rem;
+  border-bottom-right-radius: 2.2rem;
+  border-bottom-left-radius: 2.2rem;
+  margin-bottom: 1.5rem;
+
+  & > img {
+    margin-right: 0.7rem;
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+}
+
+.title {
+  @apply text-white;
+  display: -webkit-box;
+  height: 10rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.5rem;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  margin-bottom: 7.9rem;
+}

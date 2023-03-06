@@ -1,0 +1,59 @@
+.card {
+  width: 100%;
+  position: relative;
+  background: #fff;
+  border-radius: 2.3rem;
+}
+
+.title {
+  display: -webkit-box;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.5rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.6rem;
+  height: 5rem;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.info {
+  @apply flex items-center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 14.5px;
+  }
+}
+
+.actions {
+  @apply border-t border-black8;
+  padding-top: 2rem;
+  border-top-left-radius: 36px;
+  border-top-right-radius: 36px;
+  padding: 2rem;
+  margin-top: 4.1rem;
+
+  & > .status {
+    @apply text-black50;
+  }
+
+  & > span {
+    @apply text-black;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+}

@@ -10,6 +10,7 @@ import { NewsPage } from "./components/Pages/NewsPage";
 import { PartnersPage } from "./components/Pages/PartnersPage";
 import { ProjectPage } from "./components/Pages/ProjectPage";
 import { ProjectsPage } from "./components/Pages/ProjectsPage";
+import { UiKit } from "./components/UiKit";
 
 
 
@@ -28,6 +29,9 @@ function App() {
       <Route path='/news/:newsSlug' element={<NewsOnePage />}/>
       <Route path='/projects' element={<ProjectsPage />}/>
       <Route path='/projects/:projectSlug' element={<ProjectPage />}/>
+
+      {/* ====== НЕ УДАЛЯЙ, ПРОСТО ЗАКОММЕНТЬ ====== */}
+      <Route path='/uikit' element={<UiKit />}/>
     </Routes>
   )
 }
