@@ -40,7 +40,11 @@ export const Navbar = () => {
                 </div>
                 <div>
                   {links.map((item) => (
-                    <Link key={item.link} to={item.link} className="hover:text-brandPink mr-[1.6rem]">
+                    <Link
+                      key={item.link}
+                      to={item.link}
+                      className="hover:text-brandPink mr-[1.6rem]"
+                    >
                       {item.title}
                     </Link>
                   ))}
@@ -48,13 +52,13 @@ export const Navbar = () => {
               </div>
             </span>
 
-            {/* <Link
-            to={'/events'}
-            className="font-[1.5rem] text-black bg-white px-[2.4rem] py-[1.4rem] 
+            <Link
+              to={"/sign_in"}
+              className="font-[1.5rem] text-black bg-white px-[2.4rem] py-[1.4rem] 
               rounded-[3rem] hover:text-white hover:bg-brandPink"
-          >
-            Действующие мероприятия
-          </Link> */}
+            >
+              Войти в кабинет
+            </Link>
           </div>
         </ContainerLayout>
       </nav>
@@ -108,9 +112,12 @@ export const Navbar = () => {
 
         {isNav && (
           <div className={styles.navBody}>
-
             {links.map((item) => (
-              <Link key={item.link} to={item.link} className="hover:text-brandPink mr-[1.6rem]">
+              <Link
+                key={item.link}
+                to={item.link}
+                className="hover:text-brandPink mr-[1.6rem]"
+              >
                 {item.title}
               </Link>
             ))}

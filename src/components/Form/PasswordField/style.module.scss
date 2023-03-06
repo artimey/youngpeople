@@ -1,0 +1,7 @@
+.passwordField{
+    @apply w-full bg-white8 font-medium text-[1.6rem] leading-[2.16rem] p-[2.4rem] rounded-[1.5rem] border-0 placeholder:text-white50 text-white;
+
+    & input{
+        @apply bg-transparent placeholder:text-white50 text-white;
+    }
+}

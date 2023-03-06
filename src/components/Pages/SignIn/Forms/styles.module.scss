@@ -1,0 +1,13 @@
+@import '/src/styles/colors';
+
+ .hintText {
+    text-align: start;
+    margin-top: 1.6rem;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    color: $white80;
+    & a {
+      text-decoration: underline;
+    }
+  }

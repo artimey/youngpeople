@@ -91,3 +91,7 @@ h1 {
 .ant-picker-clear {
   background-color: #ffffff00 !important;
 }
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled){
+  background-color: colors.$black8 !important;
+}

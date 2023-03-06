@@ -6,7 +6,7 @@
   margin-bottom: 2.4rem !important;
 
   & > input {
-    color: colors.$white50 !important;
+    color: #fff;
     background-color: colors.$white8 !important;
     font-weight: 500 !important;
     font-size: 1.6rem !important;
@@ -17,7 +17,7 @@
     width: 100% !important;
   }
 
-  & > textarea {
+  &>textarea {
     min-height: 13rem;
     max-height: 30rem;
     color: colors.$white50 !important;

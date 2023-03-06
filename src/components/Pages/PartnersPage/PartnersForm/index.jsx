@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Input, Select } from "antd";
 import { Formik } from "formik";
 import { ReactComponent as ArrowDown } from "../../../../img/arrowDown.svg";
