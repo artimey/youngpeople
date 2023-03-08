@@ -7,7 +7,6 @@ import styles from "./allNews.module.scss";
 
 export const AllNews = ({ heading = null, pattern = false }) => {
   const { data, isLoading } = useGetImportantNewsQuery();
-  console.log("AllNews", data);
   return (
     <section className="bg-brandBlue max-sm:pt-[6rem]">
       <ContainerLayout>

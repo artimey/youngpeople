@@ -14,8 +14,7 @@ import { CertificateCard } from './Cards/CertificateCard/CertificateCard'
 export const UiKit = () => {
 
   const test = (e) => {
-    console.log(e)
-    console.log('12312312312')
+
   }
 
   const lkCardData = [

@@ -1,5 +1,4 @@
 export const transformDate = (date) => {
-  console.log("NEW DATE", new Date(date));
   if (Date.parse(date)) {
     const newDate = new Date(date);
 

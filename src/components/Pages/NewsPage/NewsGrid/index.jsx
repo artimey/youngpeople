@@ -5,7 +5,6 @@ import styles from "./style.module.scss";
 
 export const NewsGrid = () => {
   const { data, isLoading } = useGetNewsListQuery();
-  console.log("NewsGrid", data);
   return (
     <ContainerLayout>
       <div className={styles.container}>
