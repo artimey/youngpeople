@@ -1,0 +1,58 @@
+@use "src/styles/colors" as colors;
+
+.importantNews {
+  display: block;
+  background-color: colors.$white8;
+  overflow: hidden;
+  border-radius: 4rem;
+  cursor: pointer;
+
+  & .newsImg {
+    display: block;
+    width: 100%;
+    min-height: 32rem;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  & .newsContent {
+    @apply bg-white8 flex flex-col justify-center;
+    padding: 2.4rem;
+    flex: 1;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  & .date {
+    color: colors.$white50;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 2.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  & .title {
+    color: colors.$white;
+    line-height: 2.5rem;
+    font-size: 2.4rem;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -moz-box;
+    display: -webkit-box;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  &:hover {
+    & .newsImg {
+      transform: scale(1.2);
+    }
+
+    & .newsContent {
+      background-color: colors.$white16;
+    }
+  }
+}

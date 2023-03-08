@@ -1,21 +1,16 @@
 import ContainerLayout from "../../../Layouts/ContainerLayout/ContainerLayout";
-import { NewsGridItem } from "../NewsGridItem";
-import { useGetAllNewsQuery } from "../../../../app/api/news";
-
+import { useGetNewsListQuery } from "../../../../app/api/news";
+import { NewsRow } from "./NewsRow";
 import styles from "./style.module.scss";
-import { newsTransformer } from "../../../../utils/transformers/news";
 
 export const NewsGrid = () => {
-  const { data, isLoading } = useGetAllNewsQuery();
-
+  const { data, isLoading } = useGetNewsListQuery();
   return (
     <ContainerLayout>
       <div className={styles.container}>
         {!isLoading &&
-          newsTransformer(data)?.length &&
-          newsTransformer(data)
-            .slice(1)
-            .map((item) => <NewsGridItem key={item.id} item={item} />)}
+          data?.length &&
+          data.map((news, idx) => <NewsRow key={idx} news={news} />)}
       </div>
     </ContainerLayout>
   );

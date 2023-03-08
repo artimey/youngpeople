@@ -2,7 +2,7 @@ import { Col, Row } from 'antd';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { useGetAllNewsQuery } from '../../../app/api/news';
+import { useGetNewsListQuery } from '../../../app/api/news';
 import useMediaQuery from '../../../app/hooks/useMatchMedia';
 import { newsTransformer } from '../../../utils/transformers/news'
 import ContainerLayout from '../../Layouts/ContainerLayout/ContainerLayout';
@@ -12,7 +12,7 @@ import styles from './style.module.scss';
 
 export const NewsOnePage = () => {
   const match = useMediaQuery("(max-width: 425px)")
-  const { data, isLoading } = useGetAllNewsQuery();
+  const { data, isLoading } = useGetNewsListQuery();
   const [curNews, setIsCurNews] = useState({});
   const { newsSlug } = useParams()
   const { scrollY } = useScroll();
