@@ -58,7 +58,7 @@ export const LkNavButton = ({ data }) => {
   return (
     <Link 
       to={navTypes[type].link}
-      className="transition-all bg-white8 hover:bg-white16 rounded-[1.3rem] p-[2rem]"
+      className="transition-all bg-white8 hover:bg-white16 rounded-[1.9rem] p-[2rem] block mb-[1rem] last:mb-0"
     >
       <div className="flex justify-between items-center mb-[3.34rem] font-[500] text-[1.5rem] leading-[2.025rem]">
         <span className="text-white">

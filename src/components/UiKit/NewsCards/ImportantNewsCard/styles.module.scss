@@ -3,16 +3,25 @@
 .importantNews {
   display: block;
   background-color: colors.$white8;
-  overflow: hidden;
   border-radius: 4rem;
+  overflow: hidden;
   cursor: pointer;
 
   & .newsImg {
+    position: relative;
     display: block;
     width: 100%;
     min-height: 32rem;
+    height: 3.2rem;
     object-fit: cover;
-    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 3.2rem;
+      min-height: 32rem;
+      transition: transform 0.3s ease-in-out;
+    }
   }
 
   & .newsContent {
@@ -47,7 +56,7 @@
   }
 
   &:hover {
-    & .newsImg {
+    & .newsImg img{
       transform: scale(1.2);
     }
 

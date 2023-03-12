@@ -7,12 +7,13 @@ export const ImportantNewsCard = ({ item, isFirst }) => {
   return (
     <Link to={`/news/${item.id}`} className={styles.importantNews}>
       {isFirst && (
-        <img
-          className={styles.newsImg}
-          src={item.img}
-          alt={item.title}
-          loading="lazy"
-        />
+        <div className={styles.newsImg}>
+          <img
+            src={item.img}
+            alt={item.title}
+            loading="lazy"
+          />
+        </div>
       )}
 
       <div

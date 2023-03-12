@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { AboutUs } from "./components/Pages/AboutUs";
+import { User } from "./components/Pages/Account/User";
 import { CoWorkingBooking } from "./components/Pages/CoWorkingBooking";
 import { CoWorkingZones } from "./components/Pages/CoWorkingZones";
 import { EventPage } from "./components/Pages/EventPage";
@@ -30,6 +31,7 @@ function App() {
       <Route path='/news/:newsSlug' element={<NewsOnePage />}/>
       <Route path='/projects' element={<ProjectsPage />}/>
       <Route path='/projects/:projectSlug' element={<ProjectPage />}/>
+      <Route path='/account' element={<User />}/>
 
       {/* ====== НЕ УДАЛЯЙ, ПРОСТО ЗАКОММЕНТЬ ====== */}
       <Route path='/uikit' element={<UiKit />}/>

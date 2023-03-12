@@ -133,6 +133,14 @@ export const ClickButton = ({
   )
 }
 
+export const FilterButton = ({children, active = false, className}) => {
+  return (
+    <button className={clsx(styles.filterButton, { "bg-brandPink hover:bg-brandPink": active } ,className)}>
+      {children}
+    </button>
+  )
+}
+
 export const SliderButton = ({onClick, left = false, className}) => {
   
   return (

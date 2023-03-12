@@ -15,12 +15,14 @@ export const NewsListCard = ({ item, cardCount }) => {
       to={`/news/${item.id}`}
       className={clsx(styles.newsCard, styles[stylesByCount[cardCount]])}
     >
-      <img
-        className={`${styles.newsCardImg}`}
-        src={item.img}
-        alt={item.title}
-        loading="lazy"
-      />
+      <div className={styles.cardWrapper}>
+        <img
+          className={styles.newsCardImg}
+          src={item.img}
+          alt={item.title}
+          loading="lazy"
+        />
+      </div>
       <h3 className={styles.newCardTitle}>{item.title}</h3>
       <span className={styles.newsCardDate}>{transformDate(item.date)}</span>
     </Link>

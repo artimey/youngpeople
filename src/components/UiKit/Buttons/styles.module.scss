@@ -91,3 +91,17 @@
     transform: scale(0.97);
   }
 }
+
+.filterButton {
+  @apply bg-white8 text-white transition-all;
+  padding: 1.15rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2rem;
+  letter-spacing: 0em;
+  border-radius: 100px;
+
+  &:hover {
+    @apply bg-white16;
+  }
+}
