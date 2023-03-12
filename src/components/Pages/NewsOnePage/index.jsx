@@ -24,7 +24,8 @@ export const NewsOnePage = () => {
 
   useEffect(() => {
     if (data && !isLoading) {
-      setIsCurNews(newsTransformer({ newsSlug: data?.[newsSlug] })[0]);
+      const curNews = data.flat().find(item => item.id === newsSlug)
+      setIsCurNews(curNews);
     }
   }, [data, isLoading])
 

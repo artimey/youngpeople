@@ -1,23 +1,23 @@
-import React from "react";
-import { Col, Row } from "antd";
-import ContainerLayout from "../../Layouts/ContainerLayout/ContainerLayout";
-import { MainLayout } from "../../Layouts/MainLayout";
-import { PartnersHeader } from "./PartnersHeader";
-import { PartnersForm } from "./PartnersForm";
+import React from 'react'
+import ContainerLayout from '../../Layouts/ContainerLayout/ContainerLayout'
+import { MainLayout } from '../../Layouts/MainLayout'
+import { CtaBlock } from '../AboutUs/CtaBlock'
+import { PartnersCards } from './PartnersCards'
 
 export const PartnersPage = () => {
   return (
     <MainLayout>
-      <PartnersHeader />
-      <section className="bg-brandBlue py-[8rem] overflow-hidden">
+      <div className='pt-[15.6rem] pb-[8rem]'>
         <ContainerLayout>
-          <Row  className="flex justify-center">
-            <Col xs={22} sm={22} md={10} >
-              <PartnersForm/>
-            </Col>
-          </Row>
+          <h1 className="font-[700] text-white text-[3.6rem] sm:text-[7.2rem] sm:leading-[7.92rem] mb-[5.6rem]">
+            Партнеры
+          </h1>
+
+          <PartnersCards />
+
+          <CtaBlock />
         </ContainerLayout>
-      </section>
+      </div>
     </MainLayout>
-  );
-};
+  )
+}

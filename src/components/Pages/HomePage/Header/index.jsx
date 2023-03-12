@@ -32,7 +32,7 @@ export const Header = () => {
             <FieldButton className='mb-[1.2rem] sm:mb-0 mr-[1.2rem]'> Все мероприятия</FieldButton>
           </Link>
 
-          <Link to="/partners">
+          <Link to="/partners-form">
             <FieldButton type='bg8'> Стать партнером</FieldButton>
           </Link>
         </Col>

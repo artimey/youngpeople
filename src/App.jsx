@@ -8,14 +8,13 @@ import { EventsPage } from "./components/Pages/EventsPage";
 import { HomePage } from "./components/Pages/HomePage";
 import { NewsOnePage } from "./components/Pages/NewsOnePage";
 import { NewsPage } from "./components/Pages/NewsPage";
+import { PartnersFormPage } from "./components/Pages/PartnersFormPage";
 import { PartnersPage } from "./components/Pages/PartnersPage";
 import { ProjectPage } from "./components/Pages/ProjectPage";
 import { ProjectsPage } from "./components/Pages/ProjectsPage";
 import { UiKit } from "./components/UiKit";
 
 import 'core-js/actual';
-
-
 
 function App() {
   return (
@@ -27,6 +26,7 @@ function App() {
       <Route path="/events" element={<EventsPage />} />
       <Route path="/events/:eventSlug" element={<EventPage />} />
       <Route path='/partners' element={<PartnersPage/>}/>
+      <Route path='/partners-form' element={<PartnersFormPage/>}/>
       <Route path='/news' element={<NewsPage/>}/>
       <Route path='/news/:newsSlug' element={<NewsOnePage />}/>
       <Route path='/projects' element={<ProjectsPage />}/>
