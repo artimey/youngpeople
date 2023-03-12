@@ -32,6 +32,8 @@ export const newsTransformer = (news) => {
   const url = "https://mosmolodezh.ru";
 
   if (news) {
+    console.log(news);
+    console.log(Object.keys(news))
     return Object.keys(news).map((item) => ({
       id: news[item][FIELD_NAME]["ID"],
       title: news[item][FIELD_NAME]["NAME"],
