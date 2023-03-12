@@ -28,12 +28,12 @@ export const CertificateCard = ({ data }) => {
       <div className="px-[2rem] flex flex-col mb-[2.4rem]">
         {
           isTestDone ?
-            <ClickButton type="bgPink" className="justify-center">
+            <ClickButton href={certificateLink} type="bgPink" className="justify-center">
               <RiDownloadFill className="mr-[0.934rem]" />
               Скачать сертификат
             </ClickButton>
             :
-            <ClickButton type="bgBlueLight" className="justify-center">
+            <ClickButton href={certificateLink} type="bgBlueLight" className="justify-center">
               <RiBarChartFill className="mr-[0.85rem]" />
               Пройти тест
             </ClickButton>

@@ -1,7 +1,6 @@
-import { Col, Row } from 'antd'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { FieldButton, SliderButton } from './Buttons'
+import { FieldButton, FilterButton, SliderButton } from './Buttons'
 import { LkEventCard } from './Cards/LkEventCard/LkEventCard'
 import { LkNavButton } from './Cards/LkNavButton/LkNavButton'
 import { TaskCard } from './Cards/TaskCard/TaskCard'
@@ -131,7 +130,7 @@ export const UiKit = () => {
       count: 45,
     },
     {
-      id: "321577",
+      id: "3215721127",
       type: "changeCoins",
       count: 2,
     },
@@ -160,7 +159,7 @@ export const UiKit = () => {
       logo: mosMolodezh,
     },
     {
-      id: "122214",
+      id: "2112",
       title: "Эпидемия одиночества. Как социальные отношения. Как социальные отношения влияют на наше здоровье? Как социальные отношения влияют на наше здоровье?",
       org: "Музей современного искусства «Гараж»",
       isTestDone: true,
@@ -179,6 +178,21 @@ export const UiKit = () => {
 
   return (
     <div>
+
+      <div className="bg-brandBlue py-[100px] px-[40px] xl:px-[250px]">
+        <FilterButton className="mr-[1.2rem]">
+          Мои мероприятия
+        </FilterButton>
+        <FilterButton active className="mr-[1.2rem]">
+          Хочу сходить
+        </FilterButton>
+        <FilterButton className="mr-[1.2rem]">
+          Рекомендации
+        </FilterButton>
+        <FilterButton className="mr-[1.2rem]">
+          Только для амбассадоров
+        </FilterButton>
+      </div>
 
       <div className="bg-brandBlue py-[100px] px-[40px] xl:px-[250px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[1.6rem]">

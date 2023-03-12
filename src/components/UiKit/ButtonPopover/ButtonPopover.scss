@@ -1,0 +1,14 @@
+.editProfileModal {
+  
+  & > .ant-modal-content {
+    @apply bg-brandBlue border border-white8 w-full;
+    padding: 3.2rem 4rem;
+    margin: 0;
+    border-radius: 2.4rem;
+
+    @media (min-width: 640px) {
+      width: 48.8rem;
+      margin: 0 auto;
+    }
+  }
+}

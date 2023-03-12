@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import React from 'react'
 
 import {ReactComponent as ManWalk} from '../../../../img/taskCards/manWalk.svg';
