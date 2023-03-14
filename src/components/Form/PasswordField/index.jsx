@@ -7,7 +7,6 @@ import styles from './style.module.scss'
 export const PasswordField = (props) => {
   const [inputType,setInputType] = useState('password')
 
-  console.log('inputType',inputType);
   return (
     <Input
       {...props}

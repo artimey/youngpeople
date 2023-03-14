@@ -1,19 +1,26 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Input } from "antd";
 import { Formik } from "formik";
-import { useLazyAddPartnerQuery } from "../../../../app/api/partnerApi";
 import { FormLayout } from "../../../Form/FormLayout";
 import { FormField } from "../../../Form/FormField";
 import { SubmitButton } from "../../../Form/SubmitButton";
-import styles from "./styles.module.scss";
 import { PasswordField } from "../../../Form/PasswordField";
+import { useLazyAuthQuery } from "../../../../app/api/auth";
+import styles from "./styles.module.scss";
 
 export const SignInForm = () => {
-  const [onAdd, { isSuccess, isError, isLoading }] = useLazyAddPartnerQuery();
+  const [onAuth, { isError, isLoading, isSuccess, data }] = useLazyAuthQuery();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isError && !isLoading && data) {
+      navigate("/account");
+    }
+  }, [data]);
 
   const onSubmit = async (value) => {
-    await onAdd({ ...value });
+    await onAuth(value);
   };
   return (
     <Formik
@@ -58,7 +65,7 @@ export const SignInForm = () => {
               fieldName="email"
             >
               <Input
-                type="email"
+                type="text"
                 name="email"
                 onChange={handleChange}
                 onBlur={handleBlur}

@@ -1,22 +1,24 @@
 import { useRef } from "react";
 import { React, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useClickOutside } from "../../app/hooks/useClickOutside";
 import { ReactComponent as Logo } from "../../img/logo.svg";
 import { links } from "../../mockData/mockLinks";
 import ContainerLayout from "../Layouts/ContainerLayout/ContainerLayout";
+import { UserBadge } from "../UserBadge";
 import styles from "./style.module.scss";
 
 export const Navbar = () => {
+  const { person } = useSelector((s) => s);
   const [isNav, setIsNav] = useState(false);
   const navBodyRef = useRef();
-
   useClickOutside(navBodyRef, () => setIsNav(false));
 
   return (
     <>
       <nav
-        className={`${styles.navDesktop} absolute top-0 left-0 w-full z-[99999] py-[24px]`}
+        className={`${styles.navDesktop} absolute top-0 left-0 w-full  z-[1000] py-[24px]`}
       >
         <ContainerLayout>
           <div className="flex items-center justify-between text-[1.7rem] font-[500] text-white">
@@ -52,13 +54,17 @@ export const Navbar = () => {
               </div>
             </span>
 
-            <Link
-              to={"/sign_in"}
-              className="font-[1.5rem] text-black bg-white px-[2.4rem] py-[1.4rem] 
+            {person?.initials ? (
+              <UserBadge name={person.initials} user={person.avatar} />
+            ) : (
+              <Link
+                to={"/sign_in"}
+                className="font-[1.5rem] text-black bg-white px-[2.4rem] py-[1.4rem] 
               rounded-[3rem] hover:text-white hover:bg-brandPink"
-            >
-              Войти в кабинет
-            </Link>
+              >
+                Войти в кабинет
+              </Link>
+            )}
           </div>
         </ContainerLayout>
       </nav>

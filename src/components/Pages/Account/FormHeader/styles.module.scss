@@ -1,0 +1,37 @@
+.hederWrapper {
+    display: flex;
+    flex-direction: column;
+
+    & .title {
+        font-weight: 700;
+        font-size: 3.2rem;
+        line-height: 3.5rem;
+        color: #fff;
+    }
+
+    & .body {
+        display: flex;
+        align-items: center;
+        padding: 2.4rem 4rem;
+
+        & .changeAvatar {
+            width: 6.4rem;
+            height: 6.4rem;
+            margin-right: 4rem;
+        }
+
+        & .avatar {
+            display: block;
+            width: 12rem;
+            height: 12rem;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        & .removeAvatar {
+            margin-left: 4rem;
+            width: 6.4rem;
+            height: 6.4rem;
+        }
+    }
+}

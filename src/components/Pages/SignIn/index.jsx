@@ -1,5 +1,4 @@
 import { Col, Row } from "antd";
-import React from "react";
 import { Link } from "react-router-dom";
 import ContainerLayout from "../../Layouts/ContainerLayout/ContainerLayout";
 import { MainLayout } from "../../Layouts/MainLayout";
@@ -9,7 +8,7 @@ import { SignInForm } from "./Forms/SignInForm";
 export const SignInPage = () => {
   return (
     <MainLayout isHaveFooter={false}>
-      <div className="h-screen flex flex-col justify-center">
+      <div className="h-screen flex flex-col justify-center mt-[7rem]">
         <PageHeader title="вход">
           <div className="text-white80 font-medium text-[1.6rem] leading-[2.2rem] ">
             <span className="text-[#fff]">Нет аккаунта? </span>

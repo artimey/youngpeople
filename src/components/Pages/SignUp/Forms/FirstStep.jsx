@@ -1,7 +1,8 @@
 import { Input } from "antd";
 import { Formik } from "formik";
-import { Link } from "react-router-dom";
-import { useLazyAddPartnerQuery } from "../../../../app/api/partnerApi";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useLazyUserRegistrationQuery } from "../../../../app/api/auth";
 import { FormField } from "../../../Form/FormField";
 import { FormLayout } from "../../../Form/FormLayout";
 import { PasswordField } from "../../../Form/PasswordField";
@@ -9,10 +10,19 @@ import { SubmitButton } from "../../../Form/SubmitButton";
 import styles from "./styles.module.scss";
 
 export const FirstStep = () => {
-  const [onAdd, { isSuccess, isError, isLoading }] = useLazyAddPartnerQuery();
+  const navigate = useNavigate();
+
+  const [onSignUp, { data, isLoading, isError }] =
+    useLazyUserRegistrationQuery();
+
+  useEffect(() => {
+    if (data && !isError) {
+      navigate("/sign_up/second_step");
+    }
+  }, [data]);
 
   const onSubmit = async (value) => {
-    await onAdd({ ...value });
+    await onSignUp(value);
   };
   return (
     <Formik
@@ -33,11 +43,7 @@ export const FirstStep = () => {
         handleSubmit,
         isSubmitting,
       }) => (
-        <FormLayout
-          isSuccess={isSuccess}
-          isError={isError}
-          onSubmit={handleSubmit}
-        >
+        <FormLayout isSuccess={false} isError={isError} onSubmit={handleSubmit}>
           <>
             <FormField
               errors={errors}
@@ -84,6 +90,7 @@ export const FirstStep = () => {
               <PasswordField
                 name="password"
                 className="placeholder:text-white50"
+                onChange={handleChange}
               />
             </FormField>
 
@@ -97,18 +104,16 @@ export const FirstStep = () => {
                 name="repeatPassword"
                 placeholder="Введите пароль еще раз"
                 className="placeholder:text-white50"
+                onChange={handleChange}
               />
             </FormField>
 
             <div className={styles.buttonWrapper}>
-              <Link to="/second_step">
-                <SubmitButton isLoading={isLoading} text="Далее" />
-              </Link>
+              <SubmitButton isLoading={isLoading} text="Далее" />
             </div>
 
             <div className="w-full flex justify-center mt-[3.2rem]">
               <div className="bg-white8 text-white px-[1.6rem] px=[0.8rem] rounded-full">
-                {" "}
                 Шаг 1 из 2
               </div>
             </div>

@@ -1,11 +1,8 @@
 import { Input, Select } from "antd";
 import { Formik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PatternFormat } from "react-number-format";
-import {
-  useGetFieldActivitiesQuery,
-  useLazyAddPartnerQuery,
-} from "../../../../app/api/partnerApi";
+import { useGetFieldActivitiesQuery } from "../../../../app/api/partnerApi";
 import { institutionsTransformer } from "../../../../utils/transformers/institutions";
 import { Checkbox } from "../../../Checkbox";
 import { FormField } from "../../../Form/FormField";
@@ -13,17 +10,36 @@ import { FormLayout } from "../../../Form/FormLayout";
 import { SubmitButton } from "../../../Form/SubmitButton";
 import { ReactComponent as ArrowDown } from "../../../../img/arrowDown.svg";
 import styles from "./styles.module.scss";
+import { useLazyUserUpdateQuery } from "../../../../app/api/auth";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export const SecondStep = () => {
-  const [onAdd, { isSuccess, isError, isLoading }] = useLazyAddPartnerQuery();
+  const navigate = useNavigate();
+  const [onUpdate, { isSuccess, isError, isLoading,data }] =
+    useLazyUserUpdateQuery();
   const { data: institutions, isLoading: institutionsLoading } =
     useGetFieldActivitiesQuery();
+
+  const { person } = useSelector((s) => s);
 
   const [isAgree, setIsAgree] = useState(false);
   const [universityData, setUniversityData] = useState("");
 
+  useEffect(() => {
+    if (data && !isError) {
+      navigate("/account");
+    }
+  }, [data]);
+
   const onSubmit = async (value) => {
-    await onAdd({ ...value, universityData });
+    if (isAgree) {
+      await onUpdate({
+        ...value,
+        userId: person.userId,
+        apiKey: person.apiKey,
+      });
+    }
   };
 
   const handleUniversityChange = (value) => {
