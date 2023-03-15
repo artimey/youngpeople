@@ -13,10 +13,10 @@ export const EventPageOtherEvent = ({ data, slug }) => {
 
       <Row gutter={[24, 16]} className="flex items-stretch">
         {
-          Object.keys(data).map((item, index) => {
+          data.map((item, index) => {
 
             return (
-              item !== slug ?
+              item.slug !== slug ?
                 <EventCard key={index} allEventsData={data} item={item} />
                 :
                 null
