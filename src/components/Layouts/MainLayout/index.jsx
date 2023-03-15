@@ -2,14 +2,14 @@ import { MyFooter } from "../../Footer"
 import { Navbar } from "../../Navbar"
 
 
-export const MainLayout = ({children}) => {
+export const MainLayout = ({children, isHaveFooter=true}) => {
   return (
     <div>
       <Navbar />
       <div>
         {children}
       </div>
-      <MyFooter />
+      {isHaveFooter && <MyFooter />}
     </div>
   )
 }

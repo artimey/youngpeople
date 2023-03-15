@@ -1,0 +1,4 @@
+.pageWrapper {
+    @apply flex flex-col justify-center pt-[17rem];
+    height: calc(100% - 17rem);
+}
