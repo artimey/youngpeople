@@ -8,6 +8,7 @@ import { EventsPage } from "./components/Pages/EventsPage";
 import { HomePage } from "./components/Pages/HomePage";
 import { NewsOnePage } from "./components/Pages/NewsOnePage";
 import { NewsPage } from "./components/Pages/NewsPage";
+import { PartnersFormPage } from "./components/Pages/PartnersFormPage";
 import { PartnersPage } from "./components/Pages/PartnersPage";
 import { ProjectPage } from "./components/Pages/ProjectPage";
 import { ProjectsPage } from "./components/Pages/ProjectsPage";
@@ -20,8 +21,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { USER } from "./utils/constants";
 
-import "core-js/actual";
 import { setUser } from "./app/store/slices/user";
+import "core-js/actual";
 
 function App() {
   const { person } = useSelector((s) => s);
@@ -57,6 +58,9 @@ function App() {
       <Route path="/sign_in" element={<SignInPage />} />
       <Route path="/restore_password" element={<RestorePassword />} />
       <Route path="/account" element={<User />} />
+      <Route path="/uikit" element={<UiKit />} />
+      <Route path="/partners-form" element={<PartnersFormPage />} />{" "}
+      {/* ====== НЕ УДАЛЯЙ, ПРОСТО ЗАКОММЕНТЬ ====== */}
       <Route path="/uikit" element={<UiKit />} />
     </Routes>
   );

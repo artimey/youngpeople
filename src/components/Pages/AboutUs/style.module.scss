@@ -412,19 +412,32 @@
 .title {
   font-family: 'Druk Wide Cyr';
   font-weight: 700;
-  font-size: 3rem;
-  line-height: 110%;
-
-  letter-spacing: 0.01em;
   text-transform: uppercase;
-
   margin-bottom: 1rem;
+  display: block;
+  font-size: 2.8rem;
+  line-height: 3.08rem;
+
+  @media screen and (min-width: 426px) {
+    width: 68rem;
+    font-size: 4.8rem;
+    line-height: 5.28rem;
+    letter-spacing: 0.01em;
+  }
 }
 
 .subtitle {
   font-family: 'TT Norms';
   font-weight: 500;
-  font-size: 1.5rem;
-  line-height: 130%;
-  width: 29rem;
+  display: block;
+  font-size: 1.4rem;
+  line-height: 1.82rem;
+  margin-bottom: 2.4rem;
+
+  @media screen and (min-width: 426px) {
+    width: 39rem;
+    font-size: 1.5rem;
+    line-height: 130%;
+    margin-bottom: 3.2rem;
+  }
 }
