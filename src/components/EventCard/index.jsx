@@ -45,9 +45,20 @@ export const EventCard = ({ item }) => {
         </div>
 
         <div className={styles.org}>
-          <img className="" src={org1} alt={item.org} />
-          <span>{item.org}</span>
-          {/* <a href="https://www.mos.ru/city/projects/studentday/" target="_blank" className="text-brandPink">Подробнее</a> */}
+          {
+            item.org ? 
+            <>
+              <img className="" src={item.orgLogo || org1} alt={item.org} />
+              <span>{item.org}</span>
+            </>
+            :
+            <Link 
+              to={`/events/${item.slug}`} 
+              className="text-brandPink"
+            >
+              Подробнее
+            </Link>
+          }
         </div>
       </div>
     </Col>
