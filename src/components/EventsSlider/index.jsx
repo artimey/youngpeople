@@ -8,8 +8,6 @@ export const EventsSlider = ({ heading = null }) => {
 
   const { data, isError, isLoading } = useGetAllProjectsQuery()
 
-  console.log("data", data);
-
   return (
     <section className="bg-brandBlue py-[8rem] max-sm:py-[6rem]">
       <ContainerLayout>
