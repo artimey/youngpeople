@@ -9,6 +9,8 @@ import minRf from "../../img/LOGO-1.png";
 import mosMolodezh from "../../img/LOGO-2.png";
 import testImage from "../../img/about/image2.png";
 import { CertificateCard } from "./Cards/CertificateCard/CertificateCard";
+import { AuthConfirmStatus } from "../AuthConfirmStatus/AuthConfirmStatus";
+import { UserEventsPlaceholder } from "../UserEventsPlaceholder/UserEventsPlaceholder";
 
 export const certificateCardData = [
   {
@@ -177,6 +179,11 @@ export const UiKit = () => {
 
   return (
     <div>
+
+      <UserEventsPlaceholder />
+
+      <AuthConfirmStatus text={`Регистрация\nпрошла успешно!`}/>
+
       <div className="bg-brandBlue py-[100px] px-[40px] xl:px-[250px]">
         <FilterButton className="mr-[1.2rem]">Мои мероприятия</FilterButton>
         <FilterButton active className="mr-[1.2rem]">

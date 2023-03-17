@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { RiArrowLeftSLine } from "react-icons/ri";
 import styles from "./styles.module.scss";
+import { useHistoryBack } from "../../../app/hooks/useHistoryBack";
 
 export const PageHeader = ({
   title,
@@ -8,8 +9,8 @@ export const PageHeader = ({
   linkText = "Назад",
   children,
 }) => {
-  const navigate = useNavigate();
-  const handleBack = () => navigate(-1);
+  const { handleBack } =  useHistoryBack();
+
   return (
     <header className={styles.header}>
       <span
