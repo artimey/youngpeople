@@ -10,7 +10,7 @@ export const SignInPage = () => {
     <MainLayout isHaveFooter={false}>
       <div className="h-screen flex flex-col justify-center mt-[7rem]">
         <PageHeader title="вход">
-          <div className="text-white80 font-medium text-[1.6rem] leading-[2.2rem] ">
+          <div className="text-white80 text-center font-medium text-[1.6rem] leading-[2.2rem]">
             <span className="text-[#fff]">Нет аккаунта? </span>
             &nbsp;
             <Link className="text-white50 underline" to="/sign_up/first_step">

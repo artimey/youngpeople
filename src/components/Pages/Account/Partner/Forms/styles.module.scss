@@ -1,0 +1,26 @@
+@import 'src/styles/colors.scss';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.select {
+    width: 100%;
+    margin-bottom: 2.4rem;
+
+
+
+    &>div {
+        border: none !important;
+        color: #fff;
+        background-color: $white8 !important;
+        font-weight: 500 !important;
+        font-size: 1.6rem !important;
+        line-height: 2.16rem !important;
+        padding: 2.4rem !important;
+        border-radius: 1.6rem !important;
+        border: none !important;
+        width: 100% !important;
+    }
+}
