@@ -21,8 +21,7 @@
     "react-window-infinite-loader": "^1.0.8",
     "remixicon": "^2.5.0",
     "sass": "^1.57.1",
-    "swiper": "^8.4.6",
-    "web-vitals": "^2.1.0"
+    "swiper": "^8.4.6"
   },
   "scripts": {
     "start": "react-scripts start",
