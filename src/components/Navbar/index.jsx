@@ -23,11 +23,13 @@ export const Navbar = () => {
         <ContainerLayout>
           <div className="flex items-center justify-between text-[1.7rem] font-[500] text-white">
             <span className="flex items-center">
-              <Logo
-                className="mr-[2.4rem]"
-                width={"6.4rem"}
-                height={"6.4rem"}
-              />
+              <Link to="/">
+                <Logo
+                  className="mr-[2.4rem]"
+                  width={"6.4rem"}
+                  height={"6.4rem"}
+                />
+              </Link>
               <div className="flex flex-col flex-nowrap justify-between h-[6.4rem]">
                 <div className={styles.topMenu}>
                   <Link

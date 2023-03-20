@@ -1,30 +1,19 @@
 import { Input } from "antd";
 import { Formik } from "formik";
-import Select from "rc-select";
-import { useState } from "react";
 import { PatternFormat } from "react-number-format";
-import {
-  useGetFieldActivitiesQuery,
-  useLazyAddPartnerQuery,
-} from "../../../../../app/api/partnerApi";
 import { FormField } from "../../../../Form/FormField";
 import { FormLayout } from "../../../../Form/FormLayout";
 import { SubmitButton } from "../../../../Form/SubmitButton";
 import { FormHeader } from "../../FormHeader";
-import { ReactComponent as ArrowDown } from "../../../../../img/arrowDown.svg";
-import { institutionsTransformer } from "../../../../../utils/transformers/institutions";
-import styles from "./styles.module.scss";
-import { useLazyUserUpdateQuery } from "../../../../../app/api/auth";
+import { useLazyPartnerUpdateQuery} from "../../../../../app/api/auth";
 import { useSelector } from "react-redux";
+import styles from "./styles.module.scss";
 
-export const UpdateForm = ({ onClose }) => {
-  const { data: institutions, isLoading: institutionsLoading } =
-    useGetFieldActivitiesQuery();
+export const UpdatePartnerForm = ({ onClose }) => {
   const { person } = useSelector((s) => s);
 
   const [onUpdate, { isSuccess, isError, isLoading }] =
-    useLazyUserUpdateQuery();
-  const [universityData, setUniversityData] = useState("");
+  useLazyPartnerUpdateQuery();
 
   const onSubmit = async (value) => {
     await onUpdate({
@@ -35,20 +24,14 @@ export const UpdateForm = ({ onClose }) => {
     onClose();
   };
 
-  const handleUniversityChange = (value) => {
-    setUniversityData(value);
-  };
   return (
     <div className={styles.wrapper}>
       <Formik
         initialValues={{
-          initials: "",
+          organizationName: "",
           email: "",
-          password: "",
-          birthday: "",
-          typeOfActivity: "",
           phoneNumber: "",
-          nickName: "",
+          address: "",
         }}
         onSubmit={onSubmit}
       >
@@ -71,15 +54,15 @@ export const UpdateForm = ({ onClose }) => {
               <FormField
                 errors={errors}
                 touched={touched}
-                fieldLabel="ФИО"
-                fieldName="initials"
+                fieldLabel="Название организации"
+                fieldName="organizationName"
               >
                 <Input
                   className="placeholder:text-white50"
                   type="text"
-                  name="initials"
+                  name="organizationName"
                   onChange={handleChange}
-                  placeholder="Иванов Иван Иванович"
+                  placeholder="Правительство Москвы"
                   onBlur={handleBlur}
                   value={values.participantCount}
                 />
@@ -101,62 +84,6 @@ export const UpdateForm = ({ onClose }) => {
                   value={values.participantCount}
                 />
               </FormField>
-              {/* 
-              <FormField
-                errors={errors}
-                touched={touched}
-                fieldLabel="Пароль"
-                fieldName="password"
-              ></FormField> */}
-
-              <FormField
-                errors={errors}
-                touched={touched}
-                fieldLabel="Дата рождения"
-                fieldName="birthday"
-              >
-                <Input
-                  className="placeholder:text-white50"
-                  type="text"
-                  name="birthday"
-                  onChange={handleChange}
-                  placeholder="дд.мм.гггг"
-                  onBlur={handleBlur}
-                  value={values.birthday}
-                />
-              </FormField>
-
-              <FormField
-                errors={errors}
-                touched={touched}
-                fieldLabel="Род деятельности"
-                fieldName="typeOfActivity"
-              >
-                <Input
-                  type="text"
-                  name="typeOfActivity"
-                  className="placeholder:text-white50"
-                  placeholder=""
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.typeOfActivity}
-                />
-              </FormField>
-
-              {/* {values.typeOfActivity.toLowerCase() === "студент" && (
-                <FormField
-                  errors={errors}
-                  touched={touched}
-                  fieldLabel="Вуз/ссуз"
-                >
-                  <Select
-                    placeholder="Выберите ВУЗ или ССУЗ"
-                    disabled={institutionsLoading}
-                    onChange={handleUniversityChange}
-                    options={institutionsTransformer(institutions)}
-                  />
-                </FormField>
-              )} */}
 
               <FormField
                 errors={errors}
@@ -179,19 +106,46 @@ export const UpdateForm = ({ onClose }) => {
               <FormField
                 errors={errors}
                 touched={touched}
-                fieldLabel="Ник в телеграм"
-                fieldName="nickName"
+                fieldLabel="Адрес"
+                fieldName="address"
               >
                 <Input
                   type="text"
-                  name="nickName"
+                  name="address"
                   className="placeholder:text-white50"
-                  placeholder="@you_nick"
+                  placeholder="Укажите адрес организации"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.nickName}
+                  value={values.participantCount}
                 />
               </FormField>
+
+              {/* <FormField
+                errors={errors}
+                touched={touched}
+                fieldLabel="Пароль"
+                fieldName="password"
+              >
+                <PasswordField
+                  name="password"
+                  className="placeholder:text-white50"
+                  onChange={handleChange}
+                />
+              </FormField>
+
+              <FormField
+                errors={errors}
+                touched={touched}
+                fieldLabel="Повторите пароль"
+                fieldName="repeatPassword"
+              >
+                <PasswordField
+                  name="repeatPassword"
+                  placeholder="Введите пароль еще раз"
+                  className="placeholder:text-white50"
+                  onChange={handleChange}
+                />
+              </FormField> */}
 
               <div className={styles.buttonWrapper}>
                 <SubmitButton isLoading={isLoading} text="Сохранить" />

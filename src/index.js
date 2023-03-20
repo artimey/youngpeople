@@ -3,10 +3,10 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { ConfigProvider } from "antd";
 import { store } from "./app/store";
 import "remixicon/fonts/remixicon.css";
 import "./styles/index.scss";
-import { ConfigProvider } from "antd";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

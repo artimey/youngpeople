@@ -22,7 +22,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { USER } from "./utils/constants";
 
 import { setUser } from "./app/store/slices/user";
+
 import "core-js/actual";
+import { PartnerRegistration } from "./components/Pages/PartnerRegistration";
 
 function App() {
   const { person } = useSelector((s) => s);
@@ -59,7 +61,8 @@ function App() {
       <Route path="/restore_password" element={<RestorePassword />} />
       <Route path="/account" element={<User />} />
       <Route path="/uikit" element={<UiKit />} />
-      <Route path="/partners-form" element={<PartnersFormPage />} />{" "}
+      <Route path="/partners-form" element={<PartnersFormPage />} />
+      <Route  path="/partners_registration" element={<PartnerRegistration/>}/>
       {/* ====== НЕ УДАЛЯЙ, ПРОСТО ЗАКОММЕНТЬ ====== */}
       <Route path="/uikit" element={<UiKit />} />
     </Routes>

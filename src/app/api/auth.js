@@ -66,7 +66,7 @@ export const authApi = baseApi.injectEndpoints({
         if (arg.email) auth.append("EMAIL", arg.email);
         if (arg.password) auth.append("PASS", arg.password);
         if (arg.phoneNumber) auth.append("PERSONAL_PHONE", arg.phoneNumber);
-        if (arg.nickName) auth.append("UF_TELEGRAM ", arg.nickName);
+        if (arg.nickName) auth.append("UF_TELEGRAM", arg.nickName);
         if (arg.typeOfActivity)
           auth.append("UF_USER_TYPE ", arg.typeOfActivity);
         if (arg.birthday) auth.append("PERSONAL_BIRTHDAY", arg.birthday);
@@ -140,6 +140,68 @@ export const authApi = baseApi.injectEndpoints({
         };
       },
     }),
+    partnerRegistration: build.query({
+      async queryFn(arg, queryApi, _extraOptions, fetchWithBQ) {
+        const auth = new FormData();
+        // console.log("arg", arg);
+        auth.append("METHOD", "REGISTRATION_PARTNER");
+        auth.append("ORGANIZATION_NAME", arg.organizationName);
+        auth.append("EMAIL", arg.email);
+        auth.append("PHONE", arg.phoneNumber);
+        auth.append("ADDRESS", arg.address);
+        auth.append("PASS", arg.password);
+        const res = await fetchWithBQ({
+          url: "/api/personal/",
+          method: "POST",
+          body: auth,
+        });
+        if (res?.data) {
+          if (res.data?.TYPE === "ERROR") {
+            return { data: res.data["MESSAGE"] };
+          }
+          // console.log('res?.data["USER_INFO"]["UF_API_KEY"]', res?.data);
+          queryApi.dispatch(
+            setUser(userResponseTransform(res?.data["USER_INFO"]))
+          );
+          return { data: userResponseTransform(res?.data) };
+        }
+        return {
+          data: null,
+        };
+      },
+    }),
+    partnerUpdate: build.query({
+      async queryFn(arg, queryApi, _extraOptions, fetchWithBQ) {
+        const auth = new FormData();
+        // console.log("arg", arg);
+        auth.append("METHOD", "PARTNER_INFO");
+        if (arg.userId) auth.append("USER_ID", arg.userId);
+        if (arg.avatar) auth.append("AVATAR", arg.avatar);
+        if (arg.organizationName)
+          auth.append("ORGANIZATION_NAME", arg.organizationName);
+        if (arg.email) auth.append("EMAIL", arg.email);
+        if (arg.phoneNumber) auth.append("PHONE", arg.phoneNumber);
+        if (arg.password) auth.append("PASS", arg.password);
+        if (arg.address) auth.append("ADDRESS", arg.address);
+        if (arg.apiKey) auth.append("UF_API_KEY", arg.apiKey);
+        const res = await fetchWithBQ({
+          url: "/api/personal/",
+          method: "POST",
+          body: auth,
+        });
+        if (res?.data) {
+          if (res.data?.TYPE === "ERROR") {
+            return { data: res.data["MESSAGE"] };
+          }
+          // console.log('res?.data["USER_INFO"]["UF_API_KEY"]', res?.data);
+          queryApi.dispatch(setUser(userResponseTransform(res?.data)));
+          return { data: userResponseTransform(res?.data) };
+        }
+        return {
+          data: null,
+        };
+      },
+    }),
   }),
 });
 
@@ -148,5 +210,7 @@ export const {
   useLazyUserRegistrationQuery,
   useLazyUserUpdateQuery,
   useLazyRestorePasswordEmailQuery,
-  useLazyRestorePasswordQuery
+  useLazyRestorePasswordQuery,
+  useLazyPartnerRegistrationQuery,
+  useLazyPartnerUpdateQuery
 } = authApi;

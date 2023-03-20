@@ -1,57 +1,32 @@
-import { Input, Select } from "antd";
+import { useState } from "react";
+import { Input } from "antd";
 import { Formik } from "formik";
-import { useEffect, useState } from "react";
-import { PatternFormat } from "react-number-format";
-import { useGetFieldActivitiesQuery } from "../../../../app/api/partnerApi";
-import { institutionsTransformer } from "../../../../utils/transformers/institutions";
-import { Checkbox } from "../../../Checkbox";
+import { useLazyPartnerRegistrationQuery} from "../../../../app/api/auth";
 import { FormField } from "../../../Form/FormField";
 import { FormLayout } from "../../../Form/FormLayout";
+import { PasswordField } from "../../../Form/PasswordField";
 import { SubmitButton } from "../../../Form/SubmitButton";
-import { ReactComponent as ArrowDown } from "../../../../img/arrowDown.svg";
-import { useLazyUserUpdateQuery } from "../../../../app/api/auth";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.scss";
+import { Checkbox } from "../../../Checkbox";
+import { PatternFormat } from "react-number-format";
 
-export const SecondStep = () => {
-  const navigate = useNavigate();
-  const [onUpdate, { isSuccess, isError, isLoading,data }] =
-    useLazyUserUpdateQuery();
-  const { data: institutions, isLoading: institutionsLoading } =
-    useGetFieldActivitiesQuery();
-
-  const { person } = useSelector((s) => s);
-
+export const PartnersRegistrationForm = () => {
   const [isAgree, setIsAgree] = useState(false);
-  const [universityData, setUniversityData] = useState("");
-
-  useEffect(() => {
-    if (data && !isError) {
-      navigate("/account");
-    }
-  }, [data]);
+  const [onSignUp, { data, isLoading, isError }] =
+  useLazyPartnerRegistrationQuery();
 
   const onSubmit = async (value) => {
-    if (isAgree) {
-      await onUpdate({
-        ...value,
-        userId: person.userId,
-        apiKey: person.apiKey,
-      });
-    }
-  };
-
-  const handleUniversityChange = (value) => {
-    setUniversityData(value);
+    await onSignUp(value);
   };
   return (
     <Formik
       initialValues={{
-        birthday: "",
-        typeOfActivity: "",
+        organizationName: "",
+        email: "",
         phoneNumber: "",
-        nickName: "",
+        address: "",
+        password: "",
+        repeatPassword: "",
       }}
       onSubmit={onSubmit}
     >
@@ -62,28 +37,23 @@ export const SecondStep = () => {
         handleChange,
         handleBlur,
         handleSubmit,
-        isSubmitting,
       }) => (
-        <FormLayout
-          isSuccess={isSuccess}
-          isError={isError}
-          onSubmit={handleSubmit}
-        >
+        <FormLayout isSuccess={false} isError={isError} onSubmit={handleSubmit}>
           <>
             <FormField
               errors={errors}
               touched={touched}
-              fieldLabel="Дата рождения"
-              fieldName="birthday"
+              fieldLabel="Название организации"
+              fieldName="organizationName"
             >
               <Input
                 className="placeholder:text-white50"
                 type="text"
-                name="birthday"
+                name="organizationName"
                 onChange={handleChange}
-                placeholder="дд.мм.гггг"
+                placeholder="Правительство Москвы"
                 onBlur={handleBlur}
-                value={values.birthday}
+                value={values.participantCount}
                 required
               />
             </FormField>
@@ -91,39 +61,20 @@ export const SecondStep = () => {
             <FormField
               errors={errors}
               touched={touched}
-              fieldLabel="Род деятельности"
-              fieldName="typeOfActivity"
+              fieldLabel="Почта"
+              fieldName="email"
             >
               <Input
-                type="text"
-                name="typeOfActivity"
+                type="email"
+                name="email"
                 className="placeholder:text-white50"
-                placeholder=""
+                placeholder="example@mail.com"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.typeOfActivity}
+                value={values.participantCount}
                 required
               />
-            </FormField>
-
-            {values.typeOfActivity.toLowerCase() === "студент" && (
-              <FormField
-                errors={errors}
-                touched={touched}
-                fieldLabel="Вуз/ссуз"
-              >
-                <Select
-                  placeholder="Выберите ВУЗ или ССУЗ"
-                  disabled={institutionsLoading}
-                  className={styles.select}
-                  onChange={handleUniversityChange}
-                  suffixIcon={
-                    <ArrowDown className="mr-[1.8rem] w-[1.6rem] h-[1rem]" />
-                  }
-                  options={institutionsTransformer(institutions)}
-                />
-              </FormField>
-            )}
+            </FormField>     
 
             <FormField
               errors={errors}
@@ -144,21 +95,49 @@ export const SecondStep = () => {
               />
             </FormField>
 
+
             <FormField
               errors={errors}
               touched={touched}
-              fieldLabel="Ник в телеграм"
-              fieldName="nickName"
+              fieldLabel="Адрес"
+              fieldName="address"
             >
               <Input
                 type="text"
-                name="nickName"
+                name="address"
                 className="placeholder:text-white50"
-                placeholder="@you_nick"
+                placeholder="Укажите адрес организации"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.nickName}
+                value={values.participantCount}
                 required
+              />
+            </FormField>
+
+            <FormField
+              errors={errors}
+              touched={touched}
+              fieldLabel="Пароль"
+              fieldName="password"
+            >
+              <PasswordField
+                name="password"
+                className="placeholder:text-white50"
+                onChange={handleChange}
+              />
+            </FormField>
+
+            <FormField
+              errors={errors}
+              touched={touched}
+              fieldLabel="Повторите пароль"
+              fieldName="repeatPassword"
+            >
+              <PasswordField
+                name="repeatPassword"
+                placeholder="Введите пароль еще раз"
+                className="placeholder:text-white50"
+                onChange={handleChange}
               />
             </FormField>
 
