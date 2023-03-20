@@ -1,6 +1,8 @@
 export const eventsTransformer = (events) => {
   const url = "https://mosmolodezh.ru";
 
+  console.log(events.data);
+
   if (events.data) {
     return Object.keys(events.data).map((item) => ({
       id: events.data[item]["Fields"]["ID"],
@@ -13,6 +15,8 @@ export const eventsTransformer = (events) => {
       dateStart: events.data[item]["Props"]["DATE_START"]["TIMESTAMP_X"],
       org: events.data[item]["Props"]["ORGANIZATION"]["VALUE_DETAIL"],
       orgLogo: url + events.data[item]["Props"]["ORGANIZATION"]["VALUE_DETAIL_PIC"],
+      slidersImage: events.data[item]["Props"]["SLIDER"]["VALUE"] ? 
+        events.data[item]["Props"]["SLIDER"]["VALUE"].map(item => url + item) : false,
       place: "Холодильный пер., 3, корп. 1, стр. 8, Москва",
       html: events.data[item]["Fields"]["DETAIL_TEXT"],
     }));
