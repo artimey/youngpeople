@@ -1,14 +1,35 @@
 export const transformDate = (date) => {
-  if (Date.parse(date)) {
-    const newDate = new Date(date);
+  const newDate = new Date(date);
+  const utcDate = new Date(
+    Date.UTC(
+      newDate.getFullYear(),
+      newDate.getMonth(),
+      newDate.getDate(),
+      newDate.getHours(),
+      newDate.getMinutes()
+    )
+  );
+  const updatedDate = utcDate.toLocaleDateString("ru-RU", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
-    return newDate.toLocaleDateString("ru-RU", {
-      day: "2-digit",
-      month: "long",
-      year: "numeric",
-    });
-  }
-  return date;
+  return updatedDate;
+};
+
+export const transformNewsDate = (date) => {
+  const [day, month, year] = date.split(".");
+
+  return new Date(
+    Date.UTC(Number(year), Number(month), Number(day))
+  ).toLocaleDateString("ru-RU", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
 };
 
 export const dataIsEmpty = (data) =>

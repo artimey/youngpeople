@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { Link } from "react-router-dom";
-import { transformDate } from "../../../../utils/helpers";
+import { transformNewsDate } from "../../../../utils/helpers";
 import styles from "./styles.module.scss";
 
 export const ImportantNewsCard = ({ item, isFirst }) => {
@@ -8,11 +8,7 @@ export const ImportantNewsCard = ({ item, isFirst }) => {
     <Link to={`/news/${item.id}`} className={styles.importantNews}>
       {isFirst && (
         <div className={styles.newsImg}>
-          <img
-            src={item.img}
-            alt={item.title}
-            loading="lazy"
-          />
+          <img src={item.img} alt={item.title} loading="lazy" />
         </div>
       )}
 
@@ -22,7 +18,7 @@ export const ImportantNewsCard = ({ item, isFirst }) => {
           isFirst ? "rounded-none" : "rounded[3.2rem]"
         )}
       >
-        <span className={styles.date}>{transformDate(item.date)}</span>
+        <span className={styles.date}>{transformNewsDate(item.date)}</span>
         <h3 className={styles.title}>{item.title}</h3>
       </div>
     </Link>

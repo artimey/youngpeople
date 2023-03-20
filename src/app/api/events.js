@@ -3,7 +3,7 @@ import { eventsTransformer } from "../../utils/transformers/events";
 
 export const eventsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getAllProjects: build.query({
+    getAllEvents: build.query({
       query: () => ({ url: "api/events/", method: "GET" }),
       transformResponse(res) {
         return eventsTransformer(res);
@@ -12,4 +12,4 @@ export const eventsApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetAllProjectsQuery } = eventsApi;
+export const { useGetAllEventsQuery } = eventsApi;
