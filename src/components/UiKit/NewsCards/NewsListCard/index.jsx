@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { Link } from "react-router-dom";
-import { transformDate } from "../../../../utils/helpers";
+import { transformNewsDate } from "../../../../utils/helpers";
 import styles from "./style.module.scss";
 
 const stylesByCount = {
@@ -24,7 +24,9 @@ export const NewsListCard = ({ item, cardCount }) => {
         />
       </div>
       <h3 className={styles.newCardTitle}>{item.title}</h3>
-      <span className={styles.newsCardDate}>{transformDate(item.date)}</span>
+      <span className={styles.newsCardDate}>
+        {transformNewsDate(item.date)}
+      </span>
     </Link>
   );
 };

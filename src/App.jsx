@@ -1,4 +1,6 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {  Route, Routes } from "react-router-dom";
 import { AboutUs } from "./components/Pages/AboutUs";
 import { User } from "./components/Pages/Account/User";
 import { CoWorkingBooking } from "./components/Pages/CoWorkingBooking";
@@ -16,15 +18,11 @@ import { RestorePassword } from "./components/Pages/RestorePassword";
 import { SignInPage } from "./components/Pages/SignIn";
 import { UiKit } from "./components/UiKit";
 import { SignUpFirstStep, SignUpSecondStep } from "./components/Pages/SignUp";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
+import { PartnerRegistration } from "./components/Pages/PartnerRegistration";
+import { setUser } from "./app/store/slices/user";
 import { USER } from "./utils/constants";
 
-import { setUser } from "./app/store/slices/user";
-
 import "core-js/actual";
-import { PartnerRegistration } from "./components/Pages/PartnerRegistration";
 
 function App() {
   const { person } = useSelector((s) => s);

@@ -10,7 +10,7 @@ export const eventsTransformer = (events) => {
       hasImg: events.data[item]["Fields"]["PREVIEW_PICTURE"],
       detailImg: url + events.data[item]["Fields"]["DETAIL_PICTURE"],
       hasDetailImg: events.data[item]["Fields"]["DETAIL_PICTURE"],
-      dateStart: events.data[item]["Fields"]["DATE_ACTIVE_FROM"],
+      dateStart: events.data[item]["Props"]["DATE_START"]["TIMESTAMP_X"],
       org: events.data[item]["Props"]["ORGANIZATION"]["VALUE_DETAIL"],
       orgLogo: url + events.data[item]["Props"]["ORGANIZATION"]["VALUE_DETAIL_PIC"],
       place: "Холодильный пер., 3, корп. 1, стр. 8, Москва",
