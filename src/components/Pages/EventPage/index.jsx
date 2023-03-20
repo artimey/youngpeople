@@ -6,6 +6,7 @@ import { MainLayout } from '../../Layouts/MainLayout';
 import { EventPageContent } from './EventPageContent';
 import { EventPageHeader } from './EventPageHeader';
 import { EventPageOtherEvent } from './EventPageOtherEvent';
+import { EventPageSlider } from './EventPageSlider';
 
 
 export const EventPage = () => {
@@ -27,7 +28,6 @@ export const EventPage = () => {
     }
   }, [data, isLoading, eventSlug])
 
- 
   return (
     <>
       {
@@ -41,18 +41,21 @@ export const EventPage = () => {
                 org={currentEvent.org}
                 orgImg={currentEvent?.orgImg}
                 place={currentEvent.place}
-                img={currentEvent.img}
-                hasImg={currentEvent.hasImg}
+                detailImg={currentEvent.detailImg}
               />
               <ContainerLayout>
-                <EventPageContent
-                  text={currentEvent.html}
-                />
+                <EventPageContent text={currentEvent.html} />
+              </ContainerLayout>
+
+              {currentEvent.slidersImage && <EventPageSlider images={currentEvent.slidersImage} />}
+
+              <ContainerLayout>
                 <EventPageOtherEvent
                   data={data}
                   slug={eventSlug}
                 />
               </ContainerLayout>
+
             </div>
           </MainLayout>
         )

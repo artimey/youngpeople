@@ -5,9 +5,9 @@ import styles from './style.module.scss'
 import { ReactComponent as MapMarker } from '../../../img/events/mapMarker.svg'
 import { ReactComponent as Calendar } from '../../../img/events/calendar.svg'
 
-export const EventPageHeader = ({ title, date, org, orgImg, place, img }) => {
+export const EventPageHeader = ({ title, date, org, orgImg, place, detailImg }) => {
   return (
-    <header className={styles.header} style={{ backgroundImage: `url(${img})` }}>
+    <header className={styles.header} style={{ backgroundImage: `url(${detailImg})` }}>
       <div className={styles.bg}></div>
       <ContainerLayout>
         {/* <div className="flex items-center">
