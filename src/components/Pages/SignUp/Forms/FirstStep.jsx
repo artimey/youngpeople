@@ -3,6 +3,7 @@ import { Formik } from "formik";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLazyUserRegistrationQuery } from "../../../../app/api/auth";
+import { EmailField } from "../../../Form/EmailField";
 import { FormField } from "../../../Form/FormField";
 import { FormLayout } from "../../../Form/FormLayout";
 import { PasswordField } from "../../../Form/PasswordField";
@@ -41,7 +42,6 @@ export const FirstStep = () => {
         handleChange,
         handleBlur,
         handleSubmit,
-        isSubmitting,
       }) => (
         <FormLayout isSuccess={false} isError={isError} onSubmit={handleSubmit}>
           <>
@@ -62,25 +62,21 @@ export const FirstStep = () => {
                 required
               />
             </FormField>
-
-            <FormField
-              errors={errors}
-              touched={touched}
-              fieldLabel="Почта"
-              fieldName="email"
-            >
-              <Input
-                type="email"
-                name="email"
-                className="placeholder:text-white50"
-                placeholder="example@mail.com"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.participantCount}
-                required
-              />
-            </FormField>
-
+            <EmailField
+              emailFieldProps={{
+                placeholder: "example@mail.com",
+                onChange: handleChange,
+                onBlur: handleBlur,
+                value: values.email,
+                required: true,
+              }}
+              fieldProps={{
+                errors,
+                touched,
+                fieldLabel: "Почта",
+                fieldName: "email",
+              }}
+            />
             <FormField
               errors={errors}
               touched={touched}

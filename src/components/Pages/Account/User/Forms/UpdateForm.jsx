@@ -1,21 +1,18 @@
 import { Input } from "antd";
 import { Formik } from "formik";
-import Select from "rc-select";
 import { useState } from "react";
 import { PatternFormat } from "react-number-format";
-import {
-  useGetFieldActivitiesQuery,
-  useLazyAddPartnerQuery,
-} from "../../../../../app/api/partnerApi";
+import { useGetFieldActivitiesQuery } from "../../../../../app/api/partners";
 import { FormField } from "../../../../Form/FormField";
 import { FormLayout } from "../../../../Form/FormLayout";
 import { SubmitButton } from "../../../../Form/SubmitButton";
 import { FormHeader } from "../../FormHeader";
-import { ReactComponent as ArrowDown } from "../../../../../img/arrowDown.svg";
-import { institutionsTransformer } from "../../../../../utils/transformers/institutions";
 import styles from "./styles.module.scss";
 import { useLazyUserUpdateQuery } from "../../../../../app/api/auth";
 import { useSelector } from "react-redux";
+import { BirthdayField } from "../../../../Form/BirthdayField";
+import { PhoneField } from "../../../../Form/PhoneField";
+import { EmailField } from "../../../../Form/EmailField";
 
 export const UpdateForm = ({ onClose }) => {
   const { data: institutions, isLoading: institutionsLoading } =
@@ -85,22 +82,20 @@ export const UpdateForm = ({ onClose }) => {
                 />
               </FormField>
 
-              <FormField
-                errors={errors}
-                touched={touched}
-                fieldLabel="Почта"
-                fieldName="email"
-              >
-                <Input
-                  type="email"
-                  name="email"
-                  className="placeholder:text-white50"
-                  placeholder="example@mail.com"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.participantCount}
-                />
-              </FormField>
+              <EmailField
+                emailFieldProps={{
+                  placeholder: "example@mail.com",
+                  onChange: handleChange,
+                  onBlur: handleBlur,
+                  value: values.email,
+                }}
+                fieldProps={{
+                  errors,
+                  touched,
+                  fieldLabel: "Почта",
+                  fieldName: "email",
+                }}
+              />
               {/* 
               <FormField
                 errors={errors}
@@ -109,22 +104,20 @@ export const UpdateForm = ({ onClose }) => {
                 fieldName="password"
               ></FormField> */}
 
-              <FormField
-                errors={errors}
-                touched={touched}
-                fieldLabel="Дата рождения"
-                fieldName="birthday"
-              >
-                <Input
-                  className="placeholder:text-white50"
-                  type="text"
-                  name="birthday"
-                  onChange={handleChange}
-                  placeholder="дд.мм.гггг"
-                  onBlur={handleBlur}
-                  value={values.birthday}
-                />
-              </FormField>
+              <BirthdayField
+                fieldProps={{
+                  errors,
+                  touched,
+                  fieldLabel: "Дата Рождения",
+                  fieldName: "birthday",
+                }}
+                birthdayField={{
+                  onChange: handleChange,
+                  onBlur: handleBlur,
+                  value: values.birthday,
+                  name: "birthday",
+                }}
+              />
 
               <FormField
                 errors={errors}
@@ -158,23 +151,19 @@ export const UpdateForm = ({ onClose }) => {
                 </FormField>
               )} */}
 
-              <FormField
-                errors={errors}
-                touched={touched}
-                fieldLabel="Контактный номер"
-                fieldName="phoneNumber"
-              >
-                <PatternFormat
-                  format="+7 (###) ### ## ##"
-                  className="placeholder:text-white50"
-                  mask="_"
-                  type="phone"
-                  name="phoneNumber"
-                  placeholder={"+7 (999) 123-45-67"}
-                  onChange={handleChange}
-                  value={values.phoneNumber}
-                />
-              </FormField>
+              <PhoneField
+                fieldProps={{
+                  errors,
+                  touched,
+                  fieldLabel: "Контактный номер",
+                  fieldName: "phoneNumber",
+                }}
+                phoneFieldProps={{
+                  name: "phoneNumber",
+                  onChange: handleChange,
+                  value: values.phoneNumber,
+                }}
+              />
 
               <FormField
                 errors={errors}
