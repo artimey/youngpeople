@@ -39,7 +39,7 @@ export const ProjectSlider = () => {
               return (
                 <SwiperSlide key={item.id} className='flex justify-center'>
                   <Link
-                    to={`projects/${idx}`}
+                    to={`/projects/${idx}`}
                     className='text-center cursor-pointer'
                   >
                     <div className="rounded-full overflow-hidden w-[26rem] h-[26rem] mb-[2.4rem]">
