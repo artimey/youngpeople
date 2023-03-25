@@ -1,5 +1,4 @@
 import React from 'react';
-import logs from '../../img/logos.svg';
 import ContainerLayout from '../Layouts/ContainerLayout/ContainerLayout';
 
 import img1 from '../../img/partners/partner-1.svg';
@@ -21,6 +20,7 @@ import img16 from '../../img/partners/partner-16.svg';
 import img17 from '../../img/partners/partner-17.svg';
 
 import styles from './Partners.module.scss';
+
 
 export const Partners = () => {
   const partners = [
@@ -45,7 +45,7 @@ export const Partners = () => {
   return (
     <section className="mt-0 md:pt-[80px] pb-[80px] bg-brandBlue">
       <ContainerLayout>
-        <div className="flex flex-row flex-wrap justify-between">
+        <div className={styles.partnersWrapper}>
           {partners.map((img, idx) => (
             <img
               src={img}
