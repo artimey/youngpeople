@@ -9,6 +9,7 @@ import { Partners } from '../../Partners';
 import { Projects } from '../../Projects';
 import { SectionHeading } from '../../SectionHeading';
 import { AboutSection } from '../../AboutSection';
+import { ProjectSlider } from './ProjectSlider/ProjectSlider';
 
 export const HomePage = () => {
 
@@ -39,7 +40,7 @@ export const HomePage = () => {
         <AboutSection />
       </div>
       <div className="z-[10002] relative -mt-[30px]  border-t-2 border-t-white8 rounded-t-[32px]">
-        <Projects />
+        <ProjectSlider />
       </div>
 
       <Partners />

@@ -4,8 +4,6 @@ import ContainerLayout from '../../Layouts/ContainerLayout/ContainerLayout';
 import { MainLayout } from '../../Layouts/MainLayout';
 import { AboutUsHeader } from './AboutUsHeader';
 import localStyles from './style.module.scss';
-import styles from '../../AllNews/allNews.module.scss';
-
 import { Titles } from './Titles';
 import { Projects } from '../../Projects';
 import { Partners } from '../../Partners';
@@ -17,7 +15,7 @@ import { CtaBlock } from './CtaBlock';
 
 export const AboutUs = () => {
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 

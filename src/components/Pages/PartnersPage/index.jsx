@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ContainerLayout from '../../Layouts/ContainerLayout/ContainerLayout'
 import { MainLayout } from '../../Layouts/MainLayout'
 import { CtaBlock } from '../AboutUs/CtaBlock'
 import { PartnersCards } from './PartnersCards'
 
 export const PartnersPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <MainLayout>
       <div className='pt-[15.6rem] pb-[8rem]'>
