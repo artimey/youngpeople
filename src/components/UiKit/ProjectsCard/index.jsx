@@ -10,7 +10,7 @@ export const ProjectsCard = ({
   img,
 }) => {
   return (
-    <Link to={`${id}`} className={styles.projectCardContainer}>
+    <Link to={id} className={styles.projectCardContainer}>
       <span className={styles.projectCardTitle}>
         {title.replace(/&quot;/, "«").replace(/&quot;/, "»")}
       </span>

@@ -19,6 +19,9 @@ export const ProjectPage = () => {
     }
   }, [data, isLoading])
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <MainLayout>

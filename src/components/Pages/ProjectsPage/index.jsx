@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useGetAllProjectsQuery } from "../../../app/api/projects";
 import { dataIsEmpty } from "../../../utils/helpers";
 import ContainerLayout from "../../Layouts/ContainerLayout/ContainerLayout";
@@ -7,6 +8,11 @@ import { ProjectsHeader } from "./ProjectsHeader";
 
 export const ProjectsPage = () => {
   const { data, isLoading, isError } = useGetAllProjectsQuery();
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <MainLayout>
       <ContainerLayout>

@@ -1,7 +1,5 @@
 export const eventsTransformer = (events) => {
-  const url = "https://mosmolodezh.ru";
-
-  console.log(events.data);
+  const url = "https://mosmolodezh.ru";  
 
   if (events.data) {
     return Object.keys(events.data).map((item) => ({

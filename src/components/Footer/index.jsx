@@ -1,4 +1,3 @@
-import { Col, Row } from 'antd';
 import logo1 from '../../img/footerlogo1.svg';
 import logo2 from '../../img/footerlogo2.svg';
 import youngLogo from '../../img/logo.svg';
@@ -19,6 +18,7 @@ export const MyFooter = () => {
     { title: 'Пространства', href: '/co-working-zones' },
     { title: 'Партнеры', href: '/partners' },
     { title: 'Новости', href: '/news' },
+    { title: 'Проекты', href: '/projects' },
     // {title: 'Контакты', href: '#'},
   ];
 
