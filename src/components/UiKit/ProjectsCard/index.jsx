@@ -22,7 +22,11 @@ export const ProjectsCard = ({
         Подробнее <br /> о проекте
       </span>
       <img
-        src={`${BASE_URL}/upload/iblock/6ee/s1qbv2pjq9vp0p27bolw5fj66bjr2oie.png`}
+        src={
+          img
+            ? img
+            : `${BASE_URL}/upload/iblock/6ee/s1qbv2pjq9vp0p27bolw5fj66bjr2oie.png`
+        }
         alt={title}
         className={styles.projectImg}
       />

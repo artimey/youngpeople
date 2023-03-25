@@ -17,6 +17,7 @@
     overflow: hidden;
 
     img {
+      object-fit: cover;
       width: 100%;
       height: 3.2rem;
       min-height: 32rem;
@@ -56,7 +57,7 @@
   }
 
   &:hover {
-    & .newsImg img{
+    & .newsImg img {
       transform: scale(1.2);
     }
 

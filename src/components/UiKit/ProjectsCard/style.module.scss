@@ -88,7 +88,7 @@
     }
 
     &:hover {
-
+        transition: 0 0.5s background ease-in-out;
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
 
         & .projectLink {

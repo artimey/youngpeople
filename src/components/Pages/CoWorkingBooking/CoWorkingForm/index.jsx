@@ -4,13 +4,15 @@ import { DatePicker, Input, Select } from "antd";
 import { ReactComponent as ArrowDown } from "../../../../img/arrowDown.svg";
 import { ReactComponent as Calendar } from "../../../../img/datePicker.svg";
 import CheckableTag from "antd/es/tag/CheckableTag";
-import { useGetFieldActivitiesQuery } from "../../../../app/api/partnerApi";
+import { useGetFieldActivitiesQuery } from "../../../../app/api/partners";
 import { useLazyBookSpaceQuery } from "../../../../app/api/bookingSpace";
 import { institutionsTransformer } from "../../../../utils/transformers/institutions";
-import { PatternFormat } from "react-number-format";
 import { FormLayout } from "../../../Form/FormLayout";
 import { FormField } from "../../../Form/FormField";
 import { SubmitButton } from "../../../Form/SubmitButton";
+import { BirthdayField } from "../../../Form/BirthdayField";
+import { EmailField } from "../../../Form/EmailField";
+import { PhoneField } from "../../../Form/PhoneField";
 import styles from "./styles.module.scss";
 
 export const CoWorkingForm = () => {
@@ -71,6 +73,9 @@ export const CoWorkingForm = () => {
         comment: "",
         eventTime: "",
         eventFormat: "",
+        email: "",
+        name: "",
+        phone: "",
       }}
       validate={(values) => {
         const errors = {};
@@ -104,21 +109,63 @@ export const CoWorkingForm = () => {
             <FormField
               errors={errors}
               touched={touched}
-              fieldLabel="Дата Рождения"
-              fieldName="bornDate"
+              fieldLabel="Имя"
+              fieldName="name"
             >
-              <PatternFormat
-                format="##.##.####"
-                mask="_"
+              <Input
                 type="text"
-                name="bornDate"
-                placeholder={"10.09.1147"}
+                name="name"
+                className="placeholder:text-white50"
+                placeholder="Имя"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.bornDate}
-                required
+                value={values.name}
               />
             </FormField>
+            <EmailField
+              emailFieldProps={{
+                placeholder: "example@mail.com",
+                onChange: handleChange,
+                onBlur: handleBlur,
+                value: values.email,
+                required: true,
+              }}
+              fieldProps={{
+                errors,
+                touched,
+                fieldLabel: "Почта",
+                fieldName: "email",
+              }}
+            />
+            <BirthdayField
+              fieldProps={{
+                errors,
+                touched,
+                fieldLabel: "Дата Рождения",
+                fieldName: "bornDate",
+              }}
+              birthdayField={{
+                onChange: handleChange,
+                onBlur: handleBlur,
+                value: values.bornDate,
+                name: "bornDate",
+                required: true,
+              }}
+            />
+            <PhoneField
+              fieldProps={{
+                errors,
+                touched,
+                fieldLabel: "Контактный номер",
+                fieldName: "phone",
+              }}
+              phoneFieldProps={{
+                name: "phone",
+                onChange: handleChange,
+                value: values.phone,
+                required: true,
+              }}
+            />
             <FormField errors={errors} touched={touched} fieldLabel="Вуз/ссуз">
               <Select
                 placeholder="Где обучаетесь?"

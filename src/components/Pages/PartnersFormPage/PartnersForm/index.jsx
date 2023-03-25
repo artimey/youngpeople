@@ -4,12 +4,14 @@ import { Formik } from "formik";
 import { ReactComponent as ArrowDown } from "../../../../img/arrowDown.svg";
 import { Checkbox } from "../../../Checkbox";
 import { districts } from "../../../../mockData/mockData";
-import { useLazyAddPartnerQuery } from "../../../../app/api/partnerApi";
+import { useLazyAddPartnerQuery } from "../../../../app/api/partners";
 import { PatternFormat } from "react-number-format";
 import { FormLayout } from "../../../Form/FormLayout";
 import { FormField } from "../../../Form/FormField";
 import { SubmitButton } from "../../../Form/SubmitButton";
 import styles from "./styles.module.scss";
+import { PhoneField } from "../../../Form/PhoneField";
+import { EmailField } from "../../../Form/EmailField";
 
 export const PartnersForm = () => {
   const [district, setDistrict] = useState(districts[0]);
@@ -158,39 +160,35 @@ export const PartnersForm = () => {
               />
             </FormField>
 
-            <FormField
-              errors={errors}
-              touched={touched}
-              fieldLabel="Контактный номер*"
-              fieldName="phoneNumber"
-            >
-              <PatternFormat
-                format="+7 (###) ### ## ##"
-                mask="_"
-                type="phone"
-                name="phoneNumber"
-                placeholder={"+7 (000) 00 00 00"}
-                onChange={handleChange}
-                value={values.phoneNumber}
-                required
-              />
-            </FormField>
-
-            <FormField
-              errors={errors}
-              touched={touched}
-              fieldLabel="Почта*"
-              fieldName="email"
-            >
-              <Input
-                type="email"
-                name="email"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.participantCount}
-                required
-              />
-            </FormField>
+            <PhoneField
+              fieldProps={{
+                errors,
+                touched,
+                fieldLabel: "Контактный номер",
+                fieldName: "phoneNumber",
+              }}
+              phoneFieldProps={{
+                name: "phone",
+                onChange: handleChange,
+                value: values.phoneNumber,
+                required: true,
+              }}
+            />
+            <EmailField
+              emailFieldProps={{
+                placeholder: "example@mail.com",
+                onChange: handleChange,
+                onBlur: handleBlur,
+                value: values.email,
+                required: true,
+              }}
+              fieldProps={{
+                errors,
+                touched,
+                fieldLabel: "Почта",
+                fieldName: "email",
+              }}
+            />
 
             <div className={styles.checkboxWrapper}>
               <Checkbox checked={isAgree} onChange={setIsAgree} />

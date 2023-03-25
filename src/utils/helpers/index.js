@@ -24,9 +24,9 @@ export const transformNewsDate = (date) => {
   const [day, month, year] = date.split(".");
 
   return new Date(
-    Date.UTC(Number(year), Number(month), Number(day))
+    Date.UTC(Number(year), Number(month) - 1, Number(day))
   ).toLocaleDateString("ru-RU", {
-    day: "2-digit",
+    day: "numeric",
     month: "long",
     year: "numeric",
   });

@@ -1,8 +1,7 @@
 import { Input, Select } from "antd";
 import { Formik } from "formik";
 import { useEffect, useState } from "react";
-import { PatternFormat } from "react-number-format";
-import { useGetFieldActivitiesQuery } from "../../../../app/api/partnerApi";
+import { useGetFieldActivitiesQuery } from "../../../../app/api/partners";
 import { institutionsTransformer } from "../../../../utils/transformers/institutions";
 import { Checkbox } from "../../../Checkbox";
 import { FormField } from "../../../Form/FormField";
@@ -12,11 +11,13 @@ import { ReactComponent as ArrowDown } from "../../../../img/arrowDown.svg";
 import { useLazyUserUpdateQuery } from "../../../../app/api/auth";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { PhoneField } from "../../../Form/PhoneField";
+import { BirthdayField } from "../../../Form/BirthdayField";
 import styles from "./styles.module.scss";
 
 export const SecondStep = () => {
   const navigate = useNavigate();
-  const [onUpdate, { isSuccess, isError, isLoading,data }] =
+  const [onUpdate, { isSuccess, isError, isLoading, data }] =
     useLazyUserUpdateQuery();
   const { data: institutions, isLoading: institutionsLoading } =
     useGetFieldActivitiesQuery();
@@ -70,24 +71,22 @@ export const SecondStep = () => {
           onSubmit={handleSubmit}
         >
           <>
-            <FormField
-              errors={errors}
-              touched={touched}
-              fieldLabel="Дата рождения"
-              fieldName="birthday"
-            >
-              <Input
-                className="placeholder:text-white50"
-                type="text"
-                name="birthday"
-                onChange={handleChange}
-                placeholder="дд.мм.гггг"
-                onBlur={handleBlur}
-                value={values.birthday}
-                required
-              />
-            </FormField>
 
+          <BirthdayField
+              fieldProps={{
+                errors,
+                touched,
+                fieldLabel: "Дата Рождения",
+                fieldName: "birthday",
+              }}
+              birthdayField={{
+                onChange: handleChange,
+                onBlur: handleBlur,
+                value: values.birthday,
+                name:"birthday",
+                required: true,
+              }}
+            />
             <FormField
               errors={errors}
               touched={touched}
@@ -124,26 +123,20 @@ export const SecondStep = () => {
                 />
               </FormField>
             )}
-
-            <FormField
-              errors={errors}
-              touched={touched}
-              fieldLabel="Контактный номер"
-              fieldName="phoneNumber"
-            >
-              <PatternFormat
-                format="+7 (###) ### ## ##"
-                className="placeholder:text-white50"
-                mask="_"
-                type="phone"
-                name="phoneNumber"
-                placeholder={"+7 (999) 123-45-67"}
-                onChange={handleChange}
-                value={values.phoneNumber}
-                required
-              />
-            </FormField>
-
+            <PhoneField
+              fieldProps={{
+                errors,
+                touched,
+                fieldLabel: "Контактный номер",
+                fieldName: "phoneNumber",
+              }}
+              phoneFieldProps={{
+                name: "phoneNumber",
+                onChange: handleChange,
+                value: values.phoneNumber,
+                required: true,
+              }}
+            />
             <FormField
               errors={errors}
               touched={touched}

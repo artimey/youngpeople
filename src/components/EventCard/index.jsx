@@ -1,13 +1,10 @@
 import { Col } from "antd";
-import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Calendar } from "../../img/calendar.svg";
 import { ReactComponent as Place } from "../../img/place.svg";
-import org1 from "../../img/logo.svg";
 import { MdOutlineImageNotSupported } from "react-icons/md";
-
+import org1 from "../../img/logo.svg";
 import styles from "../EventsSlider/style.module.scss";
-import { transformDate } from "../../utils/helpers";
 
 export const EventCard = ({ item }) => {
   return (
@@ -34,15 +31,19 @@ export const EventCard = ({ item }) => {
             <span dangerouslySetInnerHTML={{ __html: item.title }} />
           </Link>
 
-          <div className={styles.info}>
-            <Calendar className="mr-[14.5px]" />
-            {transformDate(item.dateStart)}
-          </div>
+          {item.dateStart && (
+            <div className={styles.info}>
+              <Calendar className="mr-[14.5px]" />
+              {item.dateStart}
+            </div>
+          )}
 
-          <div className={styles.info}>
-            <Place className="mr-[14.5px]" />
-            {item.place}
-          </div>
+          {item.place && (
+            <div className={styles.info}>
+              <Place className="mr-[14.5px]" />
+              {item.place}
+            </div>
+          )}
         </div>
 
         <div className={styles.org}>
