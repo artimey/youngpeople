@@ -13,7 +13,7 @@ export const AllNews = ({ heading = null, pattern = false }) => {
         {heading}
 
         <div className="overflow-hidden">
-          <Row gutter={[32, 16]}>
+          <Row>
             <Col span={12} xs={24} sm={24} md={12}>
               {!isLoading && data[0] && (
                 <ImportantNewsCard item={data[0]} isFirst />
@@ -21,7 +21,7 @@ export const AllNews = ({ heading = null, pattern = false }) => {
             </Col>
             <Col span={12} xs={24} sm={24} md={12}>
               {!isLoading && data?.length && (
-                <div className="w-full h-full flex flex-col flex-nowrap justify-between gap-y-[1.6rem]">
+                <div className="w-full h-full flex flex-col flex-nowrap justify-between">
                   {data.slice(1, 4).map((item) => {
                     return <ImportantNewsCard key={item.id} item={item} />;
                   })}

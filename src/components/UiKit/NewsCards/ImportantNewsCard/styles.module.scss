@@ -65,4 +65,24 @@
       background-color: colors.$white16;
     }
   }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width:768px) {
+    
+    &:first-child {
+      margin-right: 0;
+      margin-top: 2rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
 }

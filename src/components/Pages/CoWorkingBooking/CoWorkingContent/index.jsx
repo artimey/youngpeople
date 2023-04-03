@@ -1,6 +1,3 @@
-import React from 'react'
-import coWorkingImg from '../../../../img/coworkingBooking/coworking.png'
-
 export const CoWorkingContent = ({text, title, image}) => {
   return (
     <div className="sticky top-10">
