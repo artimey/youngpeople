@@ -8,6 +8,7 @@ export const Checkbox = ({ checked, onChange }) => {
     setIsChecked((s) => !s);
     onChange(!isChecked);
   };
+
   return (
     <div className={styles.checkBox} onClick={handleChange}>
       {checked && <RiCheckLine color="#fff" />}

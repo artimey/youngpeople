@@ -11,6 +11,7 @@ import testImage from "../../img/about/image2.png";
 import { CertificateCard } from "./Cards/CertificateCard/CertificateCard";
 import { AuthConfirmStatus } from "../AuthConfirmStatus/AuthConfirmStatus";
 import { UserEventsPlaceholder } from "../UserEventsPlaceholder/UserEventsPlaceholder";
+import { Todo } from "../Pages/Account/Todo";
 
 export const certificateCardData = [
   {
@@ -179,6 +180,9 @@ export const UiKit = () => {
 
   return (
     <div>
+      <div className="bg-brandBlue py-[100px] px-[40px] xl:px-[250px]">
+        <Todo />
+      </div>
 
       <UserEventsPlaceholder />
 

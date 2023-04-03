@@ -1,0 +1,15 @@
+.row {
+
+  & .button {
+    @apply block ml-auto text-white50 opacity-0 transition-all capitalize;
+
+    &:hover {
+      @apply text-white
+    }
+  }
+
+  &:hover .button {
+    opacity: 1;
+  }
+}
+

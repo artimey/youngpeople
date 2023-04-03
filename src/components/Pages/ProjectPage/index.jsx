@@ -27,6 +27,7 @@ export const ProjectPage = () => {
     <MainLayout>
       <ContainerLayout>
         <ProjectHeader title={project.title} />
+
         <ProjectDescription
           title={project.title}
           logo={project?.logo?.VALUE} 

@@ -1,0 +1,29 @@
+$size: 1.8rem;
+
+.todoCheckbox {
+  @apply flex justify-center items-center border-white50 rounded-full bg-transparent text-white;
+  min-width: $size;
+  min-height: $size;
+  border-width: 3px;
+  transition: all .3s ease;
+  margin-right: 1.6rem;
+
+  cursor: pointer;
+
+  &:hover {
+    @apply bg-white50;
+  }
+
+  @media screen and (max-width: 766px) {
+    border-width: 2px;
+    margin-right: 1rem;
+  }
+}
+
+.checked {
+  @apply bg-brandPink border-brandPink;
+
+  &:hover {
+    @apply bg-brandPink border-brandPink;
+  }
+}
