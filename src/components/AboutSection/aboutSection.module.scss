@@ -30,7 +30,7 @@
       transform: rotate(4deg);
     }
   }
-  @media screen and (max-width: '425px') {
+  @media screen and (max-width: 425px) {
     height: 60rem;
     img{
       &:nth-child(1) {
@@ -63,6 +63,8 @@
   font-weight: 500;
   font-size: 1.6rem;
   line-height: 135%;
+  margin-bottom: 2rem;
+  display: block;
 }
 
 .heading {
@@ -71,7 +73,8 @@
   font-size: 7.2rem;
   font-weight: 700;
   text-transform: uppercase;
-  @media screen and (max-width: '425px') {
+
+  @media screen and (max-width: 425px) {
     font-size: 4rem;
   }
 }
@@ -81,7 +84,7 @@
   font-family: 'TT Norms';
   width: 35rem;
   font-size: 2rem;
-  line-height: 125%;
+  line-height: 1.25;
 }
 
 .link {
@@ -103,7 +106,7 @@
 }
 
 .row {
-  @media screen and (max-width: '425px') {
+  @media screen and (max-width: 1023px) {
     flex-flow: column-reverse;
   }
 }

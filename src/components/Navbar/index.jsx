@@ -62,7 +62,7 @@ export const Navbar = () => {
               <Link
                 to={"/sign_in"}
                 className="font-[1.5rem] text-black bg-white px-[2.4rem] py-[1.4rem] 
-              rounded-[3rem] hover:text-white hover:bg-brandPink"
+                  rounded-[3rem] hover:text-white hover:bg-brandPink"
               >
                 Войти в кабинет
               </Link>
@@ -132,12 +132,12 @@ export const Navbar = () => {
 
             <div className="h-1 w-[50%] mx-auto my-[3rem] border-t-2 border-white8 px-[100px]"></div>
 
-            <Link to={"/"} className="hover:text-brandPink text-white50">
+            <a href="https://vk.com/molodezh_msk" target="_blank" className="hover:text-brandPink text-white50">
               ВКонтакте
-            </Link>
-            <Link to={"/"} className="hover:text-brandPink text-white50">
+            </a>
+            <a href="https://t.me/molodezhmsk" target="_blank" className="hover:text-brandPink text-white50">
               Telegram
-            </Link>
+            </a>
           </div>
         )}
       </nav>
