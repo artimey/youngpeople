@@ -5,7 +5,10 @@ import styles from "./styles.module.scss";
 
 export const ImportantNewsCard = ({ item, isFirst }) => {
   return (
-    <Link to={`/news/${item.id}`} className={styles.importantNews}>
+    <Link
+      to={`/news/${item.id}`}
+      className={clsx(styles.importantNews, { "mr-[2rem]": isFirst })}
+    >
       {isFirst && (
         <div className={styles.newsImg}>
           <img src={item.img} alt={item.title} loading="lazy" />
