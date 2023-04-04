@@ -1,8 +1,4 @@
-import React from 'react';
-import ContainerLayout from '../../Layouts/ContainerLayout/ContainerLayout';
-import Message from '../../../img/mes.svg';
-
-import styles from '../../AllNews/allNews.module.scss';
+import messageIcon from '../../../img/mes.svg';
 import localStyles from './style.module.scss';
 
 export const Titles = () => {
@@ -32,7 +28,7 @@ export const Titles = () => {
           target="_blank"
           className={`${localStyles.tlink}`}
         >
-          <img src={Message} alt="" />
+          <img src={messageIcon} alt="logo" />
           <span className="text-center">
             Читать о нас
             <br />
