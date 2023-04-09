@@ -1,8 +1,8 @@
-import React from 'react'
+import styles from './ContainerLayout.module.scss'
 
 const ContainerLayout = ({children}) => {
   return (
-    <div className="px-5 sm:px-[4.1rem] relative">
+    <div className={styles.container}>
       {children}
     </div>
   )

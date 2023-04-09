@@ -20,8 +20,6 @@ export const EventPageSlider = ({ images }) => {
           loop={true}
           loopAdditionalSlides={5}
           style={{padding: "8rem 0"}}
-          // onSlideChange={() => console.log('slide change')}
-          // onSwiper={(swiper) => console.log(swiper)}
           breakpoints={{
             426: {
               slidesPerView: 2,

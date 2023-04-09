@@ -22,7 +22,7 @@ export const ProjectPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-console.log('data',data);
+
   return (
     <MainLayout>
       <ContainerLayout>
@@ -30,7 +30,7 @@ console.log('data',data);
 
         <ProjectDescription
           title={project.title}
-          logo={project?.logo?.VALUE} 
+          logo={project?.logo?.VALUE}
           description={project?.text1?.VALUE?.TEXT}
         />
       </ContainerLayout>
