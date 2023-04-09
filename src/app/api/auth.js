@@ -62,6 +62,8 @@ export const authApi = baseApi.injectEndpoints({
         const auth = new FormData();
         // console.log("arg", arg);
         auth.append("METHOD", "UPDATE");
+        if (typeof arg?.avatar !== "undefined")
+          auth.append("AVATAR ", arg.avatar);
         if (arg.initials) auth.append("FIO", arg.initials);
         if (arg.email) auth.append("EMAIL", arg.email);
         if (arg.password) auth.append("PASS", arg.password);
@@ -212,5 +214,5 @@ export const {
   useLazyRestorePasswordEmailQuery,
   useLazyRestorePasswordQuery,
   useLazyPartnerRegistrationQuery,
-  useLazyPartnerUpdateQuery
+  useLazyPartnerUpdateQuery,
 } = authApi;
