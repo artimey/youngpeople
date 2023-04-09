@@ -1,4 +1,3 @@
-import React from "react";
 import { declension } from "../../../../utils/helpers";
 import { Link } from "react-router-dom";
 
@@ -57,7 +56,7 @@ export const LkNavButton = ({ data }) => {
   return (
     <Link
       to={navTypes[type].link}
-      className="transition-all bg-white8 hover:bg-white16 rounded-[1.9rem] p-[2rem] block mb-[1rem] last:mb-0"
+      className="transition-all bg-white8 hover:bg-white16 rounded-[1.9rem] p-[2rem] min-w-fit inline-block mr-[1.6rem] last:mr-0 md:block mb-[1rem] md:last:mb-0 md:mr-0"
     >
       <div className="flex justify-between items-center mb-[3.34rem] font-[500] text-[1.5rem] leading-[2.025rem]">
         <span className="text-white">{navTypes[type].title}</span>

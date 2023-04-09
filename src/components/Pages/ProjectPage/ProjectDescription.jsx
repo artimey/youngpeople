@@ -13,7 +13,7 @@ export const ProjectDescription = ({ description, logo, title }) => {
           <div className='flex items-start'>
             {
               logo &&
-              <img className="w-[32rem] h-[32rem] rounded-full rotate-[8deg]" src={BASE_URL + logo} alt={title + " логотип"} />
+              <img className="w-[32rem] h-[32rem] rounded-full object-contain rotate-[8deg]" src={BASE_URL + logo} alt={title + " логотип"} />
             }
 
             <Link to="/events" className="text-white inline-flex items-center justify-center bg-brandPink rounded-full text-[1.5rem] leading-[1] text-center w-[18rem] h-[18rem]">
@@ -24,7 +24,10 @@ export const ProjectDescription = ({ description, logo, title }) => {
         <Col xs={24} sm={12}>
           {
             description &&
-            <div className='text-normal text-white mb-[5rem]' dangerouslySetInnerHTML={{ __html: parseHTML(description) }}></div>
+            <div
+              className='text-normal text-white mb-[5rem]'
+              dangerouslySetInnerHTML={{ __html: parseHTML(description) }}
+            />
           }
         </Col>
       </Row>

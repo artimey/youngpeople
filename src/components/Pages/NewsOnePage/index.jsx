@@ -45,12 +45,12 @@ export const NewsOnePage = () => {
             </div>
 
             <Row className="flex justify-center">
-              <Col sm={24} md={20} className="z-[999] relative">
+              <Col sm={24} lg={20} className="z-[999] relative">
                 <h1 className='text-center mb-[4.8rem] text-[2.8rem] leading-[3.08rem] sm:text-[4.8rem] sm:leading-[5.28rem] font-[700] text-white uppercase'>
                   {curNews.title}
                 </h1>
               </Col>
-              <Col sm={24} md={17}>
+              <Col sm={24} lg={17}>
                 {
                   match ?
                   <img className='w-full mb-[3.2rem] rounded-[3.2rem]' src={curNews.img} alt={curNews.title} />
@@ -66,7 +66,7 @@ export const NewsOnePage = () => {
 
           <section>
             <Row className="flex justify-center">
-              <Col sm={24} md={12}>
+              <Col sm={24} md={20} lg={12}>
                 <div className={`${styles.bigText} text-[2rem] leading-[2.7rem] font-[500] text-white`} 
                 dangerouslySetInnerHTML={{__html: curNews.fullNewsText}} />
               </Col>

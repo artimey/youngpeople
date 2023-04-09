@@ -9,7 +9,7 @@ export const PartnersCards = () => {
           return (
             <div key={item.id} className="flex flex-col items-center">
 
-              <div className="w-[19.5rem] h-[19.5rem] rounded-full overflow-hidden mb-[1.6rem]">
+              <div className="max-w-[19.5rem] max-h-[19.5rem] rounded-full overflow-hidden mb-[1.6rem]">
                 <img className="w-full" src={item.img} alt={item.title} />
               </div>
 
