@@ -12,6 +12,7 @@ import { SubmitButton } from "../../../Form/SubmitButton";
 import styles from "./styles.module.scss";
 import { PhoneField } from "../../../Form/PhoneField";
 import { EmailField } from "../../../Form/EmailField";
+import { TextAreaField } from "../../../Form/TextAreaField";
 
 export const PartnersForm = () => {
   const [district, setDistrict] = useState(districts[0]);
@@ -144,21 +145,21 @@ export const PartnersForm = () => {
               />
             </FormField>
 
-            <FormField
-              errors={errors}
-              touched={touched}
-              fieldLabel="Предмет сотрудничества"
-              fieldName="subjectCooperation"
-            >
-              <textarea
-                type="text"
-                name="subjectCooperation"
-                placeholder="Напишите, что вы хотите добавить..."
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.comment}
-              />
-            </FormField>
+            <TextAreaField
+              fieldProps={{
+                errors,
+                touched,
+                fieldLabel: "Предмет сотрудничества",
+                fieldName: "subjectCooperation",
+              }}
+              textareaProps={{
+                name: "subjectCooperation",
+                placeholder: "Напишите, что вы хотите добавить...",
+                onChange: handleChange,
+                onBlur: handleBlur,
+                value: values.comment,
+              }}
+            />
 
             <PhoneField
               fieldProps={{

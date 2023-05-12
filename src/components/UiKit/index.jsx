@@ -11,7 +11,7 @@ import { CertificateCard } from "./Cards/CertificateCard/CertificateCard";
 import { AuthConfirmStatus } from "../AuthConfirmStatus/AuthConfirmStatus";
 import { UserEventsPlaceholder } from "../UserEventsPlaceholder/UserEventsPlaceholder";
 import { Todo } from "../Pages/Account/Todo";
-import  UploadButton  from "../Form/FileField/UploadButton";
+import { AddEventButton } from "../Pages/Account/Org/Forms";
 
 export const certificateCardData = [
   {
@@ -186,7 +186,7 @@ export const UiKit = () => {
 
       <div className="flex items-center justify-center">
         {" "}
-        <UploadButton />
+        <AddEventButton/>
       </div>
       <UserEventsPlaceholder />
 

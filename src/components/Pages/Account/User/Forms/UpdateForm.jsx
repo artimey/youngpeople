@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { Input } from "antd";
 import { Formik } from "formik";
 import { memo, useRef, useState } from "react";
@@ -12,7 +13,6 @@ import { BirthdayField } from "../../../../Form/BirthdayField";
 import { PhoneField } from "../../../../Form/PhoneField";
 import { EmailField } from "../../../../Form/EmailField";
 import styles from "./styles.module.scss";
-import { useCallback } from "react";
 
 export const UpdateForm = memo(({ onClose }) => {
   // const { data: institutions, isLoading: institutionsLoading } =
