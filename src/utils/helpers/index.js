@@ -57,3 +57,10 @@ export const objToFormData = (obj) =>
     formData.append(el, obj[el]);
     return formData;
   }, new FormData());
+
+export const bytesToMb = (bytes) => {
+  if (bytes === 0) return bytes;
+  const size = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
+  const transformationSize = (bytes / 1024 ** size).toFixed(1);
+  return transformationSize;
+};

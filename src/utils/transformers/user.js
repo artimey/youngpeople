@@ -1,3 +1,5 @@
+import { USER_GROUPS } from "../constants";
+
 export const userResponseTransform = (res) => {
   if (res) {
     return {
@@ -12,6 +14,7 @@ export const userResponseTransform = (res) => {
       nickName: res["UF_TELEGRAM"],
       login: res["LOGIN"],
       group: res["UF_GROUP"],
+      userGroups:res[USER_GROUPS],
       apiKey: res["UF_API_KEY"],
     };
   }

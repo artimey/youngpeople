@@ -7,11 +7,11 @@ import { TaskCard } from "./Cards/TaskCard/TaskCard";
 import garage from "../../img/LOGO.png";
 import minRf from "../../img/LOGO-1.png";
 import mosMolodezh from "../../img/LOGO-2.png";
-import testImage from "../../img/about/image2.png";
 import { CertificateCard } from "./Cards/CertificateCard/CertificateCard";
 import { AuthConfirmStatus } from "../AuthConfirmStatus/AuthConfirmStatus";
 import { UserEventsPlaceholder } from "../UserEventsPlaceholder/UserEventsPlaceholder";
 import { Todo } from "../Pages/Account/Todo";
+import { AddEventButton } from "../Pages/Account/Org/Forms";
 
 export const certificateCardData = [
   {
@@ -184,9 +184,13 @@ export const UiKit = () => {
         <Todo />
       </div>
 
+      <div className="flex items-center justify-center">
+        {" "}
+        <AddEventButton/>
+      </div>
       <UserEventsPlaceholder />
 
-      <AuthConfirmStatus text={`Регистрация\nпрошла успешно!`}/>
+      <AuthConfirmStatus text={`Регистрация\nпрошла успешно!`} />
 
       <div className="bg-brandBlue py-[100px] px-[40px] xl:px-[250px]">
         <FilterButton className="mr-[1.2rem]">Мои мероприятия</FilterButton>

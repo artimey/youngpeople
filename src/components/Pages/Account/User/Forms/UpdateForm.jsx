@@ -1,40 +1,53 @@
+import { useCallback } from "react";
 import { Input } from "antd";
 import { Formik } from "formik";
-import { useState } from "react";
-import { PatternFormat } from "react-number-format";
-import { useGetFieldActivitiesQuery } from "../../../../../app/api/partners";
+import { memo, useRef, useState } from "react";
+// import { useGetFieldActivitiesQuery } from "../../../../../app/api/partners";
 import { FormField } from "../../../../Form/FormField";
 import { FormLayout } from "../../../../Form/FormLayout";
 import { SubmitButton } from "../../../../Form/SubmitButton";
-import { FormHeader } from "../../FormHeader";
-import styles from "./styles.module.scss";
+import FormHeader from "../../FormHeader";
 import { useLazyUserUpdateQuery } from "../../../../../app/api/auth";
 import { useSelector } from "react-redux";
 import { BirthdayField } from "../../../../Form/BirthdayField";
 import { PhoneField } from "../../../../Form/PhoneField";
 import { EmailField } from "../../../../Form/EmailField";
+import styles from "./styles.module.scss";
 
-export const UpdateForm = ({ onClose }) => {
-  const { data: institutions, isLoading: institutionsLoading } =
-    useGetFieldActivitiesQuery();
+export const UpdateForm = memo(({ onClose }) => {
+  // const { data: institutions, isLoading: institutionsLoading } =
+  //   useGetFieldActivitiesQuery();
   const { person } = useSelector((s) => s);
+  
 
   const [onUpdate, { isSuccess, isError, isLoading }] =
     useLazyUserUpdateQuery();
-  const [universityData, setUniversityData] = useState("");
+  // const [universityData, setUniversityData] = useState("");
+  const uploadAvatar = useRef(null);
 
-  const onSubmit = async (value) => {
-    await onUpdate({
-      ...value,
-      userId: person.userId,
-      apiKey: person.apiKey,
-    });
-    onClose();
-  };
+  const handleChangeAvatar = useRef((file) => {
+    uploadAvatar.current = file.file;
+  });
 
-  const handleUniversityChange = (value) => {
-    setUniversityData(value);
-  };
+  const handleDeleteAvatar = useRef(() => {
+    uploadAvatar.current = null;
+  });
+  const onSubmit = useCallback(
+    async (value, actions) => {
+      await onUpdate({
+        ...value,
+        userId: person.userId,
+        apiKey: person.apiKey,
+        avatar: uploadAvatar.current,
+      });
+      onClose();
+    },
+    [onUpdate]
+  );
+
+  // const handleUniversityChange = (value) => {
+  //   setUniversityData(value);
+  // };
   return (
     <div className={styles.wrapper}>
       <Formik
@@ -56,15 +69,19 @@ export const UpdateForm = ({ onClose }) => {
           handleChange,
           handleBlur,
           handleSubmit,
-          isSubmitting,
         }) => (
           <FormLayout
             isSuccess={isSuccess}
             isError={isError}
-            onSubmit={handleSubmit}
+            // onSubmit={handleSubmit}
           >
             <>
-              <FormHeader head="Ваши данные" />
+              <FormHeader
+                head="Ваши данные"
+                avatar={person.avatar}
+                handleChangeAvatar={handleChangeAvatar}
+                handleDelete={handleDeleteAvatar}
+              />
               <FormField
                 errors={errors}
                 touched={touched}
@@ -183,7 +200,11 @@ export const UpdateForm = ({ onClose }) => {
               </FormField>
 
               <div className={styles.buttonWrapper}>
-                <SubmitButton isLoading={isLoading} text="Сохранить" />
+                <SubmitButton
+                  isLoading={isLoading}
+                  text="Сохранить"
+                  onClick={onSubmit}
+                />
               </div>
             </>
           </FormLayout>
@@ -191,4 +212,4 @@ export const UpdateForm = ({ onClose }) => {
       </Formik>
     </div>
   );
-};
+});
