@@ -87,6 +87,7 @@
 
 .temporary {
   margin-top: 25rem;
+
   @media screen and (max-width: '425px') {
     margin-top: 65rem;
   }
@@ -98,7 +99,7 @@
   row-gap: 2rem;
   margin-bottom: 3rem;
 
-  & > span {
+  &>span {
     font-family: 'Druk Wide Cyr';
     color: colors.$white;
     font-style: normal;
@@ -115,7 +116,7 @@
   }
 
   @media (min-width: 426px) {
-    & > span {
+    &>span {
       font-size: 5rem;
 
       &:nth-child(2) {
@@ -125,7 +126,7 @@
   }
 
   @media (min-width: 640px) {
-    & > span {
+    &>span {
       font-size: 4.5rem;
 
       &:nth-child(2) {
@@ -135,7 +136,7 @@
   }
 
   @media (min-width: 1025px) {
-    & > span {
+    &>span {
       font-size: 7rem;
 
       &:nth-child(2) {
@@ -151,7 +152,7 @@
   row-gap: 1.5rem;
   margin-bottom: 3rem;
 
-  & > span {
+  &>span {
     font-style: normal;
     font-weight: 500;
     font-size: 1.5rem;
@@ -164,7 +165,7 @@
   }
 
   @media (min-width: 1024px) {
-    & > span {
+    &>span {
       font-size: 1.6rem;
       margin-left: 10rem;
 
@@ -296,27 +297,36 @@
   line-height: 2.6rem;
   letter-spacing: -0.01em;
 
-  & > span {
-    display: inline-flex;
-    flex-flow: row nowrap;
-    margin-bottom: 5px;
-    margin-right: 10px;
+  & .contentItem {
+    display: flex;
+    align-items: center;
 
-    & > svg {
-      width: 2.4rem;
-      height: 2.4rem;
-      display: inline-block;
-      margin-right: .5rem;
-    }
+    &>span {
+      display: inline-flex;
+      flex-flow: row nowrap;
+      margin-left: 1rem;
 
-    &:nth-last-child(1) {
-      width: fit-content;
+      &>svg {
+        width: 2.4rem;
+        height: 2.4rem;
+        display: inline-block;
+        margin-right: .5rem;
+      }
 
-      & > span {
-        width: calc(100% - 10rem)
+      &:nth-last-child(1) {
+        width: fit-content;
+
+        &>span {
+          width: calc(100% - 10rem)
+        }
       }
     }
+
+    &:not(:first-child) {
+      margin-top: .8rem;
+    }
   }
+
 
 }
 

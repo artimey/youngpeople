@@ -12,7 +12,7 @@ export const EventCard = ({ item }) => {
       <div className={styles.eventCard}>
         <div className="p-[12px] mb-[15px]">
           <div className="rounded-[3rem] w-full h-[25rem] overflow-hidden">
-            {item.hasImg ? (
+            {item?.hasImg ? (
               <img
                 className="h-full w-full object-cover transition-all hover:scale-110"
                 src={item.img}
@@ -27,18 +27,24 @@ export const EventCard = ({ item }) => {
         </div>
 
         <div className="px-[24px] mb-[12.5rem]">
-          <Link to={`/events/${item.slug}`} className={styles.eventTitle}>
-            <span dangerouslySetInnerHTML={{ __html: item.title }} />
-          </Link>
-
-          {item.dateStart && (
-            <div className={styles.info}>
-              <Calendar className="mr-[14.5px]" />
-              {item.dateStart}
+          {item?.slug ? (
+            <Link to={`/events/${item?.slug}`} className={styles.eventTitle}>
+              <span dangerouslySetInnerHTML={{ __html: item?.title }} />
+            </Link>
+          ) : (
+            <div className={styles.eventTitle}>
+              <span dangerouslySetInnerHTML={{ __html: item?.title }} />
             </div>
           )}
 
-          {item.place && (
+          {item?.dateStart && (
+            <div className={styles.info}>
+              <Calendar className="mr-[14.5px]" />
+              {item?.dateStart}
+            </div>
+          )}
+
+          {item?.place && (
             <div className={styles.info}>
               <Place className="mr-[14.5px]" />
               {item.place}
@@ -47,13 +53,13 @@ export const EventCard = ({ item }) => {
         </div>
 
         <div className={styles.org}>
-          {item.org ? (
+          {item?.org ? (
             <>
-              <img className="" src={item.orgLogo || org1} alt={item.org} />
-              <span>{item.org}</span>
+              <img className="" src={item?.orgLogo || org1} alt={item.org} />
+              <span>{item?.org}</span>
             </>
           ) : (
-            <Link to={`/events/${item.slug}`} className="text-brandPink">
+            <Link to={`/events/${item?.slug}`} className="text-brandPink">
               Подробнее
             </Link>
           )}
