@@ -185,8 +185,7 @@ export const UiKit = () => {
       </div>
 
       <div className="flex items-center justify-center">
-        {" "}
-        <AddEventButton/>
+        <AddEventButton />
       </div>
       <UserEventsPlaceholder />
 

@@ -1,15 +1,14 @@
-import ContainerLayout from '../ContainerLayout/ContainerLayout'
-import { MainLayout } from '../MainLayout'
+import ContainerLayout from "../ContainerLayout/ContainerLayout";
+import { MainLayout } from "../MainLayout";
+import styles from "./style.module.scss";
 
 export const AccountLayout = ({ tabs, tabHeader, content }) => {
   return (
     <MainLayout>
       <ContainerLayout>
         <div className="flex flex-col md:flex-row py-[13rem]">
-          <div className='min-w-[22.5rem] inline-flex overflow-auto md:block md:overflow-visible md:mr-[8rem] mb-[4.8rem] md:mb-0'>
-            {tabs}
-          </div>
-          <div className='w-full'>
+          <div className={styles.sidebar}>{tabs}</div>
+          <div className="w-full">
             <div>{tabHeader}</div>
 
             <div>{content}</div>
@@ -17,5 +16,5 @@ export const AccountLayout = ({ tabs, tabHeader, content }) => {
         </div>
       </ContainerLayout>
     </MainLayout>
-  )
-}
+  );
+};

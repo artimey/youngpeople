@@ -1,0 +1,47 @@
+
+// ===========================
+// ProjectDescription
+// ===========================
+
+.descWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: 1025px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.leftSideWrapper {
+  @apply flex items-start;
+  margin-bottom: 3rem;
+
+  @media screen and (min-width: 1025px) {
+    margin-bottom: 0;
+  }
+}
+
+.logo {
+  @apply rounded-full object-contain;
+  transform: rotate(8deg);
+  width: 23rem;
+  height: 23rem;
+
+  @media screen and (min-width: 1025px) {
+    width: 32rem;
+    height: 32rem;
+  }
+}
+
+.projectsEventsButton {
+  @apply text-white inline-flex items-center justify-center bg-brandPink rounded-full text-center;
+  width: 15rem;
+  height: 15rem;
+  line-height: 1;
+  font-size: 1.5rem;
+
+  @media screen and (min-width: 1025px) {
+    width: 18rem;
+    height: 18rem;
+  }
+}

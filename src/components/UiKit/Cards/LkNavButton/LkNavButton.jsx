@@ -70,6 +70,7 @@ export const LkNavButton = ({ data }) => {
           src={navTypes[type]?.icon}
           alt={`${type} icon`}
         />
+
         <span className="text-[1.4rem] text-white50">
           {count && declension(count, navTypes[type].declension)}
         </span>
