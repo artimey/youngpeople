@@ -32,15 +32,22 @@ export const Navbar = () => {
               </Link>
               <div className="flex flex-col flex-nowrap justify-between h-[6.4rem]">
                 <div className={styles.topMenu}>
-                  <Link
-                    to={"/"}
+                  <a
+                    href="https://vk.com/molodezh_msk"
+                    target="_blank"
                     className="hover:text-brandPink text-white50 mr-[1.6rem]"
+                    rel="noreferrer"
                   >
                     ВКонтакте
-                  </Link>
-                  <Link to={"/"} className="hover:text-brandPink text-white50">
+                  </a>
+                  <a
+                    href="https://t.me/molodezhmsk"
+                    target="_blank"
+                    className="hover:text-brandPink text-white50"
+                    rel="noreferrer"
+                  >
                     Telegram
-                  </Link>
+                  </a>
                 </div>
                 <div>
                   {links.map((item) => (
@@ -60,7 +67,7 @@ export const Navbar = () => {
               <UserBadge name={person.initials} user={person.avatar} />
             ) : (
               <Link
-                to={"/sign_in"}
+                to="/sign_in"
                 className="font-[1.5rem] text-black bg-white px-[2.4rem] py-[1.4rem] 
                   rounded-[3rem] hover:text-white hover:bg-brandPink"
               >
@@ -132,10 +139,20 @@ export const Navbar = () => {
 
             <div className="h-1 w-[50%] mx-auto my-[3rem] border-t-2 border-white8 px-[100px]"></div>
 
-            <a href="https://vk.com/molodezh_msk" target="_blank" className="hover:text-brandPink text-white50">
+            <a
+              href="https://vk.com/molodezh_msk"
+              target="_blank"
+              className="hover:text-brandPink text-white50"
+              rel="noreferrer"
+            >
               ВКонтакте
             </a>
-            <a href="https://t.me/molodezhmsk" target="_blank" className="hover:text-brandPink text-white50">
+            <a
+              href="https://t.me/molodezhmsk"
+              target="_blank"
+              className="hover:text-brandPink text-white50"
+              rel="noreferrer"
+            >
               Telegram
             </a>
           </div>

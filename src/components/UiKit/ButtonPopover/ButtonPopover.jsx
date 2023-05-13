@@ -3,31 +3,31 @@ import React, { cloneElement } from "react";
 import { RiCloseFill, RiEdit2Fill } from "react-icons/ri";
 import "./ButtonPopover.scss";
 
-export const ButtonPopover = ({ isModalOpen, setIsModalOpen, children,openModalBtn = null }) => {
+export const ButtonPopover = ({
+  isModalOpen,
+  setIsModalOpen,
+  children,
+  openModalBtn = null,
+}) => {
   const handleClose = () => {
     setIsModalOpen(false);
   };
-  const handleOpen = ()=>{
-    setIsModalOpen(true)
-  }
+  const handleOpen = () => {
+    setIsModalOpen(true);
+  };
   return (
     <>
-      {
-        !openModalBtn ?
-          <button
-            onClick={handleOpen}
-            className="text-white rounded-full 
+      {!openModalBtn ? (
+        <button
+          onClick={handleOpen}
+          className="text-white rounded-full 
             bg-white8 ml-auto min-w-[4.8rem] min-h-[4.8rem] flex justify-center items-center text-[1.7rem] hover:bg-white16"
-          >
-            <RiEdit2Fill />
-          </button>
-          :
-          <>
-            {openModalBtn}
-          </>
-      }
-
-
+        >
+          <RiEdit2Fill />
+        </button>
+      ) : (
+        <>{openModalBtn}</>
+      )}
 
       {isModalOpen && (
         <Modal

@@ -1,3 +1,31 @@
+.editTaskModal {
+  z-index: 10;
+
+  & > :global(.ant-modal-content) {
+    @apply bg-brandBlue border border-white8 w-full;
+    padding: 3.2rem 1.8rem;
+    margin: 0;
+    border-radius: 2.4rem;
+
+    @media (min-width: 640px) {
+      padding: 3.2rem 4rem;
+      width: 61.5rem;
+      margin: 0 auto;
+    }
+  }
+}
+
+:global(.modalContentWrapper) {
+  max-height: calc(100vh - 10rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:global(.modalContentWrapper::-webkit-scrollbar) {
+  width: 0;
+}
+
+// =========================
 .row {
 
   & .button {

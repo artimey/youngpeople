@@ -1,0 +1,54 @@
+.title {
+  @apply text-white;
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 2.6rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  @apply text-white50;
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.8rem;
+  margin-bottom: 3.7rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.8rem;
+  margin-bottom: 2.2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.infoTitle {
+  @apply text-white50;
+  display: flex;
+  align-items: center;
+  width: 12rem;
+  margin-right: 3.5rem;
+}
+
+.infoContent {
+  @apply text-white;
+}
+
+.button {
+  @apply text-white50;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2rem;
+
+  &:hover {
+    @apply text-brandPink transition-all;
+  }
+}

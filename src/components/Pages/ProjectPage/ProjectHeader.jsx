@@ -65,7 +65,7 @@ export const ProjectHeader = ({ title }) => {
         <div className="flex justify-between items-center">
           <h1
             dangerouslySetInnerHTML={{ __html: title }}
-            className="font-[700] text-white uppercase leading-[1.1] text-[3rem] sm:text-[7.2rem]"
+            className="font-[700] text-white uppercase leading-[1.1] text-[3rem] sm:text-[5rem] lg:text-[7.2rem]"
           />
 
           {!match && (
