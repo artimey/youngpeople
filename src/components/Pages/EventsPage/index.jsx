@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'
-import { EventsSlider } from '../../EventsSlider'
-import ContainerLayout from '../../Layouts/ContainerLayout/ContainerLayout'
-import { MainLayout } from '../../Layouts/MainLayout'
-import { EventsPageHeader } from './EventsPageHeader/EventsPageHeader'
+import React, { useEffect } from "react";
+import { EventsSlider } from "../../EventsSlider";
+import ContainerLayout from "../../Layouts/ContainerLayout/ContainerLayout";
+import { MainLayout } from "../../Layouts/MainLayout";
+import { EventsPageHeader } from "./EventsPageHeader/EventsPageHeader";
 
 export const EventsPage = () => {
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <MainLayout>
@@ -18,5 +18,5 @@ export const EventsPage = () => {
         </ContainerLayout>
       </div>
     </MainLayout>
-  )
-}
+  );
+};

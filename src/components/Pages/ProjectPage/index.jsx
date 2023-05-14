@@ -32,6 +32,7 @@ export const ProjectPage = () => {
           title={project.title}
           logo={project?.logo?.VALUE}
           description={project?.text1?.VALUE?.TEXT}
+          projectId={project.id}
         />
       </ContainerLayout>
 

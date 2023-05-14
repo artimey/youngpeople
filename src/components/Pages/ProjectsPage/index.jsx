@@ -10,15 +10,15 @@ export const ProjectsPage = () => {
   const { data, isLoading, isError } = useGetAllProjectsQuery();
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <MainLayout>
       <ContainerLayout>
         <ProjectsHeader />
       </ContainerLayout>
-      <div >
+      <div>
         {!isLoading &&
           !isError &&
           dataIsEmpty(data) &&

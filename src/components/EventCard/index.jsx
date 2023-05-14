@@ -36,14 +36,12 @@ export const EventCard = ({ item }) => {
               <span dangerouslySetInnerHTML={{ __html: item?.title }} />
             </div>
           )}
-
           {item?.dateStart && (
             <div className={styles.info}>
               <Calendar className="mr-[14.5px]" />
               {item?.dateStart}
             </div>
           )}
-
           {item?.place && (
             <div className={styles.info}>
               <Place className="mr-[14.5px]" />
