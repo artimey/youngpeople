@@ -1,13 +1,23 @@
-import React from 'react'
-import ContainerLayout from '../../Layouts/ContainerLayout/ContainerLayout'
-import styles from './style.module.scss'
+import React from "react";
+import ContainerLayout from "../../Layouts/ContainerLayout/ContainerLayout";
+import styles from "./style.module.scss";
 
-import { ReactComponent as MapMarker } from '../../../img/events/mapMarker.svg'
-import { ReactComponent as Calendar } from '../../../img/events/calendar.svg'
+import { ReactComponent as MapMarker } from "../../../img/events/mapMarker.svg";
+import { ReactComponent as Calendar } from "../../../img/events/calendar.svg";
 
-export const EventPageHeader = ({ title, date, org, orgImg, place, detailImg }) => {
+export const EventPageHeader = ({
+  title,
+  date,
+  org,
+  orgImg,
+  place,
+  detailImg,
+}) => {
   return (
-    <header className={styles.header} style={{ backgroundImage: `url(${detailImg})` }}>
+    <header
+      className={styles.header}
+      style={{ backgroundImage: `url(${detailImg})` }}
+    >
       <div className={styles.bg}></div>
       <ContainerLayout>
         {/* <div className="flex items-center">
@@ -15,21 +25,31 @@ export const EventPageHeader = ({ title, date, org, orgImg, place, detailImg }) 
         <span className="text-white font-[500] text-[1.6rem]">{org}</span>
         </div> */}
 
-        <h1 className={`${styles.title} uppercase`} dangerouslySetInnerHTML={{__html: title}} />
+        <h1
+          className={`${styles.title} uppercase`}
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
 
-        <div className='flex'>
-          <div className='flex items-center mr-[2.2rem]'>
-            <Calendar className='mr-[1.4rem]' width={"1.5rem"} height={"1.5rem"} />
-            <span className="text-[1.6rem] font-[500] text-white">{`${date}`.split(' ')[0].split('-').join('.')}</span>
+        <div className="flex">
+          <div className="flex items-center mr-[2.2rem]">
+            <Calendar
+              className="mr-[1.4rem]"
+              width={"1.5rem"}
+              height={"1.5rem"}
+            />
+            <span className="text-[1.6rem] font-[500] text-white">{date}</span>
           </div>
 
-          <div className='flex items-center'>
-            <MapMarker className='mr-[1.4rem]' width={"1.5rem"} height={"1.8rem"} />
+          <div className="flex items-center">
+            <MapMarker
+              className="mr-[1.4rem]"
+              width={"1.5rem"}
+              height={"1.8rem"}
+            />
             <span className="text-[1.6rem] font-[500] text-white">{place}</span>
           </div>
         </div>
-
       </ContainerLayout>
     </header>
-  )
-}
+  );
+};

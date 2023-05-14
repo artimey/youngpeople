@@ -1,10 +1,9 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../../../../utils/constants";
 import { parseHTML } from "../../../../utils/parseHTML";
 import styles from "./styles.module.scss";
 
-export const ProjectDescription = ({ description, logo, title }) => {
+export const ProjectDescription = ({ description, logo, title, projectId }) => {
   return (
     <div className="">
       <div className={styles.descWrapper}>
@@ -17,7 +16,10 @@ export const ProjectDescription = ({ description, logo, title }) => {
             />
           )}
 
-          <Link to="/events" className={styles.projectsEventsButton}>
+          <Link
+            to={`/events?LINK_PROJECT=${projectId || null}`}
+            className={styles.projectsEventsButton}
+          >
             Мероприятия <br /> проекта
           </Link>
         </div>

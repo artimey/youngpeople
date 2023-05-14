@@ -5,11 +5,6 @@ import clsx from "clsx";
 import "swiper/css";
 
 export const ProjectSlider = ({ images }) => {
-  console.log(
-    "🚀 ~ file: ProjectSlider.jsx:9 ~ ProjectSlider ~ images:",
-    images
-  );
-
   if (!images) return null;
 
   return (
