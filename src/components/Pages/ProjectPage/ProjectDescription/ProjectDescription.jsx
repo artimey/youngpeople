@@ -3,7 +3,13 @@ import { BASE_URL } from "../../../../utils/constants";
 import { parseHTML } from "../../../../utils/parseHTML";
 import styles from "./styles.module.scss";
 
-export const ProjectDescription = ({ description, logo, title, projectId }) => {
+export const ProjectDescription = ({
+  description,
+  logo,
+  title,
+  linkSite,
+  projectId,
+}) => {
   return (
     <div className="">
       <div className={styles.descWrapper}>
@@ -16,12 +22,23 @@ export const ProjectDescription = ({ description, logo, title, projectId }) => {
             />
           )}
 
-          <Link
-            to={`/events?LINK_PROJECT=${projectId || null}`}
-            className={styles.projectsEventsButton}
-          >
-            Мероприятия <br /> проекта
-          </Link>
+          {linkSite ? (
+            <a
+              href={linkSite}
+              target="_blank"
+              className={styles.projectsEventsButton}
+              rel="noreferrer"
+            >
+              На сайт проекта
+            </a>
+          ) : (
+            <Link
+              to={`/events?LINK_PROJECT=${projectId || null}`}
+              className={styles.projectsEventsButton}
+            >
+              Мероприятия <br /> проекта
+            </Link>
+          )}
         </div>
 
         <div>
