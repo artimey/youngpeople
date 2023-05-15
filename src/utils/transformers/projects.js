@@ -18,6 +18,7 @@ export const projectsResponseTransform = (data) => {
           text1: data[el][PROPS_NAME]["TEXT_1"],
           text2: data[el][PROPS_NAME]["TEXT_2"],
           slider: data[el][PROPS_NAME]["SLIDER"],
+          linkSite: data[el][PROPS_NAME]["LINK_SITE"]["VALUE"] || null,
         },
       }),
       {}

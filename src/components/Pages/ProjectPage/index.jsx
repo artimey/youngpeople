@@ -33,6 +33,7 @@ export const ProjectPage = () => {
           logo={project?.logo?.VALUE}
           description={project?.text1?.VALUE?.TEXT}
           projectId={project.id}
+          linkSite={project.linkSite}
         />
       </ContainerLayout>
 
