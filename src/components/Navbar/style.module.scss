@@ -39,3 +39,15 @@
     padding: 1rem 0; 
   }
 }
+
+.newsOnePage {
+  background: #F5F5F5;
+
+  a {
+    @apply text-brandBlue
+  }
+
+  a[target="_blank"] {
+    color: #1F1F1F80;
+  }
+}

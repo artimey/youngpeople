@@ -26,7 +26,11 @@ export const ProjectPage = () => {
   return (
     <MainLayout>
       <ContainerLayout>
-        <ProjectHeader title={project.title} />
+        <ProjectHeader
+          title={project.title}
+          vkLink={project.vkLink}
+          tgLink={project.tgLink}
+        />
 
         <ProjectDescription
           title={project.title}

@@ -109,14 +109,14 @@ export const CoWorkingForm = () => {
             <FormField
               errors={errors}
               touched={touched}
-              fieldLabel="Имя"
+              fieldLabel="Фамилия/Имя"
               fieldName="name"
             >
               <Input
                 type="text"
                 name="name"
                 className="placeholder:text-white50"
-                placeholder="Имя"
+                placeholder="Фамилия/Имя"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.name}
