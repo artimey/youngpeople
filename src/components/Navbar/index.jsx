@@ -9,7 +9,7 @@ import ContainerLayout from "../Layouts/ContainerLayout/ContainerLayout";
 import { UserBadge } from "../UserBadge";
 import styles from "./style.module.scss";
 
-export const Navbar = () => {
+export const Navbar = ({ isNewsOnePage }) => {
   const { person } = useSelector((s) => s);
   const [isNav, setIsNav] = useState(false);
   const navBodyRef = useRef();
@@ -18,7 +18,9 @@ export const Navbar = () => {
   return (
     <>
       <nav
-        className={`${styles.navDesktop} absolute top-0 left-0 w-full  z-[1000] py-[24px]`}
+        className={`${styles.navDesktop} ${
+          isNewsOnePage ? styles.newsOnePage : ""
+        } absolute top-0 left-0 w-full  z-[1000] py-[24px]`}
       >
         <ContainerLayout>
           <div className="flex items-center justify-between text-[1.7rem] font-[500] text-white">

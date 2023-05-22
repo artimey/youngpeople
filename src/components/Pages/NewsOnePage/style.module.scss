@@ -1,24 +1,32 @@
 .bigText {
 
-  p {
-    margin: 2rem 0;
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+
+  p, span {
+    // font-family: "TT Norms", sans-serif !important;
+    margin: 2rem 0 !important;
+    color: #1F1F1F !important;
   }
 
   br {
-    display: none;
+    display: none !important;
   }
   
   img {
-    border-radius: 12px;
-    margin: 3rem auto;
+    border-radius: 12px !important;
+    margin: 3rem auto !important;
   }
 
   blockquote {
-    font-style: italic;
+    font-style: italic !important;
   }
 
   a {
-    text-decoration: underline;
+    text-decoration: underline !important;
     &:hover {
       @apply text-brandPink;
     }

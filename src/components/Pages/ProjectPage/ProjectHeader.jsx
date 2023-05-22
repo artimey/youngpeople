@@ -2,15 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useMediaQuery from "../../../app/hooks/useMatchMedia";
 
-export const ProjectHeader = ({ title }) => {
+export const ProjectHeader = ({ title, tgLink, vkLink }) => {
   const match = useMediaQuery("(max-width: 425px)");
 
-  const Tg = () => {
+  const Tg = ({ link }) => {
     return (
       <a
-        href="/"
+        href={link}
         target="_blank"
         className="w-[8rem] h-[8rem] bg-white8 rounded-full flex items-center justify-center mr-[1.6rem]"
+        rel="noreferrer"
       >
         <svg
           width="2.1rem"
@@ -28,12 +29,13 @@ export const ProjectHeader = ({ title }) => {
     );
   };
 
-  const Vk = () => {
+  const Vk = ({ link }) => {
     return (
       <a
-        href="/"
+        href={link}
         target="_blank"
         className="w-[8rem] h-[8rem] bg-white8 rounded-full flex items-center justify-center"
+        rel="noreferrer"
       >
         <svg
           width="1.9rem"
@@ -70,8 +72,8 @@ export const ProjectHeader = ({ title }) => {
 
           {!match && (
             <div className="flex">
-              <Tg />
-              <Vk />
+              <Tg link={tgLink} />
+              <Vk link={vkLink} />
             </div>
           )}
         </div>

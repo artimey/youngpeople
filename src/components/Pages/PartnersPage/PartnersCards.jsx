@@ -10,10 +10,14 @@ export const PartnersCards = () => {
             <a
               href={item.link}
               target="_blank"
-              className="max-w-[19.5rem] max-h-[19.5rem] rounded-full overflow-hidden mb-[1.6rem]"
+              className="rounded-full overflow-hidden mb-[1.6rem]"
               rel="noreferrer"
             >
-              <img className="w-full" src={item.img} alt={item.title} />
+              <img
+                className="w-[19.5rem] h-[19.5rem] object-contain"
+                src={item.img}
+                alt={item.title}
+              />
             </a>
 
             <div className="text-center">
