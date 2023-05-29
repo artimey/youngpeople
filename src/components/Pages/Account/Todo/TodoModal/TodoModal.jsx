@@ -2,31 +2,34 @@ import React from "react";
 import { TodoCheckbox } from "../TodoCheckbox/TodoCheckbox";
 import styles from "./style.module.scss";
 import { RiCalendarFill, RiWalkFill } from "react-icons/ri";
+import { useUpdateTaskStatusMutation } from "../../../../../app/api/tasks";
 
-export const TodoModal = ({ data }) => {
+export const TodoModal = ({ data, onClose }) => {
+  const [onUpdate, { isSuccess }] = useUpdateTaskStatusMutation();
+
+  const handleUpdateStatus = async () => {
+    await onUpdate({ taskId: data.id });
+    onClose();
+  };
   return (
     <div>
       <div className="flex items-start">
         <div>
           <div className="h-[5px]"></div>
-          <TodoCheckbox checked={data.isComplete} />
+          <TodoCheckbox checked={data.isDone} />
         </div>
 
         <div>
           <span
             className={`${
-              data.isComplete ? "line-through text-white50" : "text-white"
-            } ${styles.title}`}
+              data.isDone ? "line-through text-white50" : "text-white"
+            } ${styles.name}`}
           >
-            {data.title}
+            {data.name}
           </span>
 
           {/* subtitle here */}
-          <span className={styles.subtitle}>
-            Небольшое описание задачи без ограничения в количество возможных
-            строк, вот такое вот описание интересное. У меня получилось в 3
-            строки
-          </span>
+          <span className={styles.subtitle}>{data.description}</span>
 
           {/* task info */}
           <div>
@@ -38,7 +41,7 @@ export const TodoModal = ({ data }) => {
                 </span>
 
                 {/* date tme here */}
-                <span className={styles.infoContent}>14.03.2023, 11:00</span>
+                <span className={styles.infoContent}>{data.deadline}</span>
               </li>
               <li className={styles.infoItem}>
                 <span className={styles.infoTitle}>
@@ -47,16 +50,16 @@ export const TodoModal = ({ data }) => {
                 </span>
 
                 {/* type of event here */}
-                <span className={styles.infoContent}>
-                  Экскурсия в кремль c Молодежей Москвы
-                </span>
+                <span className={styles.infoContent}>{data.eventName}</span>
               </li>
             </ul>
           </div>
 
           {/* delete task button */}
           <div className="flex justify-end mt-[4rem]">
-            <button className={styles.button}>Отклонить задачу</button>
+            <button className={styles.button} onClick={handleUpdateStatus}>
+              Отклонить задачу
+            </button>
           </div>
         </div>
       </div>

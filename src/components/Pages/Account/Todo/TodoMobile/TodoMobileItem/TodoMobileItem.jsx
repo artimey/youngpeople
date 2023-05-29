@@ -12,15 +12,15 @@ export const TodoMobileItem = ({ item, openEditTodoPopup }) => {
       onClick={handleOpen}
     >
       <div className="flex items-start">
-        <TodoCheckbox checked={item.isComplete} />
+        <TodoCheckbox checked={item.isDone} />
 
         <div>
           <span
             className={`${
-              item.isComplete ? "line-through text-white50" : "text-white"
+              item.isDone ? "line-through text-white50" : "text-white"
             } block mb-[1rem]`}
           >
-            {item.title}
+            {item.name}
           </span>
 
           <div

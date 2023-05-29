@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { AboutUs } from "./components/Pages/AboutUs";
-import { User } from "./components/Pages/Account/User";
 import { CoWorkingBooking } from "./components/Pages/CoWorkingBooking";
 import { CoWorkingZones } from "./components/Pages/CoWorkingZones";
 import { EventPage } from "./components/Pages/EventPage";
@@ -23,6 +22,8 @@ import { setUser } from "./app/store/slices/user";
 import { USER } from "./utils/constants";
 
 import "core-js/actual";
+import { Account } from "./components/Pages/Account";
+import { User } from "./components/Pages/Account/User";
 
 function App() {
   const { person } = useSelector((s) => s);
@@ -60,7 +61,7 @@ function App() {
       <Route path="/account" element={<User />} />
       <Route path="/uikit" element={<UiKit />} />
       <Route path="/partners-form" element={<PartnersFormPage />} />
-      <Route  path="/partners_registration" element={<PartnerRegistration/>}/>
+      <Route path="/partners_registration" element={<PartnerRegistration />} />
       {/* ====== НЕ УДАЛЯЙ, ПРОСТО ЗАКОММЕНТЬ ====== */}
       <Route path="/uikit" element={<UiKit />} />
     </Routes>

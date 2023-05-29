@@ -1,16 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// avatar: null,
-// initials: null,
-// email: null,
-// birthday: null,
-// typeOfActivity: null,
-// institution: null,
-// phoneNumber: null,
-// nickName: null,
-// login: null,
-// group: null,
-// apiKey: null,
 
 const initialState = null;
 

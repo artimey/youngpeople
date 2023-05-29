@@ -4,8 +4,10 @@ import testImg from "../../../../../img/cowworkingZones/contentFarm.png";
 import { ButtonPopover } from "../../../../UiKit/ButtonPopover/ButtonPopover";
 import { UpdateForm } from "../Forms/UpdateForm";
 
-import styles from './UserTabHeader.module.scss'
+import styles from "./UserTabHeader.module.scss";
 import clsx from "clsx";
+import { ORG_GROUP_NUMBER } from "../../../../../utils/constants/person";
+import { UpdatePartnerForm } from "../../Partner/Forms/UpdatePartnerForm";
 
 export const UserTabHeader = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,12 +15,8 @@ export const UserTabHeader = () => {
   return (
     <div className={styles.container}>
       <div className={styles.infoWrapper}>
-
         <div className={styles.imgWrapper}>
-          <img
-            src={testImg}
-            alt="username"
-          />
+          <img src={testImg} alt="username" />
         </div>
 
         <span className={clsx("druk", styles.helloText)}>
@@ -27,7 +25,11 @@ export const UserTabHeader = () => {
       </div>
 
       <ButtonPopover isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
-        <UpdateForm />
+        {person?.userGroups >= ORG_GROUP_NUMBER ? (
+          <UpdatePartnerForm onClose={() => setIsModalOpen(false)} />
+        ) : (
+          <UpdateForm />
+        )}
       </ButtonPopover>
     </div>
   );

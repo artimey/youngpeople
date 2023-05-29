@@ -1,6 +1,5 @@
 // import { Checkbox } from 'antd'
 import { useState } from "react";
-import { tData } from "../../../../mockData/todoData";
 import useMediaQuery from "../../../../app/hooks/useMatchMedia";
 import { Modal } from "antd";
 import { RiCloseFill } from "react-icons/ri";
@@ -9,12 +8,14 @@ import { TodoDesktop } from "./TodoDesktop/TodoDesktop";
 import { TodoModal } from "./TodoModal/TodoModal";
 
 import styles from "./index.module.scss";
+import { useGetTasksQuery } from "../../../../app/api/tasks";
+import { UserEventsPlaceholder } from "../../../UserEventsPlaceholder/UserEventsPlaceholder";
 
 export const Todo = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalData, setModalData] = useState({});
   const isMobile = useMediaQuery("(max-width: 766px)");
-
+  const { data, isLoading, isError } = useGetTasksQuery();
   const openEditTodoPopup = (data) => {
     setIsModalOpen(true);
     setModalData(data);
@@ -26,14 +27,24 @@ export const Todo = () => {
 
   return (
     <>
-      <div>
-        {isMobile ? (
-          <TodoMobile data={tData} openEditTodoPopup={openEditTodoPopup} />
-        ) : (
-          <TodoDesktop data={tData} openEditTodoPopup={openEditTodoPopup} />
-        )}
-      </div>
-
+      {!isLoading && !isError && data && (
+        <div>
+          {isMobile ? (
+            <TodoMobile
+              data={data.tasks}
+              openEditTodoPopup={openEditTodoPopup}
+            />
+          ) : (
+            <TodoDesktop
+              data={data.tasks}
+              openEditTodoPopup={openEditTodoPopup}
+            />
+          )}
+        </div>
+      )}
+      {!isLoading && (isError || !data) && (
+        <UserEventsPlaceholder text="Нет задач по выбранному мероприяитию" />
+      )}
       {isModalOpen && (
         <Modal
           destroyOnClose
@@ -54,7 +65,7 @@ export const Todo = () => {
             <RiCloseFill />
           </button>
           <div className="modalContentWrapper">
-            <TodoModal data={modalData} />
+            <TodoModal data={modalData} onClose={handleClose} />
           </div>
         </Modal>
       )}

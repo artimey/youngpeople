@@ -21,7 +21,7 @@ const datesTransformer = (dates) => {
 
 export const eventsTransformer = (events) => {
   const url = "https://mosmolodezh.ru";
-  if (events.data) {
+  if (events?.data) {
     return Object.keys(events.data).map((item) => {
       try {
         const event = {
@@ -51,7 +51,6 @@ export const eventsTransformer = (events) => {
         };
         return event;
       } catch (e) {
-        console.log("e", e);
       }
     });
   }

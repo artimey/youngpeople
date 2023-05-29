@@ -4,7 +4,7 @@ import { PatternFormat } from "react-number-format";
 import { FormField } from "../../../../Form/FormField";
 import { FormLayout } from "../../../../Form/FormLayout";
 import { SubmitButton } from "../../../../Form/SubmitButton";
-import { FormHeader } from "../../FormHeader";
+import FormHeader from "../../FormHeader";
 import { useLazyPartnerUpdateQuery} from "../../../../../app/api/auth";
 import { useSelector } from "react-redux";
 import styles from "./styles.module.scss";

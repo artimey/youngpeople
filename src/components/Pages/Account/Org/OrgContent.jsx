@@ -1,9 +1,12 @@
 import { useSelector } from "react-redux";
+import {
+  TASKS_TAB,
+  orgContentByTabs,
+} from "../../../../utils/constants/account";
 import { FilterButton } from "../../../UiKit/Buttons";
 import { AddEventButton } from "../Org/Forms";
-import { TASKS_TAB, contentByTabs, userContentByTabs } from "../../../../utils/constants/account";
 
-export const UserContent = () => {
+export const OrgContent = () => {
   const { activeTab } = useSelector((s) => s.accountOptions);
   return (
     <div>
@@ -26,7 +29,7 @@ export const UserContent = () => {
         </>
       )}
 
-      <div className="bg-brandBlue">{userContentByTabs[activeTab]}</div>
+      <div className="bg-brandBlue">{orgContentByTabs[activeTab]}</div>
     </div>
   );
 };
