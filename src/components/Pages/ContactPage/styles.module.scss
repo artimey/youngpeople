@@ -1,0 +1,172 @@
+@import 'src/styles/colors.scss';
+
+.pattern {
+    width: 100%;
+    height: 10rem;
+    background-image: url('../../../img/pattern.svg');
+    background-repeat: no-repeat;
+    background-repeat: repeat-x;
+    background-position-x: 100%;
+    // animation: bgMove 30s infinite linear forwards;
+    background-size: 100%;
+
+    @media (min-width: 426px) {
+        height: 35rem;
+    }
+}
+
+.contactHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7rem;
+
+    & .headerInfo {
+        display: flex;
+        flex-direction: column;
+        width: 61.6rem;
+
+        & .infoFooter {
+            display: flex;
+            gap: 4rem;
+            margin-top: 4rem;
+
+            & .infoColumn {
+                display: flex;
+                flex-direction: column;
+
+                & .title {
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 2rem;
+                    line-height: 2.5rem;
+                    letter-spacing: -0.01em;
+                    color: $white50;
+                }
+
+                & .info {
+                    margin-top: 1rem;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 2.4rem;
+                    line-height: 2.8rem;
+                    letter-spacing: -0.01em;
+                    color: #FFFFFF;
+                }
+
+
+                @media screen and (max-width:576px) {
+
+                    & .title {
+                        font-size: 1.6rem;
+                        line-height: 2.2rem;
+
+                    }
+
+                    & .info {
+                        font-size: 1.8rem;
+                        line-height: 2.2rem;
+
+                    }
+                }
+            }
+        }
+    }
+
+    & .headerLinks {
+        display: flex;
+        gap: 1.6rem;
+
+        & .linkBtnVk {
+            width: 12rem;
+            height: 12rem;
+
+        }
+
+        & .linkBtnTg {
+            width: 12rem;
+            height: 12rem;
+            border-radius: 3.6rem;
+
+        }
+
+        @media screen and (max-width:576px) {
+
+            & .linkBtnVk {
+                width: 8rem;
+                height: 8rem;
+
+            }
+
+            & .linkBtnTg {
+                width: 8rem;
+                height: 8rem;
+
+            }
+        }
+    }
+
+    @media screen and (max-width:1024px) {
+        flex-wrap: wrap;
+        gap: 4rem;
+    }
+
+}
+
+.pageTitle {
+    font-family: 'Druk Wide Cyr';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 7.2rem;
+    line-height: 7.9rem;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+
+
+    @media screen and (max-width:576px) {
+        font-size: 3.6rem;
+        line-height: 4rem;
+    }
+}
+
+.contactFormWrapper {
+    display: flex;
+    padding: 8rem 0;
+
+    & .contactHint {
+        display: flex;
+        flex-direction: column;
+
+        & .hint {
+            margin-top: 2.4rem;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.6rem;
+            line-height: 2.2rem;
+            color: $white50;
+        }
+    }
+
+    & .contactForm {
+        flex: 1;
+        margin-left: 17rem;
+    }
+
+    @media screen and (max-width:1024px) {
+        flex-direction: column;
+
+        & .contactHint {
+            & .hint {
+                margin-top: 1.2rem;
+            }
+        }
+
+
+
+        & .contactForm {
+            flex: 1;
+            margin-left: 0;
+            margin-top: 3.2rem;
+        }
+    }
+}

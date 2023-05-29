@@ -1,41 +1,41 @@
-import logo1 from '../../img/footerlogo1.svg';
-import logo2 from '../../img/footerlogo2.svg';
-import youngLogo from '../../img/logo.svg';
+import logo1 from "../../img/footerlogo1.svg";
+import logo2 from "../../img/footerlogo2.svg";
+import youngLogo from "../../img/logo.svg";
 import { ReactComponent as Logo } from "../../img/logo.svg";
 
-import ContainerLayout from '../Layouts/ContainerLayout/ContainerLayout.jsx';
-import { Link } from 'react-router-dom';
+import ContainerLayout from "../Layouts/ContainerLayout/ContainerLayout.jsx";
+import { Link } from "react-router-dom";
 
-import styles from './style.module.scss';
+import styles from "./style.module.scss";
 
 export const MyFooter = () => {
   const logos = [logo1, logo2, youngLogo];
 
   const dataMenu = [
-    { title: 'Мероприятия', href: '/events' },
-    { title: 'Бронь пространств', href: '/co-working-zones' },
-    { title: 'О нас', href: '/about' },
-    { title: 'Пространства', href: '/co-working-zones' },
-    { title: 'Партнеры', href: '/partners' },
-    { title: 'Новости', href: '/news' },
-    { title: 'Проекты', href: '/projects' },
-    // {title: 'Контакты', href: '#'},
+    { title: "Мероприятия", href: "/events" },
+    { title: "Бронь пространств", href: "/co-working-zones" },
+    { title: "О нас", href: "/about" },
+    { title: "Пространства", href: "/co-working-zones" },
+    { title: "Партнеры", href: "/partners" },
+    { title: "Новости", href: "/news" },
+    { title: "Проекты", href: "/projects" },
+    { title: "Контакты", href: "/contacts" },
   ];
 
   const emailData = [
-    { title: 'Электронная почта', value: 'molodezh@mos.ru', link: null },
-    { title: 'Телефон', value: '+7 925 063-42-70', link: null },
+    { title: "Электронная почта", value: "molodezh@mos.ru", link: null },
+    { title: "Телефон", value: "+7 925 063-42-70", link: null },
     {
-      title: 'Адрес',
-      value: 'Холодильный переулок, 3 корпус 1, стр. 8.',
-      link: 'https://yandex.ru/maps/-/CCUzF0HJkD',
+      title: "Адрес",
+      value: "Холодильный переулок, 3 корпус 1, стр. 8.",
+      link: "https://yandex.ru/maps/-/CCUzF0HJkD",
     },
   ];
 
   return (
     <footer className={`bg-brandPink w-full overflow-hidden`}>
       <ContainerLayout>
-        <div className='py-[3rem]'>
+        <div className="py-[3rem]">
           <div className={styles.footer}>
             <span className={styles.headingFooter}>Молодежь</span>
             <span className={styles.headingFooter}>москвы</span>
@@ -153,7 +153,9 @@ export const MyFooter = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <Logo width="4.8rem" height="4.8rem" className="mr-[1.6rem]" />
-              <span className="text-white text-[1.5rem] leading-[2rem] font-[500]">© {new Date().getFullYear()}, Молодежь Москвы</span>
+              <span className="text-white text-[1.5rem] leading-[2rem] font-[500]">
+                © {new Date().getFullYear()}, Молодежь Москвы
+              </span>
             </div>
 
             <a

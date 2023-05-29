@@ -68,8 +68,6 @@ export const eventsApi = baseApi.injectEndpoints({
         const res = await fetchWithBQ(
           `/api/events/?LINK_PARTNER=${state.person?.userId}`
         );
-        console.log("state", state);
-        console.log("res", res);
         if (res?.data?.data) {
           if (res.data?.TYPE === "ERROR") {
             return { data: null };

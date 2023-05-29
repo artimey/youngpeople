@@ -20,10 +20,12 @@ import { SignUpFirstStep, SignUpSecondStep } from "./components/Pages/SignUp";
 import { PartnerRegistration } from "./components/Pages/PartnerRegistration";
 import { setUser } from "./app/store/slices/user";
 import { USER } from "./utils/constants";
-
-import "core-js/actual";
 import { Account } from "./components/Pages/Account";
 import { User } from "./components/Pages/Account/User";
+import { ContactPage } from "./components/Pages/ContactPage";
+
+import "core-js/actual";
+import { PartnersContacts } from "./components/Pages/PartnersContacts";
 
 function App() {
   const { person } = useSelector((s) => s);
@@ -62,6 +64,8 @@ function App() {
       <Route path="/uikit" element={<UiKit />} />
       <Route path="/partners-form" element={<PartnersFormPage />} />
       <Route path="/partners_registration" element={<PartnerRegistration />} />
+      <Route path="/contacts" element={<ContactPage />} />
+      <Route path="/contactsPartner" element={<PartnersContacts />} />
       {/* ====== НЕ УДАЛЯЙ, ПРОСТО ЗАКОММЕНТЬ ====== */}
       <Route path="/uikit" element={<UiKit />} />
     </Routes>
