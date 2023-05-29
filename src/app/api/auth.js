@@ -93,7 +93,6 @@ export const authApi = baseApi.injectEndpoints({
     restorePasswordEmail: build.query({
       async queryFn(arg, queryApi, _extraOptions, fetchWithBQ) {
         const auth = new FormData();
-        // console.log("arg", arg);
         auth.append("METHOD", "SEND_RESTORE_PASSWORD");
         auth.append("EMAIL", arg.email);
         const res = await fetchWithBQ({
@@ -105,7 +104,6 @@ export const authApi = baseApi.injectEndpoints({
           if (res.data?.TYPE === "ERROR") {
             return { data: res.data["MESSAGE"] };
           }
-          // console.log("RES", res?.data);
 
           return { data: userResponseTransform(res?.data) };
         }
@@ -117,7 +115,6 @@ export const authApi = baseApi.injectEndpoints({
     restorePassword: build.query({
       async queryFn(arg, queryApi, _extraOptions, fetchWithBQ) {
         const auth = new FormData();
-        // console.log("arg", arg);
         auth.append("METHOD", "RESTORE_PASSWORD");
         auth.append("EMAIL", arg.email);
         auth.append("CODE", arg.code);
@@ -131,7 +128,6 @@ export const authApi = baseApi.injectEndpoints({
           if (res.data?.TYPE === "ERROR") {
             return { data: res.data["MESSAGE"] };
           }
-          // console.log("RES", res?.data);
 
           return { data: userResponseTransform(res?.data) };
         }
@@ -143,7 +139,6 @@ export const authApi = baseApi.injectEndpoints({
     partnerRegistration: build.query({
       async queryFn(arg, queryApi, _extraOptions, fetchWithBQ) {
         const auth = new FormData();
-        // console.log("arg", arg);
         auth.append("METHOD", "REGISTRATION_PARTNER");
         auth.append("ORGANIZATION_NAME", arg.organizationName);
         auth.append("EMAIL", arg.email);
@@ -159,7 +154,6 @@ export const authApi = baseApi.injectEndpoints({
           if (res.data?.TYPE === "ERROR") {
             return { data: res.data["MESSAGE"] };
           }
-          // console.log('res?.data["USER_INFO"]["UF_API_KEY"]', res?.data);
           queryApi.dispatch(
             setUser(userResponseTransform(res?.data["USER_INFO"]))
           );
@@ -173,7 +167,6 @@ export const authApi = baseApi.injectEndpoints({
     partnerUpdate: build.query({
       async queryFn(arg, queryApi, _extraOptions, fetchWithBQ) {
         const auth = new FormData();
-        // console.log("arg", arg);
         auth.append("METHOD", "PARTNER_INFO");
         if (arg.userId) auth.append("USER_ID", arg.userId);
         if (arg.avatar) auth.append("AVATAR", arg.avatar);
@@ -193,7 +186,6 @@ export const authApi = baseApi.injectEndpoints({
           if (res.data?.TYPE === "ERROR") {
             return { data: res.data["MESSAGE"] };
           }
-          // console.log('res?.data["USER_INFO"]["UF_API_KEY"]', res?.data);
           queryApi.dispatch(setUser(userResponseTransform(res?.data)));
           return { data: userResponseTransform(res?.data) };
         }
