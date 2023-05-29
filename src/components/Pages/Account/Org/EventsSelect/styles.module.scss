@@ -1,0 +1,36 @@
+@import 'src/styles/colors.scss';
+
+.container {
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+
+
+    & .selectLabel {
+        color: $white50;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+    }
+
+    & .events {
+        height: fit-content;
+
+        :global(.ant-select-selector) {
+            padding: 0 !important;
+        }
+
+        :global(.ant-select-selection-item) {
+            font-weight: 700;
+            font-size: 2.4rem;
+            line-height: 2.6rem;
+            letter-spacing: -0.01em;
+            color: #fff;
+        }
+
+        :global(.ant-select-arrow) {
+            color: #fff;
+        }
+    }
+}

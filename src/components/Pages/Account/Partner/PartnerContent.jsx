@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux";
+import { useGetPartnerEventsQuery } from "../../../../app/api/events";
 import { FilterButton } from "../../../UiKit/Buttons";
+import { TASKS_TAB, contentByTabs } from "../../../../utils/constants/account";
 import { AddEventButton } from "../Org/Forms";
-import { TASKS_TAB, contentByTabs, userContentByTabs } from "../../../../utils/constants/account";
 
-export const UserContent = () => {
+export const PartnerContent = () => {
+  const { data, isLoading, isError } = useGetPartnerEventsQuery();
   const { activeTab } = useSelector((s) => s.accountOptions);
   return (
     <div>
@@ -26,7 +28,7 @@ export const UserContent = () => {
         </>
       )}
 
-      <div className="bg-brandBlue">{userContentByTabs[activeTab]}</div>
+      <div className="bg-brandBlue">{contentByTabs[activeTab]}</div>
     </div>
   );
 };

@@ -60,7 +60,6 @@ export const authApi = baseApi.injectEndpoints({
     userUpdate: build.query({
       async queryFn(arg, queryApi, _extraOptions, fetchWithBQ) {
         const auth = new FormData();
-        // console.log("arg", arg);
         auth.append("METHOD", "UPDATE");
         if (typeof arg?.avatar !== "undefined")
           auth.append("AVATAR ", arg.avatar);
@@ -83,7 +82,6 @@ export const authApi = baseApi.injectEndpoints({
           if (res.data?.TYPE === "ERROR") {
             return { data: res.data["MESSAGE"] };
           }
-          // console.log('res?.data["USER_INFO"]["UF_API_KEY"]', res?.data);
           queryApi.dispatch(setUser(userResponseTransform(res?.data)));
           return { data: userResponseTransform(res?.data) };
         }

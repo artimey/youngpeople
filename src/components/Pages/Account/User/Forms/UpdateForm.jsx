@@ -1,8 +1,7 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { Input } from "antd";
 import { Formik } from "formik";
-import { memo, useRef, useState } from "react";
-// import { useGetFieldActivitiesQuery } from "../../../../../app/api/partners";
+import { memo, useRef } from "react";
 import { FormField } from "../../../../Form/FormField";
 import { FormLayout } from "../../../../Form/FormLayout";
 import { SubmitButton } from "../../../../Form/SubmitButton";
@@ -15,14 +14,15 @@ import { EmailField } from "../../../../Form/EmailField";
 import styles from "./styles.module.scss";
 
 export const UpdateForm = memo(({ onClose }) => {
-  // const { data: institutions, isLoading: institutionsLoading } =
-  //   useGetFieldActivitiesQuery();
   const { person } = useSelector((s) => s);
-  
-
+  const [initials, setInitials] = useState("");
+  const [email, setEmail] = useState("");
+  const [birthday, setBirthday] = useState("");
+  const [typeOfActivity, setTypeOfActivity] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [nickName, setNickName] = useState("");
   const [onUpdate, { isSuccess, isError, isLoading }] =
     useLazyUserUpdateQuery();
-  // const [universityData, setUniversityData] = useState("");
   const uploadAvatar = useRef(null);
 
   const handleChangeAvatar = useRef((file) => {
@@ -32,22 +32,49 @@ export const UpdateForm = memo(({ onClose }) => {
   const handleDeleteAvatar = useRef(() => {
     uploadAvatar.current = null;
   });
-  const onSubmit = useCallback(
-    async (value, actions) => {
-      await onUpdate({
-        ...value,
-        userId: person.userId,
-        apiKey: person.apiKey,
-        avatar: uploadAvatar.current,
-      });
-      onClose();
-    },
-    [onUpdate]
-  );
 
-  // const handleUniversityChange = (value) => {
-  //   setUniversityData(value);
-  // };
+  const handleChangeInitials = (e) => {
+    setInitials(e.target.value);
+  };
+  const handleChangeEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handleChangeBirthday = (e) => {
+    setBirthday(e.target.value);
+  };
+  const handleChangeActivity = (e) => {
+    setTypeOfActivity(e.target.value);
+  };
+  const handleChangePhone = (e) => {
+    setPhoneNumber(e.target.value);
+  };
+  const handleChangeNick = (e) => {
+    setNickName(e.target.value);
+  };
+
+  const onSubmit = useCallback(async () => {
+    await onUpdate({
+      userId: person.userId,
+      apiKey: person.apiKey,
+      avatar: uploadAvatar.current,
+      initials,
+      email,
+      nickName,
+      birthday,
+      phoneNumber,
+    });
+    onClose();
+  }, [
+    birthday,
+    email,
+    initials,
+    nickName,
+    onUpdate,
+    person.apiKey,
+    person.userId,
+    phoneNumber,
+  ]);
+
   return (
     <div className={styles.wrapper}>
       <Formik
@@ -68,7 +95,7 @@ export const UpdateForm = memo(({ onClose }) => {
           touched,
           handleChange,
           handleBlur,
-          handleSubmit,
+          // handleSubmit,
         }) => (
           <FormLayout
             isSuccess={isSuccess}
@@ -92,19 +119,19 @@ export const UpdateForm = memo(({ onClose }) => {
                   className="placeholder:text-white50"
                   type="text"
                   name="initials"
-                  onChange={handleChange}
+                  onChange={handleChangeInitials}
                   placeholder="Иванов Иван Иванович"
                   onBlur={handleBlur}
-                  value={values.participantCount}
+                  value={initials}
                 />
               </FormField>
 
               <EmailField
                 emailFieldProps={{
                   placeholder: "example@mail.com",
-                  onChange: handleChange,
+                  onChange: handleChangeEmail,
                   onBlur: handleBlur,
-                  value: values.email,
+                  value: email,
                 }}
                 fieldProps={{
                   errors,
@@ -129,9 +156,9 @@ export const UpdateForm = memo(({ onClose }) => {
                   fieldName: "birthday",
                 }}
                 birthdayField={{
-                  onChange: handleChange,
+                  onChange: handleChangeBirthday,
                   onBlur: handleBlur,
-                  value: values.birthday,
+                  value: birthday,
                   name: "birthday",
                 }}
               />
@@ -147,9 +174,9 @@ export const UpdateForm = memo(({ onClose }) => {
                   name="typeOfActivity"
                   className="placeholder:text-white50"
                   placeholder=""
-                  onChange={handleChange}
+                  onChange={handleChangeActivity}
                   onBlur={handleBlur}
-                  value={values.typeOfActivity}
+                  value={typeOfActivity}
                 />
               </FormField>
 
@@ -177,8 +204,8 @@ export const UpdateForm = memo(({ onClose }) => {
                 }}
                 phoneFieldProps={{
                   name: "phoneNumber",
-                  onChange: handleChange,
-                  value: values.phoneNumber,
+                  onChange: handleChangePhone,
+                  value: phoneNumber,
                 }}
               />
 
@@ -193,9 +220,9 @@ export const UpdateForm = memo(({ onClose }) => {
                   name="nickName"
                   className="placeholder:text-white50"
                   placeholder="@you_nick"
-                  onChange={handleChange}
+                  onChange={handleChangeNick}
                   onBlur={handleBlur}
-                  value={values.nickName}
+                  value={nickName}
                 />
               </FormField>
 

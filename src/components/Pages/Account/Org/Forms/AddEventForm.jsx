@@ -7,34 +7,38 @@ import { Input } from "antd";
 import { SubmitButton } from "../../../../Form/SubmitButton";
 import { TextAreaField } from "../../../../Form/TextAreaField";
 import { DraggArea } from "../../../../Form/DraggArea";
+import { useLazyCreateEventQuery } from "../../../../../app/api/events";
+import { useSelector } from "react-redux";
 
-export const AddEventForm = (pops) => {
+export const AddEventForm = ({ onClose }) => {
+  const { person } = useSelector((s) => s);
   const uploadAvatar = useRef(null);
 
+  const [onCreateEvent, { isSuccess, isError }] = useLazyCreateEventQuery();
   const handleChangeAvatar = useRef((file) => {
-    uploadAvatar.current = file.file;
-    console.log("handleChangeAvatar", file);
+    uploadAvatar.current = file.originFileObj;
   });
 
-  const onSubmit = useCallback(
-    // async (value, actions) => {
-    //   await onUpdate({
-    //     ...value,
-    //     userId: person.userId,
-    //     apiKey: person.apiKey,
-    //     avatar: uploadAvatar.current,
-    //   });
-    //   onClose();
-    // },
-    []
-  );
+  const onSubmit = useCallback(async (value) => {
+    await onCreateEvent({
+      userId: person.userId,
+      apiKey: person.apiKey,
+      name: value.eventName,
+      eventType: value.eventType,
+      place: value.eventPlace,
+      detail: value.description,
+      date: value.eventDate,
+      photo: uploadAvatar.current,
+    });
+    onClose();
+  }, []);
 
   return (
     <div className={styles.wrapper}>
       <Formik
         initialValues={{
           eventName: "",
-          eventGenre: "",
+          eventType: "",
           eventDate: "",
           eventPlace: "",
           description: "",
@@ -50,9 +54,9 @@ export const AddEventForm = (pops) => {
           handleSubmit,
         }) => (
           <FormLayout
-            isSuccess={false}
-            isError={false}
-            // onSubmit={handleSubmit}
+            isSuccess={isSuccess}
+            isError={isError}
+            onSubmit={handleSubmit}
           >
             <>
               <FormField
@@ -64,12 +68,6 @@ export const AddEventForm = (pops) => {
               >
                 <DraggArea onUpload={handleChangeAvatar.current} />
               </FormField>
-              {/* <FormHeader
-                head="Ваши данные"
-                avatar={person.avatar}
-                handleChangeAvatar={handleChangeAvatar}
-                handleDelete={handleDeleteAvatar}
-              /> */}
               <FormField
                 errors={errors}
                 touched={touched}
@@ -92,17 +90,17 @@ export const AddEventForm = (pops) => {
                 errors={errors}
                 touched={touched}
                 fieldLabel="Жанр мероприятия*"
-                fieldName="eventGenre"
+                fieldName="eventType"
                 required
               >
                 <Input
                   className="placeholder:text-white50"
                   type="text"
-                  name="eventGenre"
+                  name="eventType"
                   onChange={handleChange}
                   placeholder="Выставка"
                   onBlur={handleBlur}
-                  value={values.eventGenre}
+                  value={values.eventType}
                 />
               </FormField>
 
@@ -116,11 +114,11 @@ export const AddEventForm = (pops) => {
                 <Input
                   className="placeholder:text-white50"
                   type="text"
-                  name="initials"
+                  name="eventDate"
                   onChange={handleChange}
                   placeholder="22 января, 21:00"
                   onBlur={handleBlur}
-                  value={values.eventName}
+                  value={values.eventDate}
                 />
               </FormField>
 
@@ -134,7 +132,7 @@ export const AddEventForm = (pops) => {
                 <Input
                   className="placeholder:text-white50"
                   type="text"
-                  name="eventGenre"
+                  name="eventPlace"
                   onChange={handleChange}
                   placeholder="Введите адрес..."
                   onBlur={handleBlur}
@@ -155,6 +153,7 @@ export const AddEventForm = (pops) => {
                   onChange: handleChange,
                   onBlur: handleBlur,
                   value: values.description,
+                  maxLength: 300,
                 }}
               />
 
@@ -162,7 +161,6 @@ export const AddEventForm = (pops) => {
                 <SubmitButton
                   // isLoading={isLoading}
                   text="Сохранить"
-                  onClick={onSubmit}
                 />
               </div>
             </>

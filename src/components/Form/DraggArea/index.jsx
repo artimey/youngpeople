@@ -23,7 +23,6 @@ export const DraggArea = ({ onUpload }) => {
   });
 
   const handleDrop = (e) => {
-    console.log("Dropped files", e.dataTransfer.files);
     onUpload(e.dataTransfer.files[0]);
   };
 

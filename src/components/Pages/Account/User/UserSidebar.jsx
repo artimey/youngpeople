@@ -1,13 +1,25 @@
 import React from "react";
-import { userSidebarData } from "../../../../mockData/userAccount";
-import { LkNavButton } from "../../../UiKit/Cards/LkNavButton/LkNavButton";
+import { EVENTS_TAB, TASKS_TAB } from "../../../../utils/constants/account";
+import { EventNavButton } from "../../../UiKit/Cards/LkNavButton/EventNavButton";
+import { TaskNavButton } from "../../../UiKit/Cards/LkNavButton/TaskNavButton";
 
 export const UserSidebar = () => {
   return (
     <>
-      {userSidebarData.map((item) => {
-        return <LkNavButton key={item.id} data={item} />;
-      })}
+      <EventNavButton
+        data={{
+          id: "1",
+          type: EVENTS_TAB,
+          count: null,
+        }}
+      />
+      <TaskNavButton
+        data={{
+          id: "1234221",
+          type: TASKS_TAB,
+          count: 17,
+        }}
+      />
     </>
   );
 };

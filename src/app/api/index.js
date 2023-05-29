@@ -4,5 +4,5 @@ export const baseApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://mosmolodezh.ru/" }),
   reducerPath: "baseApi",
   endpoints: () => ({}),
-  tagTypes: ["NEWS"],
+  tagTypes: ["NEWS", "TASKS"],
 });

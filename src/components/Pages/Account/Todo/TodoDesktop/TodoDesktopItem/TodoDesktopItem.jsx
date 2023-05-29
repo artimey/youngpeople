@@ -1,13 +1,17 @@
+import { useUpdateTaskStatusMutation } from "../../../../../../app/api/tasks";
 import { TodoCheckbox } from "../../TodoCheckbox/TodoCheckbox";
 import styles from "../../index.module.scss";
 
 export const TodoDesktopItem = ({ item, openEditTodoPopup }) => {
+  const [onUpdate, { isSuccess }] = useUpdateTaskStatusMutation();
   const handleOpen = (e) => {
     if (e.target.tagName !== "BUTTON") {
       openEditTodoPopup(item);
     }
   };
-
+  const handleUpdateStatus = async () => {
+    await onUpdate({ taskId: item.id });
+  };
   return (
     <tr
       className={`${styles.row} hover:bg-white8 rounded-[3rem] cursor-pointer`}
@@ -15,26 +19,28 @@ export const TodoDesktopItem = ({ item, openEditTodoPopup }) => {
     >
       <td className="pl-[1.6rem] py-[0.8rem] rounded-l-2xl">
         <div className="flex items-center">
-          <TodoCheckbox checked={item.isComplete} />
+          <TodoCheckbox checked={item.isDone} />
 
           <span
             className={`${
-              item.isComplete ? "line-through text-white50" : "text-white"
+              item.isDone ? "line-through text-white50" : "text-white"
             }`}
           >
-            {item.title}
+            {item.name}
           </span>
         </div>
       </td>
       <td
         className={`${
-          item.isComplete ? "line-through text-white50" : "text-white"
+          item.isDone ? "line-through text-white50" : "text-white"
         }`}
       >
         {item.deadline}
       </td>
       <td className="rounded-r-2xl pr-[1.6rem]">
-        <button className={styles.button}>отклонить</button>
+        <button className={styles.button} onClick={handleUpdateStatus}>
+          отклонить
+        </button>
       </td>
     </tr>
   );
