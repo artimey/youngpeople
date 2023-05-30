@@ -60,7 +60,6 @@ export const ContactForm = () => {
                 onChange: handleChange,
                 onBlur: handleBlur,
                 value: values.email,
-                required: true,
               }}
               fieldProps={{
                 errors,

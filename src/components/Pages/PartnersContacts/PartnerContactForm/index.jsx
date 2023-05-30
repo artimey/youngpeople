@@ -8,14 +8,16 @@ import styles from "./styles.module.scss";
 import { useLazyContactPartnerQuery } from "../../../../app/api/partners";
 import { useState } from "react";
 import { Checkbox } from "../../../Checkbox";
+import { useParams } from "react-router-dom";
 
 export const PartnerContactForm = () => {
-  const [onAdd, { isSuccess, isError, isLoading }] =
+  const { partnerId } = useParams();
+    const [onContact, { isSuccess, isError, isLoading }] =
     useLazyContactPartnerQuery();
   const [isAgree, setIsAgree] = useState(false);
   const onSubmit = async (value) => {
     if (isAgree) {
-      await onAdd({ ...value });
+      await onContact({ ...value, partnerId });
     }
   };
   return (
@@ -46,16 +48,16 @@ export const PartnerContactForm = () => {
               errors={errors}
               touched={touched}
               fieldLabel="Имя Фамилия"
-              fieldName="name"
+              fieldName="initials"
             >
               <Input
                 type="text"
-                name="name"
+                name="initials"
                 className="placeholder:text-white50"
                 placeholder="Имя Фамилия"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.name}
+                value={values.initials}
               />
             </FormField>
             <EmailField
@@ -64,7 +66,6 @@ export const PartnerContactForm = () => {
                 onChange: handleChange,
                 onBlur: handleBlur,
                 value: values.email,
-                required: true,
               }}
               fieldProps={{
                 errors,

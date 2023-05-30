@@ -20,7 +20,6 @@ import { SignUpFirstStep, SignUpSecondStep } from "./components/Pages/SignUp";
 import { PartnerRegistration } from "./components/Pages/PartnerRegistration";
 import { setUser } from "./app/store/slices/user";
 import { USER } from "./utils/constants";
-import { Account } from "./components/Pages/Account";
 import { User } from "./components/Pages/Account/User";
 import { ContactPage } from "./components/Pages/ContactPage";
 
@@ -65,7 +64,7 @@ function App() {
       <Route path="/partners-form" element={<PartnersFormPage />} />
       <Route path="/partners_registration" element={<PartnerRegistration />} />
       <Route path="/contacts" element={<ContactPage />} />
-      <Route path="/contactsPartner" element={<PartnersContacts />} />
+      <Route path="/contactsPartner/:partnerId" element={<PartnersContacts />} />
       {/* ====== НЕ УДАЛЯЙ, ПРОСТО ЗАКОММЕНТЬ ====== */}
       <Route path="/uikit" element={<UiKit />} />
     </Routes>

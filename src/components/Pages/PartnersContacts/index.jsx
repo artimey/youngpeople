@@ -5,7 +5,9 @@ import { Col, Row } from "antd";
 import { PartnerContactHeader } from "./PartnerContactHeader";
 import { PartnerContactForm } from "./PartnerContactForm";
 
+
 export const PartnersContacts = () => {
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
