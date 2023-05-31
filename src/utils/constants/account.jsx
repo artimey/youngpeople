@@ -8,6 +8,7 @@ import { Todo } from "../../components/Pages/Account/Todo";
 import { UserContent } from "../../components/Pages/Account/User/UserContent";
 import { UserTabHeader } from "../../components/Pages/Account/User/UserTabHeader/UserTabHeader";
 import {
+  AMBASADOR_GROUP_NUMBER,
   ORG_GROUP_NUMBER,
   PARTNER_GROUP_NUMBER,
   USER_GROUP_NUMBER,
@@ -97,4 +98,5 @@ export const contentByGroup = {
   [USER_GROUP_NUMBER]: <UserContent />,
   [ORG_GROUP_NUMBER]: <OrgContent />,
   [PARTNER_GROUP_NUMBER]: <PartnerContent />,
+  [AMBASADOR_GROUP_NUMBER]: <PartnerContent />,
 };

@@ -34,18 +34,16 @@ export const EventNavButton = ({ data }) => {
         <RiArrowRightSLine className="text-white50" />
       </div>
 
-      {count && (
-        <div className="flex items-center">
-          <img
-            className="w-[2.3rem] mr-[0.717rem]"
-            src={navTypes[type]?.icon}
-            alt={`${type} icon`}
-          />
-          <span className="text-[1.4rem] text-white50">
-            {declension(count, navTypes[type].declension)}
-          </span>
-        </div>
-      )}
+      <div className="flex items-center">
+        <img
+          className="w-[2.3rem] mr-[0.717rem]"
+          src={navTypes[type]?.icon}
+          alt={`${type} icon`}
+        />
+        <span className="text-[1.4rem] text-white50">
+          {count ? declension(count, navTypes[type].declension) : 0}
+        </span>
+      </div>
     </div>
   );
 };
