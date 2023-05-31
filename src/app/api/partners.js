@@ -14,7 +14,7 @@ export const partnerApi = baseApi.injectEndpoints({
     }),
     contactPartner: build.query({
       query: (arg) => ({
-        url: "api/forms/partner/",
+        url: "/api/forms/form5/",
         method: "POST",
         body: arg,
       }),
