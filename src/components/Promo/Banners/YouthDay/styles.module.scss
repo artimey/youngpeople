@@ -1,0 +1,228 @@
+@import 'src/styles/colors.scss';
+
+
+
+.bannerWrapper {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    right: 25%;
+    z-index: 999;
+
+    & .desktop {
+        display: none;
+    }
+
+    & .mobile {
+        display: block;
+
+
+        & svg {
+            width: 37.5rem;
+            height: 50.6rem;
+        }
+    }
+
+    @media screen and (min-width:475px) {
+        top: 40%;
+
+
+
+    }
+
+    @media screen and (min-width:680px) {
+        top: 42%;
+
+        & .desktop {
+            display: block;
+
+            & svg {
+                width: 70rem;
+                height: 50.6rem;
+            }
+        }
+
+        & .mobile {
+            display: none;
+
+
+        }
+
+    }
+
+
+    @media screen and (min-width:1024px) {
+        top: 35%;
+
+        & .desktop {
+            & svg {
+                width: 120rem;
+                height: 60.6rem;
+            }
+        }
+    }
+
+    @media screen and (min-width:1280px) {
+        top: 35%;
+
+
+    }
+
+
+    @media screen and (min-width:1600px) {
+        top: 38%;
+
+        & .desktop {
+            & svg {
+                width: 95rem;
+                height: 50.6rem;
+            }
+        }
+    }
+
+
+    @media screen and (min-width:1920px) {
+        top: 50%;
+
+        & .desktop {
+            & svg {
+                width: 55rem;
+                height: 30.6rem;
+            }
+        }
+    }
+
+    @media screen and (min-width:2200px) {
+        top: 50%;
+
+        & .desktop {
+            & svg {
+                width: 45rem;
+                height: 30.6rem;
+            }
+        }
+    }
+}
+
+// .wrapper {
+//     display: flex;
+//     position: relative;
+//     width: 120rem;
+//     height: 36rem;
+//     border-radius: 4rem;
+//     overflow: hidden;
+//     background-color: $brandBlue;
+
+
+//     & .dates {
+//         position: absolute;
+//         top: 2rem;
+//         left: 29rem;
+//     }
+
+//     & .star {
+//         position: absolute;
+//         right: 2rem;
+//         top: 1rem;
+//     }
+
+//     & .leftInfo {
+//         position: relative;
+//         width: 50%;
+//         height: 100%;
+//         z-index: 3;
+//         background-color: #D9ED12;
+//         -webkit-clip-path: polygon(0 100%, 0 0, 18% 0, 13% 9%, 47% 5%, 47% 24%, 82% 29%, 82% 43%, 88% 42%, 88% 65%, 67% 72%, 71% 100%);
+//         clip-path: polygon(0 100%, 0 0, 18% 0, 13% 9%, 47% 5%, 47% 24%, 82% 29%, 82% 43%, 88% 42%, 88% 65%, 67% 72%, 71% 100%);
+
+
+//         & .infoSvg {
+//             z-index: 2;
+//         }
+
+//         & .bubble {
+//             position: absolute;
+//             bottom: 0;
+//         }
+
+
+//     }
+
+//     & .rightInfo {
+//         width: 50%;
+
+//         & .timeWrapper {
+//             display: flex;
+//             flex-direction: column;
+
+//             & .infoRow {
+//                 display: flex;
+//                 flex-direction: column;
+
+//                 & .title {
+//                     font-family: 'Gilroy';
+//                     font-style: normal;
+//                     font-weight: 600;
+//                     font-size: 1.8rem;
+//                     line-height: 2.2rem;
+//                     color: #FFFFFF;
+//                 }
+
+//                 & .value {
+//                     font-family: 'Gilroy';
+//                     font-style: normal;
+//                     font-weight: 600;
+//                     font-size: 3.2rem;
+//                     line-height: 3.5rem;
+//                     color: #FFFFFF;
+//                 }
+
+//                 &:last-child {
+//                     margin-top: 2.4rem;
+//                 }
+//             }
+//         }
+
+//         & .btnWrapper {
+//             // position: relative;
+
+//             & .btnInfo {
+//                 width: 100%;
+
+//                 & .btnBg {
+//                     position: absolute;
+//                     background-color: #E62A77;
+//                     -webkit-clip-path: polygon(51% 32%, 100% 62%, 100% 100%, 43% 100%, 29% 64%);
+//                     clip-path: polygon(51% 32%, 100% 62%, 100% 100%, 43% 100%, 29% 64%);
+
+//                     & .link {
+//                         display: flex;
+//                         align-items: end;
+//                         position: absolute;
+//                         z-index: 3;
+
+//                         & .linkText {
+//                             text-decoration: none;
+//                             font-family: 'Gilroy';
+//                             font-style: normal;
+//                             font-weight: 600;
+//                             font-size: 3.2rem;
+//                             line-height: 3.5rem;
+//                             text-align: center;
+//                             color: #FFFFFF;
+//                         }
+
+//                         & .linkIcon {
+//                             width: 3.2rem;
+//                             height: 3.2rem;
+//                         }
+//                     }
+//                 }
+
+
+//             }
+//         }
+//     }
+// }
