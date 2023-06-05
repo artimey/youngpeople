@@ -7,7 +7,7 @@
   position: relative;
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
-  margin-top: -40px;
+  margin-top: 10rem;
   z-index: 990;
 
   div {
@@ -51,6 +51,17 @@
         font-size: 25rem;
       }
     }
+  }
+
+  @media screen and (max-width: '1024px') {
+    margin-top: 11rem;
+
+  }
+
+
+  @media screen and (max-width: '1980px') {
+    margin-top: 8rem;
+
   }
 }
 

@@ -58,25 +58,45 @@
 
         & .desktop {
             & svg {
-                width: 120rem;
+                width: 73rem;
                 height: 60.6rem;
             }
         }
     }
 
     @media screen and (min-width:1280px) {
-        top: 35%;
+        top: 44%;
+
+        & .desktop {
+            & svg {
+                width: 97rem;
+                height: 36.6rem;
+            }
+        }
+
+
+    }
+
+    @media screen and (min-width:1280px) and (min-height:768px) {
+        top: 47%;
+
+        & .desktop {
+            & svg {
+                width: 57rem;
+                height: 36.6rem;
+            }
+        }
 
 
     }
 
 
     @media screen and (min-width:1600px) {
-        top: 38%;
+        top: 42%;
 
         & .desktop {
             & svg {
-                width: 95rem;
+                width: 76rem;
                 height: 50.6rem;
             }
         }
@@ -95,7 +115,7 @@
     }
 
     @media screen and (min-width:2200px) {
-        top: 50%;
+        top: 59%;
 
         & .desktop {
             & svg {

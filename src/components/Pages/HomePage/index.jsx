@@ -6,7 +6,6 @@ import { MyFooter } from "../../Footer";
 import { Header } from "./Header";
 import { Navbar } from "../../Navbar/index";
 import { Partners } from "../../Partners";
-import { Projects } from "../../Projects";
 import { SectionHeading } from "../../SectionHeading";
 import { AboutSection } from "../../AboutSection";
 import { ProjectSlider } from "./ProjectSlider/ProjectSlider";
