@@ -7,7 +7,7 @@
   position: relative;
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
-  margin-top: 10rem;
+  margin-top: 20rem;
   z-index: 990;
 
   div {
@@ -40,18 +40,7 @@
     animation: $duration ticker $duration/2 infinite linear forwards;
   }
 
-  @media screen and (max-width: '425px') {
-    height: 20rem;
-    margin-top: 0;
 
-    div {
-      height: 20rem;
-
-      span {
-        font-size: 25rem;
-      }
-    }
-  }
 
   @media screen and (max-width: '1024px') {
     margin-top: 11rem;
@@ -60,8 +49,32 @@
 
 
   @media screen and (max-width: '1980px') {
-    margin-top: 8rem;
+    margin-top: 20rem;
 
+  }
+
+  @media screen and (max-width: '1024px') {
+    margin-top: 26rem;
+
+  }
+
+  @media screen and (max-width: '680px') {
+    margin-top: 26rem;
+
+  }
+
+  
+  @media screen and (max-width: '525px') {
+    height: 20rem;
+    margin-top: 26rem;
+
+    div {
+      height: 20rem;
+
+      span {
+        font-size: 25rem;
+      }
+    }
   }
 }
 
